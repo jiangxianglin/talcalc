@@ -109,7 +109,7 @@ const navCalc =
           </span>
           <span
             class="font-display text-xl sm:text-2xl font-bold tracking-[0.12em] text-gold group-hover:text-ember-bright transition-colors"
-            >TALCALC</span
+            >Talc<span class="text-ink-500 font-normal tracking-normal text-base sm:text-lg">.com</span></span
           >
         </a>
 
@@ -175,7 +175,7 @@ const navCalc =
           class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 text-center md:text-left"
         >
           <a href="/" class="font-display text-lg tracking-[0.14em] text-gold no-underline"
-            >TALCALC</a
+            >Talc<span class="text-ink-500 font-normal tracking-normal text-sm">.com</span></a
           >
           <p
             class="font-display text-sm tracking-wide text-ink-300 flex items-center justify-center gap-3"
@@ -201,7 +201,11 @@ const navCalc =
           <a href="/druid/">Druid</a>
         </nav>
 
-        <p class="text-xs text-ink-400">{meta.attribution}</p>
+        <p class="text-xs text-ink-400">
+          Talent trees and statistics from{' '}
+          <a href={meta.sourceUrl} rel="noopener noreferrer">wow-forever.gg</a>
+          {' '}(CC BY 4.0)
+        </p>
         <p class="disclaimer">
           Talc is an unofficial fan-made tool for World of Warcraft®. Not affiliated with,
           endorsed by, or sponsored by Blizzard Entertainment, Inc. All game content, names

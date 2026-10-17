@@ -17,11 +17,31 @@ const description = `Client build changes tracked by Talc. Current dataset: ${me
   <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Beta changelog' }]} />
 
   <h1 class="font-display text-3xl font-bold text-gold tracking-wide mb-3">Client build changelog</h1>
-  <p class="text-ink-300 max-w-2xl mb-8">
+  <p class="text-ink-300 max-w-2xl mb-4">
     When Forever ships a new client build, we rebuild talent data here within 24 hours. Current
     dataset: build <span class="font-mono text-ink-100">{meta.clientBuild}</span>,{' '}
     {meta.totalTalents} talents across {classes.length} classes.
   </p>
+  <div class="panel p-4 mb-8 max-w-2xl text-sm text-ink-300 leading-relaxed space-y-2">
+    <h2 class="font-display text-base text-gold">How the dataset is checked</h2>
+    <p>
+      Talent names, tree positions, prerequisites, max ranks, and rank text are imported from the{' '}
+      <a href={meta.sourceUrl} rel="noopener noreferrer">public tool-maker export</a>
+      {' '}({meta.source}). The page stamp is a dataset check date — not a claim that every in-game
+      interaction was re-tested by hand.
+    </p>
+    <p>
+      N / C / M marks come from our Classic Era comparison file (
+      <code class="text-ink-100 text-xs">{meta.classicDiffSource ?? 'data/raw-talent-changes.csv'}</code>
+      ), matched by class + talent name. Unmatched names stay unmarked as unchanged.
+    </p>
+    <p>
+      Calculator rules (51 points, {meta.rowGate}-point row gates, maxRank, prerequisites) are
+      enforced in the browser from that same JSON. If a rank text or gate looks wrong versus the
+      client build on the page, prefer the client and report the mismatch so we can rebuild from
+      the export.
+    </p>
+  </div>
 
   <ol class="space-y-8">
     {
@@ -45,5 +65,9 @@ const description = `Client build changes tracked by Talc. Current dataset: ${me
     }
   </ol>
 
-  <p class="mt-8 text-xs text-ink-500">{meta.attribution}</p>
+  <p class="mt-8 text-xs text-ink-500">
+    Talent trees and statistics from{' '}
+    <a href={meta.sourceUrl} rel="noopener noreferrer">wow-forever.gg</a>
+    {' '}(CC BY 4.0)
+  </p>
 </BaseLayout>

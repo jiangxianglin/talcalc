@@ -17,6 +17,8 @@ const checks = [
       'disclaimer',
       'WoW Forever Talent Calculator',
       'Where is my draft saved?',
+      'How often is the talent data updated?',
+      'Dataset',
     ],
   },
   {
@@ -27,6 +29,8 @@ const checks = [
       'Mortal Strike',
       'WoW Forever Warrior Talent Calculator',
       'How many Warrior talents are in Forever?',
+      'Dataset',
+      '1.60.1.70425',
     ],
   },
   {

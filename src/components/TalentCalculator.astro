@@ -3,6 +3,7 @@ import type { ClassInfo, RankMap, Talent } from '../lib/types';
 import { meta, changeLabel, changeTitle } from '../lib/data';
 import { decodeBuild, totalPointsUsed, pointsInTree } from '../lib/decodeBuild';
 import { talentIconUrl } from '../lib/icons';
+import DataStamp from './DataStamp.astro';
 
 interface Props {
   classInfo: ClassInfo;
@@ -116,6 +117,10 @@ function cellState(t: Talent, ranks: RankMap): string {
         >Compare Classic</button
       >
     </div>
+  </div>
+
+  <div class="mb-3">
+    <DataStamp compact />
   </div>
 
   <p data-status class="text-xs text-ink-400 mb-2 min-h-[1rem]" aria-live="polite"></p>

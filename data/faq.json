@@ -10,7 +10,11 @@
     },
     {
       "q": "Where does Talc get its talent data?",
-      "a": "Every talent name, position, prerequisite, and rank text is read from client build data published for tool makers, checked against the build shown on each page. We show the client build and check date so you can tell when the trees were last verified. N / C / M markers compare those trees to Classic Era where a match exists. See the beta changelog when we rebuild after a client update."
+      "a": "Every talent name, position, prerequisite, and rank text is read from the public tool-maker export for Forever (CC BY 4.0), keyed to the client build shown on each page. We show the build and check date so you can tell when the dataset was last rebuilt. N / C / M markers compare those trees to Classic Era where a match exists. When the client build moves, we aim to rebuild within 24 hours and note it on the beta changelog. Spotted a wrong rank or prerequisite? Open the talent page and compare against the same client build in-game, then tell us — we correct from the export, not from guesswork."
+    },
+    {
+      "q": "How often is the talent data updated?",
+      "a": "Each page shows the client build and check date for the current dataset. After a new Forever client build, we rebuild the trees and record the change on the beta changelog, targeting within 24 hours. Beta data can still change between builds — always read the build stamp on the page you are using."
     },
     {
       "q": "What do the N, C, and M marks mean?",

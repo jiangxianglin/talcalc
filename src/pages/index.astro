@@ -8,14 +8,13 @@ import {
   classes,
   meta,
   homeFaq,
-  formatCheckedAt,
   formatCheckedAtShort,
   getTalentsForClass,
 } from '../lib/data';
 import { homeGraph } from '../lib/schema';
 
 const title = 'WoW Forever Talent Calculator – All 9 Classes, 51 Points';
-const description = `Free WoW Forever talent calculator for all nine classes and ${meta.totalPoints} points. Every talent and rank read from client build ${meta.clientBuild}, checked ${formatCheckedAt(meta.checkedAt)}. Plan a build, compare with Classic, share the link.`;
+const description = `Free WoW Forever talent calculator for all 9 classes and ${meta.totalPoints} points. Every talent from client build ${meta.clientBuild}. Plan, compare with Classic, share.`;
 const jsonLd = homeGraph(meta, classes, homeFaq);
 const checkedShort = formatCheckedAtShort(meta.checkedAt);
 ---
@@ -79,7 +78,9 @@ const checkedShort = formatCheckedAtShort(meta.checkedAt);
     <HomeCalculator />
 
     <section class="mb-10" aria-labelledby="how-heading">
-      <h2 id="how-heading" class="font-display text-xl text-gold mb-2">How to use</h2>
+      <h2 id="how-heading" class="font-display text-xl text-gold mb-2">
+        How to use this WoW Forever talent calculator
+      </h2>
       <p class="text-ink-300 text-sm max-w-2xl leading-relaxed">
         The home page starts on Warrior; open any class for that class’s full calculator. Left-click
         or Enter adds a rank; right-click, Shift-click, or Backspace removes one. Rows open every{' '}

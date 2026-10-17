@@ -1,0 +1,38 @@
+---
+import { meta, formatCheckedAtShort } from '../lib/data';
+
+interface Props {
+  /** Compact strip under calculator chrome */
+  compact?: boolean;
+}
+
+const { compact = false } = Astro.props;
+const checked = formatCheckedAtShort(meta.checkedAt);
+---
+
+<aside
+  class:list={[
+    'data-stamp rounded border border-ink-700/80 bg-ink-950/60 text-ink-400',
+    compact ? 'px-3 py-2 text-[11px]' : 'px-3 py-2.5 text-xs',
+  ]}
+  aria-label="Talent data version"
+>
+  <p class="flex flex-wrap items-baseline gap-x-2 gap-y-1 leading-relaxed">
+    <span class="font-display tracking-wide text-gold/90 uppercase text-[10px]">Dataset</span>
+    <span>
+      Client build{' '}
+      <span class="font-mono text-ink-100">{meta.clientBuild}</span>
+      <span class="text-ink-600"> · </span>
+      checked {checked}
+    </span>
+  </p>
+  <p class="mt-1 leading-relaxed">
+    Names, ranks, and prerequisites from the{' '}
+    <a href={meta.sourceUrl} rel="noopener noreferrer" class="text-ink-300">
+      tool-maker export
+    </a>
+    (CC BY 4.0). Trees may change while Forever is in beta — we rebuild within 24 hours of a new
+    client build; see the{' '}
+    <a href="/beta/" class="text-ink-300">changelog</a>.
+  </p>
+</aside>
