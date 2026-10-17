@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<style>
+  :root{
+    --accent:#c9a96e;
+    --accent-soft:rgba(201,169,110,.35);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{width:1200px;height:630px;overflow:hidden}
+  body{
+    font-family:"Segoe UI",system-ui,-apple-system,sans-serif;
+    background:#07090f;
+    color:#eef1f6;
+    position:relative;
+  }
+  .glow{
+    position:absolute;inset:0;
+    background:
+      radial-gradient(ellipse 70% 55% at 18% -20%, color-mix(in srgb, var(--accent) 26%, transparent), transparent 70%),
+      radial-gradient(ellipse 55% 40% at 92% 0%, rgba(61,133,198,.16), transparent 70%);
+  }
+  .topbar{position:absolute;left:0;top:0;height:10px;width:100%;background:var(--accent);opacity:.9}
+  .leftbar{position:absolute;left:0;top:0;height:100%;width:14px;
+    background:linear-gradient(180deg,var(--accent),transparent 92%);opacity:.75}
+  .frame{position:absolute;inset:0;padding:58px 72px 54px 86px;display:flex;flex-direction:column;justify-content:space-between}
+  .brand{display:flex;align-items:center;gap:7px;font-size:22px;letter-spacing:.22em;font-weight:600;color:#c9a96e}
+  .brand .dot{width:8px;height:8px;border-radius:50%;background:#c9a96e;box-shadow:0 0 14px rgba(201,169,110,.8)}
+  .brand .muted{color:#5d6879;letter-spacing:.16em;font-weight:500;margin-left:-0.16em}
+  h1{
+    font-family:Georgia,"Times New Roman",serif;
+    font-size:96px;line-height:.95;letter-spacing:-.015em;
+    color:#f4f6fa;
+    margin-top:6px;
+  }
+  h1 .accent{color:var(--accent)}
+  .sub{margin-top:20px;font-size:31px;color:#b8c0d0;letter-spacing:.01em}
+  .chips{display:flex;gap:12px;margin-top:26px}
+  .chip{
+    font-size:19px;letter-spacing:.06em;padding:9px 16px;border-radius:999px;
+    border:1px solid rgba(255,255,255,.12);color:#b8c0d0;background:rgba(255,255,255,.03)
+  }
+  .chip.on{border-color:var(--accent-soft);color:var(--accent);background:color-mix(in srgb, var(--accent) 10%, transparent)}
+  .foot{display:flex;align-items:flex-end;justify-content:space-between}
+  .url{font-size:27px;color:#c9a96e;letter-spacing:.04em;font-weight:600}
+  .note{font-size:19px;color:#5d6879;letter-spacing:.12em;text-transform:uppercase}
+  .tree{
+    position:absolute;right:-40px;top:96px;width:520px;height:470px;
+    display:grid;grid-template-columns:repeat(4,1fr);gap:16px;
+    transform:rotate(-8deg);opacity:.62;
+  }
+  .node{
+    border-radius:12px;border:1px solid rgba(255,255,255,.10);
+    background:linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,.012));
+    position:relative;
+  }
+  .node::after{
+    content:"";position:absolute;inset:26%;border-radius:4px;background:rgba(255,255,255,.10)
+  }
+  .node.f{border-color:var(--accent-soft);background:color-mix(in srgb, var(--accent) 16%, transparent)}
+  .node.f::after{background:var(--accent);box-shadow:0 0 18px var(--accent-soft)}
+  .node.d::after{background:rgba(255,255,255,.04)}
+  .rank{
+    position:absolute;right:5px;bottom:3px;font-size:13px;color:rgba(255,255,255,.55);letter-spacing:.04em
+  }
+  .veil{position:absolute;inset:0;background:linear-gradient(90deg,#07090f 40%,rgba(7,9,15,.92) 58%,rgba(7,9,15,.45) 80%,rgba(7,9,15,.05) 100%)}
+</style>
+</head>
+<body>
+  <div class="glow"></div>
+  <div class="leftbar"></div>
+  <div class="topbar"></div>
+  <div class="tree" id="tree"></div>
+  <div class="veil"></div>
+  <div class="frame">
+    <div class="brand"><span class="dot"></span>TALC<span class="muted">.COM</span></div>
+    <div>
+      <h1 id="title"></h1>
+      <div class="sub" id="sub"></div>
+      <div class="chips" id="chips"></div>
+    </div>
+    <div class="foot">
+      <div class="url">talcalc.com</div>
+      <div class="note">WoW Forever · talent calculator</div>
+    </div>
+  </div>
+<script>
+  const p = new URLSearchParams(location.search);
+  const name = p.get('name') || 'All 9 Classes';
+  const accent = p.get('accent') || '#c9a96e';
+  const sub = p.get('sub') || '51-Point Talent Calculator';
+  const chips = (p.get('chips') || '51 points|row gating|share links').split('|');
+  document.documentElement.style.setProperty('--accent', accent);
+  document.documentElement.style.setProperty('--accent-soft', accent + '59');
+  const parts = name.split(' ');
+  document.getElementById('title').innerHTML = parts.length > 1
+    ? parts.slice(0, -1).join(' ') + ' <span class="accent">' + parts[parts.length - 1] + '</span>'
+    : '<span class="accent">' + name + '</span>';
+  document.getElementById('sub').textContent = sub;
+  document.getElementById('chips').innerHTML = chips.map((c, i) =>
+    '<span class="chip' + (i === 0 ? ' on' : '') + '">' + c + '</span>').join('');
+  // deterministic talent-tree motif
+  const filled = [0,5,10,15,2,7,12,9,14,4,11,6];
+  const faint = [1,3,8,13];
+  let html = '';
+  for (let i = 0; i < 20; i++) {
+    const cls = filled.includes(i) ? ' f' : (faint.includes(i) ? ' d' : '');
+    const rank = filled.includes(i) ? ((i % 5) + 1) : '';
+    html += '<div class="node' + cls + '">' + (rank ? '<span class="rank">' + rank + '/5</span>' : '') + '</div>';
+  }
+  document.getElementById('tree').innerHTML = html;
+</script>
+</body>
+</html>

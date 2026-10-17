@@ -8,11 +8,10 @@
   },
   "scripts": {
     "dev": "astro dev",
-    "build": "npm run data:build && npm run og:build && astro build && npm run check:html",
+    "build": "npm run data:build && astro build && npm run check:html",
     "deploy": "npm run build && wrangler pages deploy dist --project-name=talc --branch=master --commit-dirty=true",
     "preview": "astro preview",
     "data:build": "node scripts/build-data.mjs && node scripts/build-class-copy.mjs",
-    "og:build": "node scripts/make-og.mjs",
     "check:html": "node scripts/check-html.mjs"
   },
   "dependencies": {
