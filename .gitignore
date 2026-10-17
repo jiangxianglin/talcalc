@@ -11,3 +11,6 @@ dist/
 
 # SEO Writer kit (local only — never push)
 seo-content/
+
+# Hermes scratch
+.hermes-tmp.*
