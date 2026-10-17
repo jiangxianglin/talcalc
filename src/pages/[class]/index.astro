@@ -1,0 +1,321 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ClassPicker from '../../components/ClassPicker.astro';
+import TalentCalculator from '../../components/TalentCalculator.astro';
+import Faq from '../../components/Faq.astro';
+import {
+  classes,
+  meta,
+  getClass,
+  getClassCopy,
+  getTalentsForClass,
+  formatCheckedAt,
+  formatCheckedAtShort,
+  changeLabel,
+  changeTitle,
+  CLASS_SLUGS,
+} from '../../lib/data';
+import { classPageGraph } from '../../lib/schema';
+import type { FaqItem } from '../../lib/types';
+
+export function getStaticPaths() {
+  return CLASS_SLUGS.map((slug) => ({ params: { class: slug } }));
+}
+
+const slug = Astro.params.class!;
+const classInfo = getClass(slug);
+if (!classInfo) return Astro.redirect('/404');
+
+const talents = getTalentsForClass(slug);
+const treeNames = classInfo.trees.map((t) => t.name);
+const checked = formatCheckedAt(meta.checkedAt);
+const checkedShort = formatCheckedAtShort(meta.checkedAt);
+const copy = getClassCopy(slug);
+
+const title = `WoW Forever ${classInfo.name} Talent Calculator – All 3 Trees`;
+const description = `${classInfo.name} talent calculator for WoW Forever: full ${treeNames[0]}, ${treeNames[1]} and ${treeNames[2]} trees, ${meta.totalPoints} points, every rank. Data from client build ${meta.clientBuild}, checked ${checkedShort}.`;
+
+const changed = talents.filter((t) => t.change !== 'unchanged');
+const changeStats = {
+  new: talents.filter((t) => t.change === 'new').length,
+  changed: talents.filter((t) => t.change === 'changed').length,
+  moved: talents.filter((t) => t.change === 'moved').length,
+  unchanged: talents.filter((t) => t.change === 'unchanged').length,
+};
+const treeCounts = classInfo.trees.map((tree) => ({
+  name: tree.name,
+  slug: tree.slug,
+  count: talents.filter((t) => t.tree === tree.slug).length,
+}));
+
+const defaultFaqs: FaqItem[] = [
+  {
+    q: `How many ${classInfo.name} talents are in Forever?`,
+    a: `This calculator lists ${classInfo.talentCount} ${classInfo.name} talents across ${treeNames.join(', ')}, read from client build ${meta.clientBuild}.`,
+  },
+  {
+    q: `How do ${classInfo.name} talent points work?`,
+    a: `At level ${meta.levelCap} you have ${meta.totalPoints} points shared across all three trees. Each tree unlocks the next row every ${meta.rowGate} points spent in that tree.`,
+  },
+  {
+    q: `Where can I open other class calculators?`,
+    a: `Use the class links on this page, or go back to the home calculator hub for all nine classes.`,
+  },
+];
+
+const faqs: FaqItem[] = copy?.faqs?.length ? copy.faqs : defaultFaqs;
+const introText = copy?.intro ?? classInfo.intro;
+const siblingLinks = [
+  { label: 'Forever talent calculator hub', href: '/' },
+  ...classes
+    .filter((c) => c.slug !== slug)
+    .slice(0, 2)
+    .map((c) => ({ label: `${c.name} talent calculator`, href: `/${c.slug}/` })),
+  { label: 'beta changelog', href: '/beta/' },
+];
+
+const jsonLd = classPageGraph(meta, classInfo, faqs);
+const others = classes.filter((c) => c.slug !== slug);
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  canonicalPath={`/${slug}/`}
+  ogImage={`/og/${slug}.png`}
+  jsonLd={jsonLd}
+>
+  <Breadcrumbs
+    items={[
+      { label: 'Home', href: '/' },
+      { label: classInfo.name },
+    ]}
+  />
+
+  <div class="flex flex-wrap items-end gap-4 mb-2">
+    <h1 class="font-display text-3xl sm:text-4xl font-bold text-gold tracking-wide">
+      WoW Forever {classInfo.name} Talent Calculator
+    </h1>
+  </div>
+  <p class="text-ink-300 max-w-3xl leading-relaxed mb-6">
+    {
+      copy?.intro ? (
+        introText
+      ) : (
+        <>
+          {introText} Full {treeNames.join(', ')} trees — {classInfo.talentCount} talents,{' '}
+          {meta.totalPoints} points. Read from client build{' '}
+          <span class="font-mono text-ink-100">{meta.clientBuild}</span>, checked {checkedShort}.
+        </>
+      )
+    }
+  </p>
+
+  <ClassPicker current={slug} compact />
+
+  <TalentCalculator classInfo={classInfo} talents={talents} syncUrl={true} />
+
+  {
+    copy?.figures?.length ? (
+      <section class="mt-10" aria-labelledby="figures-heading">
+        <h2 id="figures-heading" class="font-display text-xl text-gold mb-3">
+          {classInfo.name} calculator at a glance
+        </h2>
+        <div class="grid gap-6 sm:grid-cols-2">
+          {copy.figures.map((fig) => (
+            <figure class="panel p-3">
+              <img
+                src={fig.src}
+                alt={fig.alt}
+                width="960"
+                height="540"
+                loading="lazy"
+                decoding="async"
+                class="w-full h-auto rounded"
+              />
+              {fig.caption && (
+                <figcaption class="text-ink-400 text-xs mt-2 leading-relaxed">{fig.caption}</figcaption>
+              )}
+            </figure>
+          ))}
+        </div>
+      </section>
+    ) : null
+  }
+
+  <section class="mt-12" aria-labelledby="share-heading">
+    <h2 id="share-heading" class="font-display text-xl text-gold mb-3">
+      Save and share a {classInfo.name} build
+    </h2>
+    <div class="panel p-4 sm:p-5">
+      <p class="text-ink-300 text-sm mb-3 leading-relaxed">
+        Spend points in the calculator above, then use <strong class="text-ink-100 font-medium">Copy link</strong>.
+        The address updates on every rank so a real path under{' '}
+        <span class="font-mono text-ink-100">/{slug}/build/</span> restores the same build in another
+        browser. Drafts also stay in local storage on this device.
+      </p>
+      <p class="text-ink-400 text-sm leading-relaxed">
+        Talc does not publish community rankings or unverified BiS lists. Plan your own{' '}
+        {treeNames.join(' / ')} split and share the link.
+      </p>
+    </div>
+  </section>
+
+  <section class="mt-10" aria-labelledby="changes-heading">
+    <h2 id="changes-heading" class="font-display text-xl text-gold mb-3">
+      What changed vs Classic?
+    </h2>
+    <p class="text-ink-300 text-sm leading-relaxed mb-4 max-w-3xl">
+      In our dataset for {classInfo.name}, talent marks versus Classic Era break down as{' '}
+      {changeStats.new} new (N), {changeStats.changed} changed (C), {changeStats.moved} moved (M),
+      and {changeStats.unchanged} unchanged. Counts are computed from{' '}
+      <code class="text-ink-100">data/talents.json</code> for this class — not copied from other
+      calculators. See the <a href="/beta/">beta changelog</a> when the client build updates.
+    </p>
+    <div class="overflow-x-auto mb-4">
+      <table class="w-full max-w-lg text-sm text-left border-collapse">
+        <thead>
+          <tr class="text-ink-400 border-b border-ink-700">
+            <th class="py-2 pr-4 font-medium">Mark</th>
+            <th class="py-2 pr-4 font-medium">Meaning</th>
+            <th class="py-2 font-medium">{classInfo.name} count</th>
+          </tr>
+        </thead>
+        <tbody class="text-ink-300">
+          <tr class="border-b border-ink-800">
+            <td class="py-2 pr-4 font-mono">N</td>
+            <td class="py-2 pr-4">New since Classic</td>
+            <td class="py-2">{changeStats.new}</td>
+          </tr>
+          <tr class="border-b border-ink-800">
+            <td class="py-2 pr-4 font-mono">C</td>
+            <td class="py-2 pr-4">Changed since Classic</td>
+            <td class="py-2">{changeStats.changed}</td>
+          </tr>
+          <tr class="border-b border-ink-800">
+            <td class="py-2 pr-4 font-mono">M</td>
+            <td class="py-2 pr-4">Moved since Classic</td>
+            <td class="py-2">{changeStats.moved}</td>
+          </tr>
+          <tr>
+            <td class="py-2 pr-4 font-mono">—</td>
+            <td class="py-2 pr-4">Unchanged</td>
+            <td class="py-2">{changeStats.unchanged}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    {
+      changed.length === 0 ? (
+        <p class="text-ink-400 text-sm">
+          No new, changed, or moved talents recorded for this class against Classic in the current
+          dataset.
+        </p>
+      ) : (
+        <ul class="panel p-4 space-y-2 text-sm max-h-80 overflow-y-auto">
+          {changed.map((t) => (
+            <li class="flex flex-wrap items-baseline gap-x-1">
+              <span
+                class="inline-block w-5 text-center font-mono text-xs bg-sky-800 text-white rounded mr-1"
+                title={changeTitle(t.change)}
+              >
+                {changeLabel(t.change)}
+              </span>
+              <a href={`/${slug}/talents/${t.id}/`}>{t.name}</a>
+              <span class="text-ink-500"> · {t.tree}</span>
+              {t.changeNote && <span class="text-ink-400"> — {t.changeNote}</span>}
+            </li>
+          ))}
+        </ul>
+      )
+    }
+  </section>
+
+  <section class="mt-10 prose-invert max-w-3xl" aria-labelledby="about-heading">
+    <h2 id="about-heading" class="font-display text-xl text-gold mb-3">
+      About the {classInfo.name} trees in Forever
+    </h2>
+    <div class="text-ink-300 text-sm leading-relaxed space-y-3">
+      {
+        copy?.sections?.length ? (
+          copy.sections.map((section) => (
+            <div class="space-y-3">
+              <h3 class="font-display text-lg text-gold/90 pt-2">{section.heading}</h3>
+              {section.paragraphs.map((p) => (
+                <p>{p}</p>
+              ))}
+            </div>
+          ))
+        ) : (
+          <>
+            <p>
+              This page is the {classInfo.name} talent calculator for WoW: Forever™. It shows the
+              full {treeNames[0]}, {treeNames[1]}, and {treeNames[2]} trees with every talent name
+              and every rank description taken from client build {meta.clientBuild} (checked{' '}
+              {checked}). At level {meta.levelCap} you spend {meta.totalPoints} points. Points are
+              shared across the three trees; within a single tree, each new row opens after{' '}
+              {meta.rowGate} points.
+            </p>
+            <p>
+              Tree sizes in this dataset:{' '}
+              {treeCounts.map((t) => `${t.name} ${t.count}`).join(', ')}. Use the interactive grid
+              to add or remove ranks. Prerequisites must be maxed before a linked talent opens. When
+              you are done, copy the link — the path under{' '}
+              <span class="font-mono text-ink-100">/{slug}/build/</span> restores the same ranks in
+              another browser. Drafts also stay in local storage on this device.
+            </p>
+            <p>
+              Below the trees you will find a crawlable list of every {classInfo.name} talent with
+              full rank text on individual pages. Talc is an unofficial fan-made tool. Numbers for
+              point totals, row gates, and talent counts come from our{' '}
+              <code class="text-ink-100">data/</code> files for this client build.
+            </p>
+          </>
+        )
+      }
+      <p>
+        Related pages:{' '}
+        {
+          siblingLinks.map((link, i) => (
+            <>
+              {i > 0 && ' · '}
+              <a href={link.href}>{link.label}</a>
+            </>
+          ))
+        }
+        .
+      </p>
+    </div>
+  </section>
+
+  <section class="mt-10" aria-labelledby="talent-index">
+    <h2 id="talent-index" class="font-display text-xl text-gold mb-3">
+      All {classInfo.name} talents
+    </h2>
+    <ul class="panel p-4 columns-2 sm:columns-3 gap-x-6 text-sm text-ink-300">
+      {
+        talents.map((t) => (
+          <li class="break-inside-avoid mb-1">
+            <a href={`/${slug}/talents/${t.id}/`}>{t.name}</a>
+            <span class="text-ink-500 text-xs"> ({t.tree})</span>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+
+  <Faq items={faqs} title={`${classInfo.name} FAQ`} />
+
+  <nav class="mt-12" aria-label="Other classes">
+    <h2 class="font-display text-lg text-gold mb-3">Other class calculators</h2>
+    <ul class="flex flex-wrap gap-x-4 gap-y-2 text-sm">
+      {others.map((c) => (
+        <li>
+          <a href={`/${c.slug}/`}>{c.name}</a>
+        </li>
+      ))}
+      <li><a href="/">All classes</a></li>
+    </ul>
+  </nav>
+</BaseLayout>

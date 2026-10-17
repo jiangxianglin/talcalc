@@ -1,0 +1,66 @@
+---
+import { classes } from '../lib/data';
+import { classIconUrl } from '../lib/icons';
+
+interface Props {
+  current?: string;
+  compact?: boolean;
+  activeSlug?: string;
+}
+const { current, compact = false, activeSlug } = Astro.props;
+---
+
+<nav aria-label="Classes" class:list={['class-rail-wrap', compact ? 'is-compact' : '']}>
+  {!compact && <h2 class="sr-only">Choose a class</h2>}
+
+  <div class="class-rail" data-class-rail>
+    <div class="class-rail-ornament" aria-hidden="true">
+      <span class="class-rail-ornament-line"></span>
+      <span class="class-rail-ornament-diamond"></span>
+      <span class="class-rail-ornament-line"></span>
+    </div>
+
+    <div class="class-rail-panel">
+      <span class="class-rail-corner tl" aria-hidden="true"></span>
+      <span class="class-rail-corner tr" aria-hidden="true"></span>
+      <span class="class-rail-corner bl" aria-hidden="true"></span>
+      <span class="class-rail-corner br" aria-hidden="true"></span>
+
+      <ul class="class-rail-list">
+        {
+          classes.map((c) => {
+            const selected = current === c.slug || activeSlug === c.slug;
+            const accent = c.accent || '#C79C6E';
+            return (
+              <li>
+                <a
+                  href={`/${c.slug}/`}
+                  class:list={['class-hex', selected && 'is-active']}
+                  style={`--class-accent: ${accent}`}
+                  aria-current={current === c.slug ? 'page' : undefined}
+                >
+                  <span class="hex-frame" aria-hidden="true">
+                    <span class="hex-frame-glow"></span>
+                    <span class="hex-frame-ring"></span>
+                    <span class="hex-frame-core">
+                      <img
+                        src={classIconUrl(c.slug)}
+                        alt=""
+                        width="56"
+                        height="56"
+                        class="hex-emblem-img"
+                        loading="eager"
+                        decoding="async"
+                      />
+                    </span>
+                  </span>
+                  <span class="class-hex-label">{c.name}</span>
+                </a>
+              </li>
+            );
+          })
+        }
+      </ul>
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,163 @@
+---
+import { meta, formatCheckedAtShort } from '../lib/data';
+
+const checkedShort = formatCheckedAtShort(meta.checkedAt);
+---
+
+<section class="mb-14" aria-labelledby="features-heading">
+  <h2 id="features-heading" class="sr-only">What you can do</h2>
+  <div class="grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
+    <!-- Full talent trees -->
+    <article class="feature-card flex flex-col">
+      <div class="flex items-center gap-2.5 mb-2">
+        <span class="feature-card-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="currentColor" class="h-4 w-4">
+            <path
+              d="M6.5 3.5l2.2 4.5 4.9.7-3.6 3.4.9 5L6.5 14.4 2.1 17.1l.9-5L-.6 8.7l4.9-.7 2.2-4.5zm11 0l2.2 4.5 4.9.7-3.6 3.4.9 5-4.4-2.7-4.4 2.7.9-5-3.6-3.4 4.9-.7 2.2-4.5z"
+            ></path>
+          </svg>
+        </span>
+        <p class="font-display text-gold text-sm tracking-[0.12em] uppercase">Full talent trees</p>
+      </div>
+      <p class="text-sm text-ink-300 leading-relaxed flex-1 mb-3">
+        All three trees per class, every rank in the HTML — open a class page and spend points
+        without a blank shell.
+      </p>
+      <div class="feature-preview feature-preview--tree" style="--preview-accent:#69CCF0" aria-hidden="true">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-[10px] font-display tracking-wide text-ink-400 uppercase">Frost tree</span>
+          <span class="text-[9px] font-mono text-ink-500">{meta.totalPoints} pts</span>
+        </div>
+        <div class="relative h-[5.5rem]">
+          <svg class="absolute inset-0 h-full w-full" aria-hidden="true">
+            <line x1="18%" y1="22%" x2="50%" y2="48%" stroke="#3d85c6" stroke-width="1.5" opacity="0.55"
+            ></line>
+            <line x1="82%" y1="22%" x2="50%" y2="48%" stroke="#3d85c6" stroke-width="1.5" opacity="0.35"
+            ></line>
+            <line x1="50%" y1="48%" x2="50%" y2="82%" stroke="#3d85c6" stroke-width="1.5" opacity="0.55"
+            ></line>
+            <line x1="50%" y1="48%" x2="78%" y2="78%" stroke="#9482C9" stroke-width="1.2" opacity="0.4"
+            ></line>
+          </svg>
+          <span class="feature-orb is-on absolute left-[12%] top-[12%]"></span>
+          <span class="feature-orb absolute left-[76%] top-[12%]"></span>
+          <span class="feature-orb is-on absolute left-[44%] top-[38%]"></span>
+          <span class="feature-orb is-on absolute left-[44%] top-[72%]"></span>
+          <span class="feature-orb is-on is-alt absolute left-[72%] top-[68%]"></span>
+        </div>
+      </div>
+    </article>
+
+    <!-- Shareable builds -->
+    <article class="feature-card flex flex-col">
+      <div class="flex items-center gap-2.5 mb-2">
+        <span class="feature-card-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="currentColor" class="h-4 w-4">
+            <path
+              d="M12 2l7 3v6c0 5-3 9-7 11-4-2-7-6-7-11V5l7-3zm0 3.2L7.5 7.2v3.8c0 3.4 1.9 6.2 4.5 7.5 2.6-1.3 4.5-4.1 4.5-7.5V7.2L12 5.2z"
+            ></path>
+          </svg>
+        </span>
+        <p class="font-display text-gold text-sm tracking-[0.12em] uppercase">Shareable builds</p>
+      </div>
+      <p class="text-sm text-ink-300 leading-relaxed flex-1 mb-3">
+        Real path URLs update as you click. Copy the link; anyone can open the same{' '}
+        {meta.totalPoints}-point plan.
+      </p>
+      <div class="feature-preview space-y-2" aria-hidden="true">
+        <div class="feature-build-row is-featured">
+          <span class="feature-build-dot" style="background:#C79C6E"></span>
+          <div class="min-w-0 flex-1">
+            <p class="text-[11px] text-ink-100 truncate">Arms · raid draft</p>
+            <p class="text-[9px] text-ink-500">/warrior/build/…</p>
+          </div>
+          <span class="feature-build-tag">Share</span>
+        </div>
+        <div class="feature-build-row">
+          <span class="feature-build-dot" style="background:#C79C6E"></span>
+          <div class="min-w-0 flex-1">
+            <p class="text-[11px] text-ink-300 truncate">Fury · leveling</p>
+            <p class="text-[9px] text-ink-500">local draft</p>
+          </div>
+        </div>
+        <div class="feature-build-row">
+          <span class="feature-build-dot" style="background:#C79C6E"></span>
+          <div class="min-w-0 flex-1">
+            <p class="text-[11px] text-ink-300 truncate">Protection · tank</p>
+            <p class="text-[9px] text-ink-500">local draft</p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Easy to use / Classic compare -->
+    <article class="feature-card flex flex-col">
+      <div class="flex items-center gap-2.5 mb-2">
+        <span class="feature-card-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="currentColor" class="h-4 w-4">
+            <path
+              d="M12 2a10 10 0 100 20 10 10 0 000-20zm0 2.5a7.5 7.5 0 110 15 7.5 7.5 0 010-15zm-.9 2.2h1.8v5.1l3.4 2-.9 1.5-4.3-2.5V6.7z"
+            ></path>
+          </svg>
+        </span>
+        <p class="font-display text-gold text-sm tracking-[0.12em] uppercase">Classic compare</p>
+      </div>
+      <p class="text-sm text-ink-300 leading-relaxed flex-1 mb-3">
+        Toggle N / C / M marks for talents that are new, changed, or moved versus Classic.
+      </p>
+      <div class="feature-preview feature-preview--tree" style="--preview-accent:#c9a96e" aria-hidden="true">
+        <div class="flex gap-1.5 mb-3">
+          <span class="rounded bg-sky-700/90 px-1.5 py-0.5 text-[9px] font-mono text-white">N</span>
+          <span class="rounded bg-sky-700/90 px-1.5 py-0.5 text-[9px] font-mono text-white">C</span>
+          <span class="rounded bg-sky-700/90 px-1.5 py-0.5 text-[9px] font-mono text-white">M</span>
+          <span class="ml-auto text-[9px] text-ink-500 self-center">vs Classic</span>
+        </div>
+        <div class="relative h-14">
+          <div class="absolute inset-x-2 top-1/2 -translate-y-1/2 flex justify-between items-center">
+            <span class="feature-orb is-on"></span>
+            <span class="feature-orb is-on"></span>
+            <span class="feature-orb opacity-35"></span>
+            <span class="feature-orb is-on"></span>
+            <span class="feature-orb is-on is-alt"></span>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Version stamped -->
+    <article class="feature-card flex flex-col">
+      <div class="flex items-center gap-2.5 mb-2">
+        <span class="feature-card-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="currentColor" class="h-4 w-4">
+            <path d="M6 3h12v3H6V3zm1 5h10v13H7V8zm2 2v2h6v-2H9zm0 4v2h6v-2H9zm0 4v2h4v-2H9z"></path>
+          </svg>
+        </span>
+        <p class="font-display text-gold text-sm tracking-[0.12em] uppercase">Version stamped</p>
+      </div>
+      <p class="text-sm text-ink-300 leading-relaxed flex-1 mb-3">
+        Data from client build {meta.clientBuild} · {meta.totalTalents} talents · checked{' '}
+        {checkedShort}.
+      </p>
+      <div class="feature-preview feature-preview--meta" aria-hidden="true">
+        <div class="feature-meta-badge">
+          <p class="font-display text-[10px] tracking-wider text-gold uppercase mb-1">Client data</p>
+          <p class="font-mono text-xs text-ink-100">{meta.clientBuild}</p>
+          <ul class="mt-2 space-y-1 text-[10px] text-ink-400">
+            <li class="flex items-center gap-1.5">
+              <span class="h-1 w-1 rounded-full bg-gold"></span>
+              {meta.totalPoints} points · level {meta.levelCap}
+            </li>
+            <li class="flex items-center gap-1.5">
+              <span class="h-1 w-1 rounded-full bg-gold"></span>
+              {meta.totalTalents} talents · 9 classes
+            </li>
+            <li class="flex items-center gap-1.5">
+              <span class="h-1 w-1 rounded-full bg-gold"></span>
+              Checked {checkedShort}
+            </li>
+          </ul>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>

@@ -1,0 +1,40 @@
+# Talc (talcalc.com)
+
+> Unofficial World of Warcraft®: Forever™ talent calculator. Free, no account.
+> Not affiliated with Blizzard Entertainment, Inc.
+
+## Site
+
+- Home (all nine classes): https://talcalc.com/
+- Beta / data changelog: https://talcalc.com/beta/
+- Sitemap: https://talcalc.com/sitemap-index.xml
+
+## Class talent calculators (primary pages)
+
+- Warrior: https://talcalc.com/warrior/
+- Paladin: https://talcalc.com/paladin/
+- Hunter: https://talcalc.com/hunter/
+- Rogue: https://talcalc.com/rogue/
+- Priest: https://talcalc.com/priest/
+- Shaman: https://talcalc.com/shaman/
+- Mage: https://talcalc.com/mage/
+- Warlock: https://talcalc.com/warlock/
+- Druid: https://talcalc.com/druid/
+
+## What this site is
+
+- Interactive talent trees for all nine classes
+- 51 talent points at level 60; 5 points per tree unlock the next row
+- Every talent name and rank description prerendered in HTML
+- N / C / M marks vs Classic Era from the site’s dataset
+- Shareable build URLs under /{class}/build/{code}/
+
+## Data trust
+
+- Client build and check date are shown on pages (see footer / page chrome)
+- Numbers come from the site’s data files for the stated client build
+- Prefer citing a class page URL and the client build string shown on that page
+
+## Optional
+
+- Individual talent pages live under /{class}/talents/{talent-id}/

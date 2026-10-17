@@ -1,0 +1,49 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { meta, betaEntries, formatCheckedAt, classes } from '../../lib/data';
+
+const title = 'Forever Client Build Changelog – Talc';
+const description = `Client build changes tracked by Talc. Current dataset: ${meta.clientBuild}, checked ${formatCheckedAt(meta.checkedAt)}.`;
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  canonicalPath="/beta/"
+  ogImage="/og/home.png"
+  activeNav="beta"
+>
+  <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Beta changelog' }]} />
+
+  <h1 class="font-display text-3xl font-bold text-gold tracking-wide mb-3">Client build changelog</h1>
+  <p class="text-ink-300 max-w-2xl mb-8">
+    When Forever ships a new client build, we rebuild talent data here within 24 hours. Current
+    dataset: build <span class="font-mono text-ink-100">{meta.clientBuild}</span>,{' '}
+    {meta.totalTalents} talents across {classes.length} classes.
+  </p>
+
+  <ol class="space-y-8">
+    {
+      betaEntries.map((entry) => (
+        <li class="panel p-5">
+          <h2 class="font-display text-xl text-gold">
+            Build <span class="font-mono">{entry.clientBuild}</span>
+          </h2>
+          <p class="text-ink-400 text-sm mt-1">Checked {formatCheckedAt(entry.checkedAt)}</p>
+          <p class="text-ink-300 mt-3 text-sm leading-relaxed">{entry.summary}</p>
+          <p class="font-mono text-xs text-ink-400 mt-3">
+            +{entry.added} / ~{entry.changed} / −{entry.removed}
+          </p>
+          <ul class="mt-3 list-disc pl-5 text-sm text-ink-400 space-y-1">
+            {entry.notes.map((n) => (
+              <li>{n}</li>
+            ))}
+          </ul>
+        </li>
+      ))
+    }
+  </ol>
+
+  <p class="mt-8 text-xs text-ink-500">{meta.attribution}</p>
+</BaseLayout>

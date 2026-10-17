@@ -1,0 +1,137 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ClassPicker from '../components/ClassPicker.astro';
+import HomeCalculator from '../components/HomeCalculator.astro';
+import FeatureCards from '../components/FeatureCards.astro';
+import Faq from '../components/Faq.astro';
+import {
+  classes,
+  meta,
+  homeFaq,
+  formatCheckedAt,
+  formatCheckedAtShort,
+  getTalentsForClass,
+} from '../lib/data';
+import { homeGraph } from '../lib/schema';
+
+const title = 'WoW Forever Talent Calculator – All 9 Classes, 51 Points';
+const description = `Free WoW Forever talent calculator for all nine classes and ${meta.totalPoints} points. Every talent and rank read from client build ${meta.clientBuild}, checked ${formatCheckedAt(meta.checkedAt)}. Plan a build, compare with Classic, share the link.`;
+const jsonLd = homeGraph(meta, classes, homeFaq);
+const checkedShort = formatCheckedAtShort(meta.checkedAt);
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  canonicalPath="/"
+  ogImage="/og/home.png"
+  jsonLd={jsonLd}
+  bare
+  activeNav="home"
+>
+  <section class="relative isolate overflow-hidden" aria-labelledby="hero-heading">
+    <div class="absolute inset-0 -z-10">
+      <img
+        src="/images/hero-forever.jpg"
+        alt=""
+        width="1920"
+        height="1080"
+        class="h-full w-full object-cover object-center"
+        fetchpriority="high"
+        decoding="async"
+      />
+      <div class="absolute inset-0 bg-hero-veil" aria-hidden="true"></div>
+      <div
+        class="absolute inset-0 bg-gradient-to-r from-ink-950/70 via-ink-950/30 to-ink-950/70"
+        aria-hidden="true"
+      >
+      </div>
+    </div>
+
+    <div class="site-container pt-14 pb-10 sm:pt-20 sm:pb-14 text-center">
+      <p
+        class="font-display text-[11px] sm:text-xs tracking-[0.28em] uppercase text-gold mb-3"
+      >
+        World of Warcraft®: Forever™
+      </p>
+      <h1
+        id="hero-heading"
+        class="font-display text-4xl sm:text-5xl md:text-6xl font-bold tracking-[0.06em] uppercase text-gold drop-shadow-[0_2px_24px_rgba(0,0,0,0.65)]"
+      >
+        WoW Forever Talent Calculator
+      </h1>
+      <p class="mt-4 text-lg sm:text-xl text-ink-100 font-medium tracking-wide">
+        Nine classes. {meta.totalPoints} points. Share a real link.
+      </p>
+      <p class="mt-4 mx-auto max-w-2xl text-sm sm:text-base text-ink-300 leading-relaxed">
+        Free calculator for all nine classes and {meta.totalPoints} points — every talent and rank
+        read from client build{' '}
+        <span class="font-mono text-ink-100">{meta.clientBuild}</span>, checked {checkedShort}.
+      </p>
+
+      <ClassPicker />
+    </div>
+  </section>
+
+  <div class="site-container -mt-2 pb-10 relative z-10">
+    <FeatureCards />
+
+    <HomeCalculator />
+
+    <section class="mb-10" aria-labelledby="how-heading">
+      <h2 id="how-heading" class="font-display text-xl text-gold mb-2">How to use</h2>
+      <p class="text-ink-300 text-sm max-w-2xl leading-relaxed">
+        The home page starts on Warrior; open any class for that class’s full calculator. Left-click
+        or Enter adds a rank; right-click, Shift-click, or Backspace removes one. Rows open every{' '}
+        {meta.rowGate} points in a tree. On a class page the address updates as you go — copy it to
+        share.
+      </p>
+    </section>
+
+    <section aria-labelledby="classes-detail">
+      <h2 id="classes-detail" class="font-display text-xl text-gold mb-4">
+        All {meta.totalTalents} talents by class
+      </h2>
+      <div class="space-y-6">
+        {
+          classes.map((c) => {
+            const list = getTalentsForClass(c.slug);
+            return (
+              <div class="panel p-4">
+                <h3 class="font-medium text-ink-100 mb-2">
+                  <a href={`/${c.slug}/`}>{c.name} talent calculator</a>
+                  <span class="text-ink-500 font-normal text-sm ml-2">
+                    {c.talentCount} talents · {c.trees.map((t) => t.name).join(', ')}
+                  </span>
+                </h3>
+                <ul class="columns-2 sm:columns-3 gap-x-4 text-sm text-ink-400">
+                  {list.map((t) => (
+                    <li class="break-inside-avoid mb-0.5">
+                      <a href={`/${c.slug}/talents/${t.id}/`} class="text-ink-300">
+                        {t.name}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            );
+          })
+        }
+      </div>
+    </section>
+
+    <section class="mt-12" aria-labelledby="builds-heading">
+      <h2 id="builds-heading" class="font-display text-xl text-gold mb-2">Top planned builds</h2>
+      <p class="text-ink-400 text-sm">
+        Community vote board ships after launch. For now, plan on a class page and share your own
+        link.
+      </p>
+    </section>
+
+    <Faq items={homeFaq} />
+
+    <nav class="mt-12 text-sm text-ink-400" aria-label="More">
+      <a href="/beta/">Client build changelog</a>
+    </nav>
+  </div>
+</BaseLayout>

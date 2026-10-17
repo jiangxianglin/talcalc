@@ -1,0 +1,161 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../../components/Breadcrumbs.astro';
+import {
+  classes,
+  meta,
+  getClass,
+  getTalent,
+  getTalentsForClass,
+  formatCheckedAtShort,
+  changeLabel,
+  changeTitle,
+  CLASS_SLUGS,
+} from '../../../../lib/data';
+import { talentPageGraph } from '../../../../lib/schema';
+import { talentIconUrl } from '../../../../lib/icons';
+
+export function getStaticPaths() {
+  const paths = [];
+  for (const slug of CLASS_SLUGS) {
+    for (const t of getTalentsForClass(slug)) {
+      paths.push({ params: { class: slug, talent: t.id } });
+    }
+  }
+  return paths;
+}
+
+const classSlug = Astro.params.class!;
+const talentId = Astro.params.talent!;
+const classInfo = getClass(classSlug);
+const talent = getTalent(classSlug, talentId);
+if (!classInfo || !talent) return Astro.redirect('/404');
+
+const tree = classInfo.trees.find((t) => t.slug === talent.tree);
+const siblings = getTalentsForClass(classSlug).filter(
+  (t) => t.tree === talent.tree && t.row === talent.row && t.id !== talent.id,
+);
+const others = classes.filter((c) => c.slug !== classSlug);
+const req = talent.requires
+  ? getTalent(classSlug, talent.requires)
+  : undefined;
+
+const title = `${talent.name} – ${classInfo.name} Talent | WoW Forever`;
+const description = `${talent.name} (${tree?.name ?? talent.tree}, row ${talent.row}) for ${classInfo.name} in WoW Forever. Max rank ${talent.maxRank}. Rank text from client build ${meta.clientBuild}.`;
+const path = `/${classSlug}/talents/${talent.id}/`;
+const jsonLd = talentPageGraph(classInfo, talent.name, `https://talcalc.com${path}`);
+const checkedShort = formatCheckedAtShort(meta.checkedAt);
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  canonicalPath={path}
+  ogImage={`/og/${classSlug}.png`}
+  jsonLd={jsonLd}
+>
+  <Breadcrumbs
+    items={[
+      { label: 'Home', href: '/' },
+      { label: classInfo.name, href: `/${classSlug}/` },
+      { label: talent.name },
+    ]}
+  />
+
+  <div class="panel p-4 sm:p-5 mb-6">
+    <div class="flex items-start gap-4 mb-2">
+      <img
+        src={talentIconUrl(talent.icon, 56)}
+        alt=""
+        width="56"
+        height="56"
+        class="rounded border border-gold/40 shadow-gold-soft"
+        loading="eager"
+        style={`box-shadow: 0 0 16px color-mix(in srgb, ${classInfo.accent || '#c9a96e'} 35%, transparent)`}
+      />
+      <div>
+        <h1 class="font-display text-3xl font-bold text-gold tracking-wide">{talent.name}</h1>
+        <p class="text-ink-400 text-sm mt-1">
+          {classInfo.name} · {tree?.name ?? talent.tree} · row {talent.row}, column{' '}
+          {talent.col + 1} · max rank {talent.maxRank}
+          {
+            talent.change !== 'unchanged' && (
+              <span class="ml-2 inline-flex items-center gap-1">
+                <span class="px-1 rounded bg-sky-800 text-white text-xs font-mono">
+                  {changeLabel(talent.change)}
+                </span>
+                <span>{changeTitle(talent.change)}</span>
+              </span>
+            )
+          }
+        </p>
+        {talent.changeNote && <p class="text-ink-500 text-xs mt-1">{talent.changeNote}</p>}
+      </div>
+    </div>
+
+    <p class="text-ink-300 text-sm">
+      Rank text from client build <span class="font-mono text-ink-100">{meta.clientBuild}</span>,
+      checked {checkedShort}. Open the{' '}
+      <a href={`/${classSlug}/`}>{classInfo.name} talent calculator</a> to spend points on this talent.
+    </p>
+  </div>
+
+  <section aria-labelledby="ranks-heading">
+    <h2 id="ranks-heading" class="font-display text-xl text-gold mb-3">Ranks</h2>
+    <ol class="panel p-4 list-decimal pl-8 space-y-2 text-ink-300">
+      {talent.ranks.map((r, i) => (
+        <li>
+          <span class="text-ink-500 font-mono text-xs mr-2">Rank {i + 1}</span>
+          {r}
+        </li>
+      ))}
+    </ol>
+  </section>
+
+  <section class="mt-8" aria-labelledby="reqs-heading">
+    <h2 id="reqs-heading" class="font-display text-xl text-gold mb-3">Requirements</h2>
+    <ul class="panel p-4 text-sm text-ink-300 space-y-1">
+      <li>
+        Tree points required: {talent.pointsRequired} (row gate {meta.rowGate} per row)
+      </li>
+      <li>
+        Prerequisite:{' '}
+        {req ? (
+          <a href={`/${classSlug}/talents/${req.id}/`}>{req.name}</a>
+        ) : (
+          <span>None</span>
+        )}
+      </li>
+    </ul>
+  </section>
+
+  {
+    siblings.length > 0 && (
+      <section class="mt-8" aria-labelledby="same-row">
+        <h2 id="same-row" class="font-display text-xl text-gold mb-3">
+          Same row in {tree?.name}
+        </h2>
+        <ul class="flex flex-wrap gap-3 text-sm panel p-4">
+          {siblings.map((s) => (
+            <li>
+              <a href={`/${classSlug}/talents/${s.id}/`}>{s.name}</a>
+            </li>
+          ))}
+        </ul>
+      </section>
+    )
+  }
+
+  <nav class="mt-10 text-sm" aria-label="Class links">
+    <p class="mb-2">
+      <a href={`/${classSlug}/`}>← Back to {classInfo.name} calculator</a>
+    </p>
+    <ul class="flex flex-wrap gap-x-4 gap-y-2 text-ink-400">
+      {others.map((c) => (
+        <li>
+          <a href={`/${c.slug}/`}>{c.name}</a>
+        </li>
+      ))}
+    </ul>
+  </nav>
+</BaseLayout>

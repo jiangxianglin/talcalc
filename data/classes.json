@@ -1,0 +1,281 @@
+[
+  {
+    "id": 1,
+    "slug": "warrior",
+    "name": "Warrior",
+    "trees": [
+      {
+        "id": 26,
+        "slug": "arms",
+        "name": "Arms",
+        "rows": 7,
+        "columns": 4
+      },
+      {
+        "id": 256,
+        "slug": "fury",
+        "name": "Fury",
+        "rows": 7,
+        "columns": 4
+      },
+      {
+        "id": 257,
+        "slug": "protection",
+        "name": "Protection",
+        "rows": 7,
+        "columns": 4
+      }
+    ],
+    "talentCount": 52,
+    "accent": "#C79C6E",
+    "intro": "Plan Arms, Fury, and Protection builds for WoW: Forever™. Spend all 51 points across the three trees, then copy a share link."
+  },
+  {
+    "id": 2,
+    "slug": "paladin",
+    "name": "Paladin",
+    "trees": [
+      {
+        "id": 594,
+        "slug": "holy",
+        "name": "Holy",
+        "rows": 7,
+        "columns": 4
+      },
+      {
+        "id": 267,
+        "slug": "protection",
+        "name": "Protection",
+        "rows": 7,
+        "columns": 4
+      },
+      {
+        "id": 184,
+        "slug": "retribution",
+        "name": "Retribution",
+        "rows": 7,
+        "columns": 4
+      }
+    ],
+    "talentCount": 50,
+    "accent": "#F58CBA",
+    "intro": "Plan Holy, Protection, and Retribution builds for WoW: Forever™. Spend all 51 points across the three trees, then copy a share link."
+  },
+  {
+    "id": 3,
+    "slug": "hunter",
+    "name": "Hunter",
+    "trees": [
+      {
+        "id": 50,
+        "slug": "beast-mastery",
+        "name": "Beast Mastery",
+        "rows": 7,
+        "columns": 4
+      },
+      {
+        "id": 163,
+        "slug": "marksmanship",
+        "name": "Marksmanship",
+        "rows": 7,
+        "columns": 4
+      },
+      {
+        "id": 51,
+        "slug": "survival",
+        "name": "Survival",
+        "rows": 7,
+        "columns": 4
+      }
+    ],
+    "talentCount": 51,
+    "accent": "#ABD473",
+    "intro": "Free Hunter talent calculator for WoW: Forever™ — full Beast Mastery, Marksmanship, and Survival trees. Spend all 51 points, compare Classic marks, then copy a share link."
+  },
+  {
+    "id": 4,
+    "slug": "rogue",
+    "name": "Rogue",
+    "trees": [
+      {
+        "id": 253,
+        "slug": "assassination",
+        "name": "Assassination",
+        "rows": 7,
+        "columns": 4
+      },
+      {
+        "id": 38,
+        "slug": "combat",
+        "name": "Combat",
+        "rows": 7,
+        "columns": 4
+      },
+      {
+        "id": 39,
+        "slug": "subtlety",
+        "name": "Subtlety",
+        "rows": 7,
+        "columns": 4
+      }
+    ],
+    "talentCount": 53,
+    "accent": "#FFF569",
+    "intro": "Plan Assassination, Combat, and Subtlety builds for WoW: Forever™. Spend all 51 points across the three trees, then copy a share link."
+  },
+  {
+    "id": 5,
+    "slug": "priest",
+    "name": "Priest",
+    "trees": [
+      {
+        "id": 613,
+        "slug": "discipline",
+        "name": "Discipline",
+        "rows": 7,
+        "columns": 4
+      },
+      {
+        "id": 56,
+        "slug": "holy",
+        "name": "Holy",
+        "rows": 7,
+        "columns": 4
+      },
+      {
+        "id": 78,
+        "slug": "shadow-magic",
+        "name": "Shadow Magic",
+        "rows": 7,
+        "columns": 4
+      }
+    ],
+    "talentCount": 52,
+    "accent": "#FFFFFF",
+    "intro": "Plan Discipline, Holy, and Shadow builds for WoW: Forever™. Spend all 51 points across the three trees, then copy a share link."
+  },
+  {
+    "id": 7,
+    "slug": "shaman",
+    "name": "Shaman",
+    "trees": [
+      {
+        "id": 375,
+        "slug": "elemental-combat",
+        "name": "Elemental Combat",
+        "rows": 7,
+        "columns": 4
+      },
+      {
+        "id": 373,
+        "slug": "enhancement",
+        "name": "Enhancement",
+        "rows": 7,
+        "columns": 4
+      },
+      {
+        "id": 374,
+        "slug": "restoration",
+        "name": "Restoration",
+        "rows": 7,
+        "columns": 4
+      }
+    ],
+    "talentCount": 50,
+    "accent": "#0070DE",
+    "intro": "Plan Elemental, Enhancement, and Restoration builds for WoW: Forever™. Spend all 51 points across the three trees, then copy a share link."
+  },
+  {
+    "id": 8,
+    "slug": "mage",
+    "name": "Mage",
+    "trees": [
+      {
+        "id": 237,
+        "slug": "arcane",
+        "name": "Arcane",
+        "rows": 7,
+        "columns": 4
+      },
+      {
+        "id": 8,
+        "slug": "fire",
+        "name": "Fire",
+        "rows": 7,
+        "columns": 4
+      },
+      {
+        "id": 6,
+        "slug": "frost",
+        "name": "Frost",
+        "rows": 7,
+        "columns": 4
+      }
+    ],
+    "talentCount": 54,
+    "accent": "#69CCF0",
+    "intro": "Plan Arcane, Fire, and Frost builds for WoW: Forever™. Spend all 51 points across the three trees, then copy a share link."
+  },
+  {
+    "id": 9,
+    "slug": "warlock",
+    "name": "Warlock",
+    "trees": [
+      {
+        "id": 355,
+        "slug": "affliction",
+        "name": "Affliction",
+        "rows": 7,
+        "columns": 4
+      },
+      {
+        "id": 354,
+        "slug": "demonology",
+        "name": "Demonology",
+        "rows": 7,
+        "columns": 4
+      },
+      {
+        "id": 593,
+        "slug": "destruction",
+        "name": "Destruction",
+        "rows": 7,
+        "columns": 3
+      }
+    ],
+    "talentCount": 52,
+    "accent": "#9482C9",
+    "intro": "Plan Affliction, Demonology, and Destruction builds for WoW: Forever™. Spend all 51 points across the three trees, then copy a share link."
+  },
+  {
+    "id": 11,
+    "slug": "druid",
+    "name": "Druid",
+    "trees": [
+      {
+        "id": 574,
+        "slug": "balance",
+        "name": "Balance",
+        "rows": 7,
+        "columns": 4
+      },
+      {
+        "id": 134,
+        "slug": "feral-combat",
+        "name": "Feral Combat",
+        "rows": 7,
+        "columns": 4
+      },
+      {
+        "id": 573,
+        "slug": "restoration",
+        "name": "Restoration",
+        "rows": 7,
+        "columns": 4
+      }
+    ],
+    "talentCount": 52,
+    "accent": "#FF7D0A",
+    "intro": "Plan Balance, Feral, and Restoration builds for WoW: Forever™. Spend all 51 points across the three trees, then copy a share link."
+  }
+]

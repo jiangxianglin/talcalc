@@ -1,0 +1,16 @@
+{
+  "entries": [
+    {
+      "clientBuild": "1.60.1.70425",
+      "checkedAt": "2026-10-16",
+      "summary": "Dataset for client build 1.60.1.70425: 466 talents across nine classes. Classic Era markers applied where the change CSV matches by class + talent name.",
+      "added": 120,
+      "changed": 282,
+      "removed": 0,
+      "notes": [
+        "Source: wow-forever.gg developers export (CC BY 4.0).",
+        "Classic markers: 120 new, 137 changed, 145 moved, 64 unchanged (0 unmatched names left as unchanged)."
+      ]
+    }
+  ]
+}

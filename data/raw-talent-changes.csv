@@ -1,0 +1,556 @@
+﻿class,tree,talent,status,changes,row,column,ranks,final,classic_tree,classic_row,classic_column,classic_ranks,learnt_at_level,page
+Warrior,Arms,Improved Heroic Strike,same,,1,1,3,no,Arms,1,1,3,,https://endgametools.com/en/wow-forever/talent/warrior/improved-heroic-strike
+Warrior,Arms,Deflection,same,,1,2,5,no,Arms,1,2,5,,https://endgametools.com/en/wow-forever/talent/warrior/deflection
+Warrior,Arms,Improved Rend,changed,steps,1,3,3,no,Arms,1,3,3,,https://endgametools.com/en/wow-forever/talent/warrior/improved-rend
+Warrior,Arms,Improved Charge,same,,2,1,2,no,Arms,2,1,2,,https://endgametools.com/en/wow-forever/talent/warrior/improved-charge
+Warrior,Arms,Improved Tactical Mastery,changed,values,2,2,5,no,Arms,2,2,5,,https://endgametools.com/en/wow-forever/talent/warrior/improved-tactical-mastery
+Warrior,Arms,Improved Overpower,changed,position,2,4,2,no,Arms,3,1,2,,https://endgametools.com/en/wow-forever/talent/warrior/improved-overpower
+Warrior,Arms,Anger Management,changed,values,3,2,1,no,Arms,3,2,1,,https://endgametools.com/en/wow-forever/talent/warrior/anger-management
+Warrior,Arms,Deep Wounds,same,,3,3,3,no,Arms,3,3,3,,https://endgametools.com/en/wow-forever/talent/warrior/deep-wounds
+Warrior,Arms,Spearing Strike,new,,4,1,1,no,,,,,,https://endgametools.com/en/wow-forever/talent/warrior/spearing-strike
+Warrior,Arms,Two-Handed Weapon Specialization,changed,ranks values,4,2,3,no,Arms,4,2,5,,https://endgametools.com/en/wow-forever/talent/warrior/two-handed-weapon-specialization
+Warrior,Arms,Impale,changed,text,4,3,2,no,Arms,4,3,2,,https://endgametools.com/en/wow-forever/talent/warrior/impale
+Warrior,Arms,Bloodthrill,new,,5,1,5,no,,,,,,https://endgametools.com/en/wow-forever/talent/warrior/bloodthrill
+Warrior,Arms,Sweeping Strikes,same,,5,2,1,no,Arms,5,2,1,,https://endgametools.com/en/wow-forever/talent/warrior/sweeping-strikes
+Warrior,Arms,Weaponmaster,new,,5,3,5,no,,,,,,https://endgametools.com/en/wow-forever/talent/warrior/weaponmaster
+Warrior,Arms,Improved Slam,changed,tree ranks values,6,1,2,no,Fury,5,1,5,,https://endgametools.com/en/wow-forever/talent/warrior/improved-slam
+Warrior,Arms,Improved Hamstring,same,,6,3,3,no,Arms,6,3,3,,https://endgametools.com/en/wow-forever/talent/warrior/improved-hamstring
+Warrior,Arms,Mortal Strike,same,,7,2,1,yes,Arms,7,2,1,,https://endgametools.com/en/wow-forever/talent/warrior/mortal-strike
+Warrior,Fury,Booming Voice,changed,values,1,2,5,no,Fury,1,2,5,,https://endgametools.com/en/wow-forever/talent/warrior/booming-voice
+Warrior,Fury,Cruelty,same,,1,3,5,no,Fury,1,3,5,,https://endgametools.com/en/wow-forever/talent/warrior/cruelty
+Warrior,Fury,Lingering Rage,new,,2,2,5,no,,,,,,https://endgametools.com/en/wow-forever/talent/warrior/lingering-rage
+Warrior,Fury,Unbridled Wrath,changed,values,2,3,5,no,Fury,2,3,5,,https://endgametools.com/en/wow-forever/talent/warrior/unbridled-wrath
+Warrior,Fury,Furious Precision,new,,3,1,3,no,,,,,,https://endgametools.com/en/wow-forever/talent/warrior/furious-precision
+Warrior,Fury,Piercing Howl,same,,3,2,1,no,Fury,3,2,1,,https://endgametools.com/en/wow-forever/talent/warrior/piercing-howl
+Warrior,Fury,Blood Craze,changed,values,3,3,3,no,Fury,3,3,3,,https://endgametools.com/en/wow-forever/talent/warrior/blood-craze
+Warrior,Fury,Dual Wield Specialization,changed,values,4,1,5,no,Fury,4,1,5,,https://endgametools.com/en/wow-forever/talent/warrior/dual-wield-specialization
+Warrior,Fury,Raging Blows,new,,4,2,1,no,,,,,,https://endgametools.com/en/wow-forever/talent/warrior/raging-blows
+Warrior,Fury,Enrage,changed,values,4,3,5,no,Fury,4,3,5,,https://endgametools.com/en/wow-forever/talent/warrior/enrage
+Warrior,Fury,Improved Execute,changed,position steps,4,4,2,no,Fury,4,2,2,,https://endgametools.com/en/wow-forever/talent/warrior/improved-execute
+Warrior,Fury,Improved Berserker Rage,changed,position values,5,1,2,no,Fury,6,1,2,,https://endgametools.com/en/wow-forever/talent/warrior/improved-berserker-rage
+Warrior,Fury,Death Wish,changed,values,5,2,1,no,Fury,5,2,1,,https://endgametools.com/en/wow-forever/talent/warrior/death-wish
+Warrior,Fury,Improved Intercept,same,,5,4,2,no,Fury,5,4,2,,https://endgametools.com/en/wow-forever/talent/warrior/improved-intercept
+Warrior,Fury,Flurry,changed,position values,6,2,5,no,Fury,6,3,5,,https://endgametools.com/en/wow-forever/talent/warrior/flurry
+Warrior,Fury,Gore Drinker,new,,6,3,2,no,,,,,,https://endgametools.com/en/wow-forever/talent/warrior/gore-drinker
+Warrior,Fury,Bloodthirst,changed,values,7,2,1,yes,Fury,7,2,1,,https://endgametools.com/en/wow-forever/talent/warrior/bloodthirst
+Warrior,Protection,Improved Bloodrage,changed,position values,1,1,2,no,Protection,2,1,2,,https://endgametools.com/en/wow-forever/talent/warrior/improved-bloodrage
+Warrior,Protection,Shield Specialization,changed,values,1,2,5,no,Protection,1,2,5,,https://endgametools.com/en/wow-forever/talent/warrior/shield-specialization
+Warrior,Protection,Iron Will,changed,position text,1,3,5,no,Protection,2,4,5,,https://endgametools.com/en/wow-forever/talent/warrior/iron-will
+Warrior,Protection,Anticipation,changed,position values,2,1,5,no,Protection,1,3,5,,https://endgametools.com/en/wow-forever/talent/warrior/anticipation
+Warrior,Protection,Improved Revenge,changed,position values,2,3,3,no,Protection,3,3,3,,https://endgametools.com/en/wow-forever/talent/warrior/improved-revenge
+Warrior,Protection,Improved Thunder Clap,changed,tree values,2,4,3,no,Arms,2,4,3,,https://endgametools.com/en/wow-forever/talent/warrior/improved-thunder-clap
+Warrior,Protection,Last Stand,same,,3,1,1,no,Protection,3,1,1,,https://endgametools.com/en/wow-forever/talent/warrior/last-stand
+Warrior,Protection,Master of Defense,new,,3,2,2,no,,,,,,https://endgametools.com/en/wow-forever/talent/warrior/master-of-defense
+Warrior,Protection,Improved Disarm,changed,position values,3,3,3,no,Protection,4,2,3,,https://endgametools.com/en/wow-forever/talent/warrior/improved-disarm
+Warrior,Protection,Defiance,changed,ranks text,3,4,3,no,Protection,3,4,5,,https://endgametools.com/en/wow-forever/talent/warrior/defiance
+Warrior,Protection,Improved Sunder Armor,same,,4,1,3,no,Protection,4,1,3,,https://endgametools.com/en/wow-forever/talent/warrior/improved-sunder-armor
+Warrior,Protection,Vanguard,new,,4,2,1,no,,,,,,https://endgametools.com/en/wow-forever/talent/warrior/vanguard
+Warrior,Protection,Improved Shield Bash,changed,position,4,3,2,no,Protection,5,3,2,,https://endgametools.com/en/wow-forever/talent/warrior/improved-shield-bash
+Warrior,Protection,Improved Shield Wall,changed,values,5,1,2,no,Protection,5,1,2,,https://endgametools.com/en/wow-forever/talent/warrior/improved-shield-wall
+Warrior,Protection,Concussion Blow,same,,5,2,1,no,Protection,5,2,1,,https://endgametools.com/en/wow-forever/talent/warrior/concussion-blow
+Warrior,Protection,Focused Rage,new,,5,3,3,no,,,,,,https://endgametools.com/en/wow-forever/talent/warrior/focused-rage
+Warrior,Protection,Bastion,new,,6,3,5,no,,,,,,https://endgametools.com/en/wow-forever/talent/warrior/bastion
+Warrior,Protection,Shield Slam,changed,values,7,2,1,yes,Protection,7,2,1,,https://endgametools.com/en/wow-forever/talent/warrior/shield-slam
+Warrior,,Axe Specialization,removed,,,,,,Arms,,,5,,
+Warrior,,Mace Specialization,removed,,,,,,Arms,,,5,,
+Warrior,,Sword Specialization,removed,,,,,,Arms,,,5,,
+Warrior,,Polearm Specialization,removed,,,,,,Arms,,,5,,
+Warrior,,Improved Demoralizing Shout,removed,,,,,,Fury,,,5,,
+Warrior,,Improved Cleave,removed,,,,,,Fury,,,3,,
+Warrior,,Improved Battle Shout,removed,,,,,,Fury,,,5,,
+Warrior,,Toughness,removed,,,,,,Protection,,,5,,
+Warrior,,Improved Shield Block,removed,,,,,,Protection,,,3,,
+Warrior,,Improved Taunt,removed,,,,,,Protection,,,2,,
+Warrior,,One-Handed Weapon Specialization,removed,,,,,,Protection,,,5,,
+Paladin,Holy,Divine Strength,same,,1,2,5,no,Holy,1,2,5,,https://endgametools.com/en/wow-forever/talent/paladin/divine-strength
+Paladin,Holy,Divine Intellect,same,,1,3,5,no,Holy,1,3,5,,https://endgametools.com/en/wow-forever/talent/paladin/divine-intellect
+Paladin,Holy,Healing Light,changed,position text,2,1,3,no,Holy,3,1,3,,https://endgametools.com/en/wow-forever/talent/paladin/healing-light
+Paladin,Holy,Spiritual Focus,changed,ranks text,2,2,2,no,Holy,2,2,5,,https://endgametools.com/en/wow-forever/talent/paladin/spiritual-focus
+Paladin,Holy,Improved Seals,changed,ranks text,2,3,3,no,Holy,2,3,5,,https://endgametools.com/en/wow-forever/talent/paladin/improved-seals
+Paladin,Holy,Unyielding Faith,changed,position values,2,4,2,no,Holy,3,4,2,,https://endgametools.com/en/wow-forever/talent/paladin/unyielding-faith
+Paladin,Holy,Voice of Truth,new,,3,1,1,no,,,,,,https://endgametools.com/en/wow-forever/talent/paladin/voice-of-truth
+Paladin,Holy,Reverence,new,,3,2,3,no,,,,,,https://endgametools.com/en/wow-forever/talent/paladin/reverence
+Paladin,Holy,Purifying Power,new,,3,3,2,no,,,,,,https://endgametools.com/en/wow-forever/talent/paladin/purifying-power
+Paladin,Holy,Infusion of Light,new,,4,1,2,no,,,,,,https://endgametools.com/en/wow-forever/talent/paladin/infusion-of-light
+Paladin,Holy,Illumination,changed,values,4,2,5,no,Holy,4,2,5,,https://endgametools.com/en/wow-forever/talent/paladin/illumination
+Paladin,Holy,Divine Favor,changed,position,4,3,1,no,Holy,5,2,1,,https://endgametools.com/en/wow-forever/talent/paladin/divine-favor
+Paladin,Holy,Divine Precision,new,,5,1,3,no,,,,,,https://endgametools.com/en/wow-forever/talent/paladin/divine-precision
+Paladin,Holy,Holy Shock,changed,position values,5,2,1,no,Holy,7,2,1,,https://endgametools.com/en/wow-forever/talent/paladin/holy-shock
+Paladin,Holy,Consecrated Ground,new,,5,3,2,no,,,,,,https://endgametools.com/en/wow-forever/talent/paladin/consecrated-ground
+Paladin,Holy,Holy Power,changed,values,6,3,5,no,Holy,6,3,5,,https://endgametools.com/en/wow-forever/talent/paladin/holy-power
+Paladin,Holy,Light's Vigil,new,,7,2,1,yes,,,,,,https://endgametools.com/en/wow-forever/talent/paladin/lights-vigil
+Paladin,Protection,Toughness,changed,position,1,2,5,no,Protection,2,4,5,,https://endgametools.com/en/wow-forever/talent/paladin/toughness
+Paladin,Protection,Redoubt,changed,values,1,3,5,no,Protection,1,3,5,,https://endgametools.com/en/wow-forever/talent/paladin/redoubt
+Paladin,Protection,Precision,changed,text,2,1,3,no,Protection,2,1,3,,https://endgametools.com/en/wow-forever/talent/paladin/precision
+Paladin,Protection,Guardian's Favor,changed,values,2,2,2,no,Protection,2,2,2,,https://endgametools.com/en/wow-forever/talent/paladin/guardians-favor
+Paladin,Protection,Anticipation,changed,position values,2,4,5,no,Protection,3,4,5,,https://endgametools.com/en/wow-forever/talent/paladin/anticipation
+Paladin,Protection,Improved Seal of Fury,new,,3,1,1,no,,,,,,https://endgametools.com/en/wow-forever/talent/paladin/improved-seal-of-fury
+Paladin,Protection,Improved Righteous Fury,changed,values,3,2,3,no,Protection,3,2,3,,https://endgametools.com/en/wow-forever/talent/paladin/improved-righteous-fury
+Paladin,Protection,Shield Specialization,changed,values,3,3,3,no,Protection,3,3,3,,https://endgametools.com/en/wow-forever/talent/paladin/shield-specialization
+Paladin,Protection,Sacred Duty,new,,3,4,2,no,,,,,,https://endgametools.com/en/wow-forever/talent/paladin/sacred-duty
+Paladin,Protection,Swift Judgement,new,,4,1,1,no,,,,,,https://endgametools.com/en/wow-forever/talent/paladin/swift-judgement
+Paladin,Protection,One-Handed Weapon Specialization,changed,position ranks,4,2,3,no,Protection,6,3,5,,https://endgametools.com/en/wow-forever/talent/paladin/one-handed-weapon-specialization
+Paladin,Protection,Improved Hammer of Justice,changed,position,4,3,3,no,Protection,4,2,3,,https://endgametools.com/en/wow-forever/talent/paladin/improved-hammer-of-justice
+Paladin,Protection,Templar's Bulwark,new,,5,2,1,no,,,,,,https://endgametools.com/en/wow-forever/talent/paladin/templars-bulwark
+Paladin,Protection,Reckoning,changed,values,5,3,5,no,Protection,5,3,5,,https://endgametools.com/en/wow-forever/talent/paladin/reckoning
+Paladin,Protection,Iron Creed,new,,6,3,5,no,,,,,,https://endgametools.com/en/wow-forever/talent/paladin/iron-creed
+Paladin,Protection,Holy Shield,changed,values,7,2,1,yes,Protection,7,2,1,,https://endgametools.com/en/wow-forever/talent/paladin/holy-shield
+Paladin,Retribution,Deflection,changed,position,1,2,5,no,Retribution,2,3,5,,https://endgametools.com/en/wow-forever/talent/paladin/deflection
+Paladin,Retribution,Benediction,changed,values,1,3,5,no,Retribution,1,3,5,,https://endgametools.com/en/wow-forever/talent/paladin/benediction
+Paladin,Retribution,Improved Judgement,same,,2,1,2,no,Retribution,2,1,2,,https://endgametools.com/en/wow-forever/talent/paladin/improved-judgement
+Paladin,Retribution,Holy Conduit,new,,2,2,2,no,,,,,,https://endgametools.com/en/wow-forever/talent/paladin/holy-conduit
+Paladin,Retribution,Conviction,changed,position,2,3,5,no,Retribution,3,2,5,,https://endgametools.com/en/wow-forever/talent/paladin/conviction
+Paladin,Retribution,Vindication,changed,values,3,1,3,no,Retribution,3,1,3,,https://endgametools.com/en/wow-forever/talent/paladin/vindication
+Paladin,Retribution,Sanctified Judgement,new,,3,2,3,no,,,,,,https://endgametools.com/en/wow-forever/talent/paladin/sanctified-judgement
+Paladin,Retribution,Seal of Command,same,,3,3,1,no,Retribution,3,3,1,,https://endgametools.com/en/wow-forever/talent/paladin/seal-of-command
+Paladin,Retribution,Pursuit of Justice,changed,values,3,4,2,no,Retribution,3,4,2,,https://endgametools.com/en/wow-forever/talent/paladin/pursuit-of-justice
+Paladin,Retribution,Eye for an Eye,changed,values,4,1,2,no,Retribution,4,1,2,,https://endgametools.com/en/wow-forever/talent/paladin/eye-for-an-eye
+Paladin,Retribution,Sacred Arbiter,new,,4,3,1,no,,,,,,https://endgametools.com/en/wow-forever/talent/paladin/sacred-arbiter
+Paladin,Retribution,Two-Handed Weapon Specialization,same,,5,1,3,no,Retribution,5,1,3,,https://endgametools.com/en/wow-forever/talent/paladin/two-handed-weapon-specialization
+Paladin,Retribution,Vengeance,changed,position ranks values,5,2,3,no,Retribution,6,2,5,,https://endgametools.com/en/wow-forever/talent/paladin/vengeance
+Paladin,Retribution,Repentance,changed,position,5,3,1,no,Retribution,7,2,1,,https://endgametools.com/en/wow-forever/talent/paladin/repentance
+Paladin,Retribution,Champion of the Light,new,,6,2,3,no,,,,,,https://endgametools.com/en/wow-forever/talent/paladin/champion-of-the-light
+Paladin,Retribution,Instrument of Law,new,,6,3,2,no,,,,,,https://endgametools.com/en/wow-forever/talent/paladin/instrument-of-law
+Paladin,Retribution,Twist of Light,new,,7,2,1,yes,,,,,,https://endgametools.com/en/wow-forever/talent/paladin/twist-of-light
+Paladin,,Consecration,removed,,,,,,Holy,,,1,20,
+Paladin,,Improved Lay on Hands,removed,,,,,,Holy,,,2,,
+Paladin,,Improved Blessing of Wisdom,removed,,,,,,Holy,,,2,,
+Paladin,,Lasting Judgement,removed,,,,,,Holy,,,3,,
+Paladin,,Improved Devotion Aura,removed,,,,,,Protection,,,5,,
+Paladin,,Blessing of Kings,removed,,,,,,Protection,,,1,20,
+Paladin,,Improved Concentration Aura,removed,,,,,,Protection,,,3,,
+Paladin,,Blessing of Sanctuary,removed,,,,,,Protection,,,1,,
+Paladin,,Improved Blessing of Might,removed,,,,,,Retribution,,,5,,
+Paladin,,Improved Seal of the Crusader,removed,,,,,,Retribution,,,3,,
+Paladin,,Improved Retribution Aura,removed,,,,,,Retribution,,,2,,
+Paladin,,Sanctity Aura,removed,,,,,,Retribution,,,1,,
+Hunter,Beast Mastery,Deadly Aspects,changed,values,1,2,5,no,Beast Mastery,1,2,5,,https://endgametools.com/en/wow-forever/talent/hunter/deadly-aspects
+Hunter,Beast Mastery,Endurance Training,changed,text,1,3,5,no,Beast Mastery,1,3,5,,https://endgametools.com/en/wow-forever/talent/hunter/endurance-training
+Hunter,Beast Mastery,Focused Fire,new,,2,1,2,no,,,,,,https://endgametools.com/en/wow-forever/talent/hunter/focused-fire
+Hunter,Beast Mastery,Improved Aspect of the Monkey,changed,ranks values,2,2,3,no,Beast Mastery,2,2,5,,https://endgametools.com/en/wow-forever/talent/hunter/improved-aspect-of-the-monkey
+Hunter,Beast Mastery,Pathfinding,changed,position,2,3,2,no,Beast Mastery,3,1,2,,https://endgametools.com/en/wow-forever/talent/hunter/pathfinding
+Hunter,Beast Mastery,Improved Revive Pet,same,,2,4,2,no,Beast Mastery,2,4,2,,https://endgametools.com/en/wow-forever/talent/hunter/improved-revive-pet
+Hunter,Beast Mastery,Bestial Swiftness,changed,text,3,2,1,no,Beast Mastery,3,2,1,,https://endgametools.com/en/wow-forever/talent/hunter/bestial-swiftness
+Hunter,Beast Mastery,Unleashed Fury,changed,values,3,3,5,no,Beast Mastery,3,3,5,,https://endgametools.com/en/wow-forever/talent/hunter/unleashed-fury
+Hunter,Beast Mastery,Improved Mend Pet,changed,position values,4,1,2,no,Beast Mastery,4,2,2,,https://endgametools.com/en/wow-forever/talent/hunter/improved-mend-pet
+Hunter,Beast Mastery,Ferocity,changed,values,4,3,5,no,Beast Mastery,4,3,5,,https://endgametools.com/en/wow-forever/talent/hunter/ferocity
+Hunter,Beast Mastery,Summon Hawk,new,,4,4,1,no,,,,,,https://endgametools.com/en/wow-forever/talent/hunter/summon-hawk
+Hunter,Beast Mastery,Spirit Bond,changed,values,5,1,2,no,Beast Mastery,5,1,2,,https://endgametools.com/en/wow-forever/talent/hunter/spirit-bond
+Hunter,Beast Mastery,Intimidation,changed,values,5,2,1,no,Beast Mastery,5,2,1,,https://endgametools.com/en/wow-forever/talent/hunter/intimidation
+Hunter,Beast Mastery,Bestial Discipline,changed,values,5,4,2,no,Beast Mastery,5,4,2,,https://endgametools.com/en/wow-forever/talent/hunter/bestial-discipline
+Hunter,Beast Mastery,Frenzy,same,,6,3,5,no,Beast Mastery,6,3,5,,https://endgametools.com/en/wow-forever/talent/hunter/frenzy
+Hunter,Beast Mastery,Bestial Wrath,same,,7,2,1,yes,Beast Mastery,7,2,1,,https://endgametools.com/en/wow-forever/talent/hunter/bestial-wrath
+Hunter,Marksmanship,Hawk Eye,changed,position,1,1,3,no,Marksmanship,3,4,3,,https://endgametools.com/en/wow-forever/talent/hunter/hawk-eye
+Hunter,Marksmanship,Improved Concussive Shot,same,,1,2,5,no,Marksmanship,1,2,5,,https://endgametools.com/en/wow-forever/talent/hunter/improved-concussive-shot
+Hunter,Marksmanship,Lethal Attacks,changed,position text,1,3,5,no,Marksmanship,2,3,5,,https://endgametools.com/en/wow-forever/talent/hunter/lethal-attacks
+Hunter,Marksmanship,Improved Stings,new,,2,1,3,no,,,,,,https://endgametools.com/en/wow-forever/talent/hunter/improved-stings
+Hunter,Marksmanship,Efficiency,changed,position values,2,2,5,no,Marksmanship,1,3,5,,https://endgametools.com/en/wow-forever/talent/hunter/efficiency
+Hunter,Marksmanship,Careful Aim,new,,2,3,5,no,,,,,,https://endgametools.com/en/wow-forever/talent/hunter/careful-aim
+Hunter,Marksmanship,Rapid Killing,new,,3,1,2,no,,,,,,https://endgametools.com/en/wow-forever/talent/hunter/rapid-killing
+Hunter,Marksmanship,Improved Arcane Shot,changed,values,3,2,5,no,Marksmanship,3,2,5,,https://endgametools.com/en/wow-forever/talent/hunter/improved-arcane-shot
+Hunter,Marksmanship,Lone Wolf,new,,3,4,1,no,,,,,,https://endgametools.com/en/wow-forever/talent/hunter/lone-wolf
+Hunter,Marksmanship,Trueshot Aura,changed,position values,4,2,1,no,Marksmanship,7,2,1,,https://endgametools.com/en/wow-forever/talent/hunter/trueshot-aura
+Hunter,Marksmanship,Mortal Shots,same,,4,3,5,no,Marksmanship,4,3,5,,https://endgametools.com/en/wow-forever/talent/hunter/mortal-shots
+Hunter,Marksmanship,Improved Serpent Sting,changed,position,4,4,5,no,Marksmanship,4,2,5,,https://endgametools.com/en/wow-forever/talent/hunter/improved-serpent-sting
+Hunter,Marksmanship,Rapid Recuperation,new,,5,1,2,no,,,,,,https://endgametools.com/en/wow-forever/talent/hunter/rapid-recuperation
+Hunter,Marksmanship,Barrage,changed,position values,5,3,3,no,Marksmanship,5,2,3,,https://endgametools.com/en/wow-forever/talent/hunter/barrage
+Hunter,Marksmanship,Scatter Shot,changed,position,5,4,1,no,Marksmanship,5,1,1,,https://endgametools.com/en/wow-forever/talent/hunter/scatter-shot
+Hunter,Marksmanship,Ranged Weapon Specialization,same,,6,3,5,no,Marksmanship,6,3,5,,https://endgametools.com/en/wow-forever/talent/hunter/ranged-weapon-specialization
+Hunter,Marksmanship,Sniper Shot,new,,7,2,1,yes,,,,,,https://endgametools.com/en/wow-forever/talent/hunter/sniper-shot
+Hunter,Survival,Improved Tracking,new,,1,2,5,no,,,,,,https://endgametools.com/en/wow-forever/talent/hunter/improved-tracking
+Hunter,Survival,Deflection,same,,1,3,5,no,Survival,1,3,5,,https://endgametools.com/en/wow-forever/talent/hunter/deflection
+Hunter,Survival,Entrapment,changed,values,2,1,5,no,Survival,2,1,5,,https://endgametools.com/en/wow-forever/talent/hunter/entrapment
+Hunter,Survival,Savage Strikes,changed,values,2,2,2,no,Survival,2,2,2,,https://endgametools.com/en/wow-forever/talent/hunter/savage-strikes
+Hunter,Survival,Survivalist,changed,position,2,3,5,no,Survival,3,2,5,,https://endgametools.com/en/wow-forever/talent/hunter/survivalist
+Hunter,Survival,Improved Wing Clip,changed,position ranks,2,4,3,no,Survival,2,3,5,,https://endgametools.com/en/wow-forever/talent/hunter/improved-wing-clip
+Hunter,Survival,Clever Traps,same,,3,1,2,no,Survival,3,1,2,,https://endgametools.com/en/wow-forever/talent/hunter/clever-traps
+Hunter,Survival,Surefooted,changed,position values,3,2,3,no,Survival,4,2,3,,https://endgametools.com/en/wow-forever/talent/hunter/surefooted
+Hunter,Survival,Deterrence,same,,3,3,1,no,Survival,3,3,1,,https://endgametools.com/en/wow-forever/talent/hunter/deterrence
+Hunter,Survival,Survival Tactics,changed,text,4,1,2,no,Survival,4,1,2,,https://endgametools.com/en/wow-forever/talent/hunter/survival-tactics
+Hunter,Survival,Predator's Edge,new,,4,2,5,no,,,,,,https://endgametools.com/en/wow-forever/talent/hunter/predators-edge
+Hunter,Survival,Counterattack,changed,position values,4,3,1,no,Survival,5,3,1,,https://endgametools.com/en/wow-forever/talent/hunter/counterattack
+Hunter,Survival,Resourcefulness,new,,5,1,2,no,,,,,,https://endgametools.com/en/wow-forever/talent/hunter/resourcefulness
+Hunter,Survival,Expose Prey,new,,5,2,2,no,,,,,,https://endgametools.com/en/wow-forever/talent/hunter/expose-prey
+Hunter,Survival,Survivalist's Discipline,new,,5,3,2,no,,,,,,https://endgametools.com/en/wow-forever/talent/hunter/survivalists-discipline
+Hunter,Survival,Strider Kick,new,,5,4,1,no,,,,,,https://endgametools.com/en/wow-forever/talent/hunter/strider-kick
+Hunter,Survival,Lightning Reflexes,changed,values,6,3,5,no,Survival,6,3,5,,https://endgametools.com/en/wow-forever/talent/hunter/lightning-reflexes
+Hunter,Survival,Lacerating Strikes,new,,7,2,1,yes,,,,,,https://endgametools.com/en/wow-forever/talent/hunter/lacerating-strikes
+Hunter,Survival,Lightning Reflexes,changed,position,7,3,5,yes,Survival,6,3,5,,https://endgametools.com/en/wow-forever/talent/hunter/lightning-reflexes-survival
+Hunter,,Improved Eyes of the Beast,removed,,,,,,Beast Mastery,,,2,,
+Hunter,,Thick Hide,removed,,,,,,Beast Mastery,,,3,,
+Hunter,,Improved Hunter's Mark,removed,,,,,,Marksmanship,,,5,,
+Hunter,,Aimed Shot,removed,,,,,,Marksmanship,,,1,20,
+Hunter,,Improved Scorpid Sting,removed,,,,,,Marksmanship,,,3,,
+Hunter,,Monster Slaying,removed,,,,,,Survival,,,3,,
+Hunter,,Humanoid Slaying,removed,,,,,,Survival,,,3,,
+Hunter,,Improved Feign Death,removed,,,,,,Survival,,,2,,
+Hunter,,Killer Instinct,removed,,,,,,Survival,,,3,,
+Hunter,,Wyvern Sting,removed,,,,,,Survival,,,1,,
+Rogue,Assassination,Improved Gouge,changed,tree,1,1,3,no,Combat,1,1,3,,https://endgametools.com/en/wow-forever/talent/rogue/improved-gouge
+Rogue,Assassination,Remorseless Attacks,changed,text,1,2,2,no,Assassination,1,2,2,,https://endgametools.com/en/wow-forever/talent/rogue/remorseless-attacks
+Rogue,Assassination,Malice,changed,text,1,3,5,no,Assassination,1,3,5,,https://endgametools.com/en/wow-forever/talent/rogue/malice
+Rogue,Assassination,Ruthlessness,same,,2,1,3,no,Assassination,2,1,3,,https://endgametools.com/en/wow-forever/talent/rogue/ruthlessness
+Rogue,Assassination,Murder,changed,values,2,2,2,no,Assassination,2,2,2,,https://endgametools.com/en/wow-forever/talent/rogue/murder
+Rogue,Assassination,Improved Slice and Dice,same,,2,4,3,no,Assassination,2,4,3,,https://endgametools.com/en/wow-forever/talent/rogue/improved-slice-and-dice
+Rogue,Assassination,Relentless Strikes,same,,3,1,1,no,Assassination,3,1,1,,https://endgametools.com/en/wow-forever/talent/rogue/relentless-strikes
+Rogue,Assassination,Improved Expose Armor,changed,values,3,2,2,no,Assassination,3,2,2,,https://endgametools.com/en/wow-forever/talent/rogue/improved-expose-armor
+Rogue,Assassination,Lethality,changed,values,3,3,5,no,Assassination,3,3,5,,https://endgametools.com/en/wow-forever/talent/rogue/lethality
+Rogue,Assassination,Vile Poisons,changed,position,4,1,5,no,Assassination,4,2,5,,https://endgametools.com/en/wow-forever/talent/rogue/vile-poisons
+Rogue,Assassination,Cold Blood,changed,position text,4,2,1,no,Assassination,5,2,1,,https://endgametools.com/en/wow-forever/talent/rogue/cold-blood
+Rogue,Assassination,Improved Poisons,changed,values,4,3,5,no,Assassination,4,3,5,,https://endgametools.com/en/wow-forever/talent/rogue/improved-poisons
+Rogue,Assassination,Vigor,changed,position ranks,5,1,2,no,Assassination,7,2,1,,https://endgametools.com/en/wow-forever/talent/rogue/vigor
+Rogue,Assassination,Mutilate,new,,5,2,1,no,,,,,,https://endgametools.com/en/wow-forever/talent/rogue/mutilate
+Rogue,Assassination,Improved Kidney Shot,changed,ranks values,5,3,2,no,Assassination,5,3,3,,https://endgametools.com/en/wow-forever/talent/rogue/improved-kidney-shot
+Rogue,Assassination,Seal Fate,changed,position,6,3,5,no,Assassination,6,2,5,,https://endgametools.com/en/wow-forever/talent/rogue/seal-fate
+Rogue,Assassination,Venom,new,,7,2,1,yes,,,,,,https://endgametools.com/en/wow-forever/talent/rogue/venom
+Rogue,Combat,Improved Eviscerate,changed,tree values,1,1,3,no,Assassination,1,1,3,,https://endgametools.com/en/wow-forever/talent/rogue/improved-eviscerate
+Rogue,Combat,Improved Sinister Strike,same,,1,2,2,no,Combat,1,2,2,,https://endgametools.com/en/wow-forever/talent/rogue/improved-sinister-strike
+Rogue,Combat,Lightning Reflexes,same,,1,3,5,no,Combat,1,3,5,,https://endgametools.com/en/wow-forever/talent/rogue/lightning-reflexes
+Rogue,Combat,Puncturing Wounds,new,,2,1,3,no,,,,,,https://endgametools.com/en/wow-forever/talent/rogue/puncturing-wounds
+Rogue,Combat,Deflection,changed,ranks values,2,2,3,no,Combat,2,2,5,,https://endgametools.com/en/wow-forever/talent/rogue/deflection
+Rogue,Combat,Precision,changed,ranks values,2,3,3,no,Combat,2,3,5,,https://endgametools.com/en/wow-forever/talent/rogue/precision
+Rogue,Combat,Endurance,changed,values,3,1,2,no,Combat,3,1,2,,https://endgametools.com/en/wow-forever/talent/rogue/endurance
+Rogue,Combat,Riposte,same,,3,2,1,no,Combat,3,2,1,,https://endgametools.com/en/wow-forever/talent/rogue/riposte
+Rogue,Combat,Improved Sprint,same,,3,4,2,no,Combat,3,4,2,,https://endgametools.com/en/wow-forever/talent/rogue/improved-sprint
+Rogue,Combat,Improved Kick,same,,4,1,2,no,Combat,4,1,2,,https://endgametools.com/en/wow-forever/talent/rogue/improved-kick
+Rogue,Combat,Flawless Execution,new,,4,2,1,no,,,,,,https://endgametools.com/en/wow-forever/talent/rogue/flawless-execution
+Rogue,Combat,Dual Wield Specialization,changed,values,4,3,5,no,Combat,4,3,5,,https://endgametools.com/en/wow-forever/talent/rogue/dual-wield-specialization
+Rogue,Combat,Blade Flurry,changed,text,5,2,1,no,Combat,5,2,1,,https://endgametools.com/en/wow-forever/talent/rogue/blade-flurry
+Rogue,Combat,Hack and Slash,new,,5,3,5,no,,,,,,https://endgametools.com/en/wow-forever/talent/rogue/hack-and-slash
+Rogue,Combat,Weapon Expertise,changed,values,6,2,2,no,Combat,6,2,2,,https://endgametools.com/en/wow-forever/talent/rogue/weapon-expertise
+Rogue,Combat,Aggression,changed,text,6,3,3,no,Combat,6,3,3,,https://endgametools.com/en/wow-forever/talent/rogue/aggression
+Rogue,Combat,Adrenaline Rush,same,,7,2,1,yes,Combat,7,2,1,,https://endgametools.com/en/wow-forever/talent/rogue/adrenaline-rush
+Rogue,Subtlety,Camouflage,changed,position values,1,1,5,no,Subtlety,2,3,5,,https://endgametools.com/en/wow-forever/talent/rogue/camouflage
+Rogue,Subtlety,Master of Deception,changed,ranks values,1,2,3,no,Subtlety,1,2,5,,https://endgametools.com/en/wow-forever/talent/rogue/master-of-deception
+Rogue,Subtlety,Opportunity,changed,ranks values,1,3,2,no,Subtlety,1,3,5,,https://endgametools.com/en/wow-forever/talent/rogue/opportunity
+Rogue,Subtlety,Setup,changed,position values,2,1,3,no,Subtlety,4,1,3,,https://endgametools.com/en/wow-forever/talent/rogue/setup
+Rogue,Subtlety,Elusiveness,changed,values,2,2,2,no,Subtlety,2,2,2,,https://endgametools.com/en/wow-forever/talent/rogue/elusiveness
+Rogue,Subtlety,Dirty Tricks,new,,2,3,2,no,,,,,,https://endgametools.com/en/wow-forever/talent/rogue/dirty-tricks
+Rogue,Subtlety,Improved Ambush,changed,position,2,4,3,no,Subtlety,3,3,3,,https://endgametools.com/en/wow-forever/talent/rogue/improved-ambush
+Rogue,Subtlety,Initiative,changed,values,3,1,3,no,Subtlety,3,1,3,,https://endgametools.com/en/wow-forever/talent/rogue/initiative
+Rogue,Subtlety,Ghostly Strike,changed,values,3,2,1,no,Subtlety,3,2,1,,https://endgametools.com/en/wow-forever/talent/rogue/ghostly-strike
+Rogue,Subtlety,Improved Distract,new,,3,3,2,no,,,,,,https://endgametools.com/en/wow-forever/talent/rogue/improved-distract
+Rogue,Subtlety,Heightened Senses,changed,position values,4,1,2,no,Subtlety,5,1,2,,https://endgametools.com/en/wow-forever/talent/rogue/heightened-senses
+Rogue,Subtlety,Premeditation,changed,position values,4,2,1,no,Subtlety,7,2,1,,https://endgametools.com/en/wow-forever/talent/rogue/premeditation
+Rogue,Subtlety,Serrated Blades,changed,values,4,3,3,no,Subtlety,4,3,3,,https://endgametools.com/en/wow-forever/talent/rogue/serrated-blades
+Rogue,Subtlety,Dirty Deeds,changed,position text,5,1,2,no,Subtlety,5,3,2,,https://endgametools.com/en/wow-forever/talent/rogue/dirty-deeds
+Rogue,Subtlety,Preparation,same,,5,2,1,no,Subtlety,5,2,1,,https://endgametools.com/en/wow-forever/talent/rogue/preparation
+Rogue,Subtlety,Hemorrhage,changed,position values,5,3,1,no,Subtlety,5,4,1,,https://endgametools.com/en/wow-forever/talent/rogue/hemorrhage
+Rogue,Subtlety,Quietus,new,,6,1,5,no,,,,,,https://endgametools.com/en/wow-forever/talent/rogue/quietus
+Rogue,Subtlety,Cutthroat,new,,6,3,5,no,,,,,,https://endgametools.com/en/wow-forever/talent/rogue/cutthroat
+Rogue,Subtlety,Thousand Cuts,new,,7,2,1,yes,,,,,,https://endgametools.com/en/wow-forever/talent/rogue/thousand-cuts
+Rogue,,Improved Backstab,removed,,,,,,Combat,,,3,,
+Rogue,,Dagger Specialization,removed,,,,,,Combat,,,5,,
+Rogue,,Mace Specialization,removed,,,,,,Combat,,,5,,
+Rogue,,Sword Specialization,removed,,,,,,Combat,,,5,,
+Rogue,,Fist Weapon Specialization,removed,,,,,,Combat,,,5,,
+Rogue,,Sleight of Hand,removed,,,,,,Subtlety,,,2,,
+Rogue,,Improved Sap,removed,,,,,,Subtlety,,,3,,
+Rogue,,Deadliness,removed,,,,,,Subtlety,,,5,,
+Priest,Discipline,Power in Light,new,,1,1,5,no,,,,,,https://endgametools.com/en/wow-forever/talent/priest/power-in-light
+Priest,Discipline,Wand Specialization,changed,position ranks,1,2,2,no,Discipline,1,3,5,,https://endgametools.com/en/wow-forever/talent/priest/wand-specialization
+Priest,Discipline,Twin Disciplines,new,,1,3,5,no,,,,,,https://endgametools.com/en/wow-forever/talent/priest/twin-disciplines
+Priest,Discipline,Silent Resolve,changed,ranks values,2,1,3,no,Discipline,2,1,5,,https://endgametools.com/en/wow-forever/talent/priest/silent-resolve
+Priest,Discipline,Holy Precision,new,,2,2,3,no,,,,,,https://endgametools.com/en/wow-forever/talent/priest/holy-precision
+Priest,Discipline,Mental Strength,changed,position text,2,3,5,no,Discipline,5,2,5,,https://endgametools.com/en/wow-forever/talent/priest/mental-strength
+Priest,Discipline,Martyrdom,changed,steps,2,4,2,no,Discipline,2,4,2,,https://endgametools.com/en/wow-forever/talent/priest/martyrdom
+Priest,Discipline,Mental Agility,changed,position ranks text,3,1,3,no,Discipline,4,2,5,,https://endgametools.com/en/wow-forever/talent/priest/mental-agility
+Priest,Discipline,Inner Focus,changed,text,3,2,1,no,Discipline,3,2,1,,https://endgametools.com/en/wow-forever/talent/priest/inner-focus
+Priest,Discipline,Improved Power Word: Shield,changed,position values,3,3,3,no,Discipline,2,3,3,,https://endgametools.com/en/wow-forever/talent/priest/improved-power-word-shield
+Priest,Discipline,Meditation,changed,position values,3,4,3,no,Discipline,3,3,3,,https://endgametools.com/en/wow-forever/talent/priest/meditation
+Priest,Discipline,Improved Inner Fire,changed,values,4,1,3,no,Discipline,4,1,3,,https://endgametools.com/en/wow-forever/talent/priest/improved-inner-fire
+Priest,Discipline,Improved Mana Burn,changed,position values,4,2,2,no,Discipline,4,4,2,,https://endgametools.com/en/wow-forever/talent/priest/improved-mana-burn
+Priest,Discipline,Soul Warding,new,,4,3,1,no,,,,,,https://endgametools.com/en/wow-forever/talent/priest/soul-warding
+Priest,Discipline,Penance,new,,5,2,1,no,,,,,,https://endgametools.com/en/wow-forever/talent/priest/penance
+Priest,Discipline,Renewed Hope,new,,5,3,5,no,,,,,,https://endgametools.com/en/wow-forever/talent/priest/renewed-hope
+Priest,Discipline,Divine Aegis,new,,6,3,3,no,,,,,,https://endgametools.com/en/wow-forever/talent/priest/divine-aegis
+Priest,Discipline,Power Infusion,changed,text,7,2,1,yes,Discipline,7,2,1,,https://endgametools.com/en/wow-forever/talent/priest/power-infusion
+Priest,Holy,Twilight Focus,changed,ranks text,1,1,3,no,Holy,1,1,2,,https://endgametools.com/en/wow-forever/talent/priest/twilight-focus
+Priest,Holy,Improved Renew,same,,1,2,3,no,Holy,1,2,3,,https://endgametools.com/en/wow-forever/talent/priest/improved-renew
+Priest,Holy,Holy Specialization,same,,1,3,5,no,Holy,1,3,5,,https://endgametools.com/en/wow-forever/talent/priest/holy-specialization
+Priest,Holy,Spell Warding,same,,2,2,5,no,Holy,2,2,5,,https://endgametools.com/en/wow-forever/talent/priest/spell-warding
+Priest,Holy,Divine Fury,same,,2,3,5,no,Holy,2,3,5,,https://endgametools.com/en/wow-forever/talent/priest/divine-fury
+Priest,Holy,Holy Nova,changed,values,3,1,1,no,Holy,3,1,1,,https://endgametools.com/en/wow-forever/talent/priest/holy-nova
+Priest,Holy,Blessed Recovery,changed,values,3,2,3,no,Holy,3,2,3,,https://endgametools.com/en/wow-forever/talent/priest/blessed-recovery
+Priest,Holy,Inspiration,changed,steps text,3,4,3,no,Holy,3,4,3,,https://endgametools.com/en/wow-forever/talent/priest/inspiration
+Priest,Holy,Holy Reach,same,,4,1,2,no,Holy,4,1,2,,https://endgametools.com/en/wow-forever/talent/priest/holy-reach
+Priest,Holy,Improved Healing,changed,text,4,2,3,no,Holy,4,2,3,,https://endgametools.com/en/wow-forever/talent/priest/improved-healing
+Priest,Holy,Searing Light,changed,values,4,3,2,no,Holy,4,3,2,,https://endgametools.com/en/wow-forever/talent/priest/searing-light
+Priest,Holy,Binding Heal,new,,4,4,1,no,,,,,,https://endgametools.com/en/wow-forever/talent/priest/binding-heal
+Priest,Holy,Litany of Light,new,,5,1,2,no,,,,,,https://endgametools.com/en/wow-forever/talent/priest/litany-of-light
+Priest,Holy,Spirit of Redemption,changed,values,5,2,1,no,Holy,5,2,1,,https://endgametools.com/en/wow-forever/talent/priest/spirit-of-redemption
+Priest,Holy,Spiritual Guidance,changed,values,5,3,5,no,Holy,5,3,5,,https://endgametools.com/en/wow-forever/talent/priest/spiritual-guidance
+Priest,Holy,Spiritual Healing,changed,ranks text,6,3,3,no,Holy,6,3,5,,https://endgametools.com/en/wow-forever/talent/priest/spiritual-healing
+Priest,Holy,Prayer of Mending,new,,7,2,1,yes,,,,,,https://endgametools.com/en/wow-forever/talent/priest/prayer-of-mending
+Priest,Shadow,Shadow Focus,changed,position values,1,1,5,no,Shadow,2,3,5,,https://endgametools.com/en/wow-forever/talent/priest/shadow-focus
+Priest,Shadow,Blackout,changed,position,1,2,5,no,Shadow,1,3,5,,https://endgametools.com/en/wow-forever/talent/priest/blackout
+Priest,Shadow,Spirit Tap,changed,position values,1,3,5,no,Shadow,1,2,5,,https://endgametools.com/en/wow-forever/talent/priest/spirit-tap
+Priest,Shadow,Holy Specialization,changed,tree,1,4,5,no,Holy,1,3,5,,https://endgametools.com/en/wow-forever/talent/priest/holy-specialization-shadow
+Priest,Shadow,Improved Mind Blast,changed,position,2,1,5,no,Shadow,3,2,5,,https://endgametools.com/en/wow-forever/talent/priest/improved-mind-blast
+Priest,Shadow,Improved Shadow Word: Pain,changed,position,2,3,2,no,Shadow,2,2,2,,https://endgametools.com/en/wow-forever/talent/priest/improved-shadow-word-pain
+Priest,Shadow,Shadow Reach,changed,position ranks text,2,4,2,no,Shadow,4,3,3,,https://endgametools.com/en/wow-forever/talent/priest/shadow-reach
+Priest,Shadow,Improved Psychic Scream,changed,position,3,2,2,no,Shadow,3,1,2,,https://endgametools.com/en/wow-forever/talent/priest/improved-psychic-scream
+Priest,Shadow,Mind Flay,changed,values,3,3,1,no,Shadow,3,3,1,,https://endgametools.com/en/wow-forever/talent/priest/mind-flay
+Priest,Shadow,Improved Mind Flay,new,,3,4,2,no,,,,,,https://endgametools.com/en/wow-forever/talent/priest/improved-mind-flay
+Priest,Shadow,Dark Inspiration,new,,4,1,5,no,,,,,,https://endgametools.com/en/wow-forever/talent/priest/dark-inspiration
+Priest,Shadow,Vampiric Embrace,changed,position values,4,2,1,no,Shadow,5,2,1,,https://endgametools.com/en/wow-forever/talent/priest/vampiric-embrace
+Priest,Shadow,Shadow Weaving,changed,position ranks values,4,3,3,no,Shadow,4,4,5,,https://endgametools.com/en/wow-forever/talent/priest/shadow-weaving
+Priest,Shadow,Silence,changed,values,5,1,1,no,Shadow,5,1,1,,https://endgametools.com/en/wow-forever/talent/priest/silence
+Priest,Shadow,Devouring Contagion,new,,5,3,2,no,,,,,,https://endgametools.com/en/wow-forever/talent/priest/devouring-contagion
+Priest,Shadow,Early Demise,new,,6,1,2,no,,,,,,https://endgametools.com/en/wow-forever/talent/priest/early-demise
+Priest,Shadow,Darkness,changed,text,6,3,5,no,Shadow,6,3,5,,https://endgametools.com/en/wow-forever/talent/priest/darkness
+Priest,Shadow,Shadowform,changed,values,7,2,1,yes,Shadow,7,2,1,,https://endgametools.com/en/wow-forever/talent/priest/shadowform
+Priest,,Unbreakable Will,removed,,,,,,Discipline,,,5,,
+Priest,,Improved Power Word: Fortitude,removed,,,,,,Discipline,,,2,,
+Priest,,Divine Spirit,removed,,,,,,Discipline,,,1,30,
+Priest,,Force of Will,removed,,,,,,Discipline,,,5,,
+Priest,,Improved Prayer of Healing,removed,,,,,,Holy,,,2,,
+Priest,,Lightwell,removed,,,,,,Holy,,,1,40,
+Priest,,Shadow Affinity,removed,,,,,,Shadow,,,3,,
+Priest,,Improved Fade,removed,,,,,,Shadow,,,2,,
+Priest,,Improved Vampiric Embrace,removed,,,,,,Shadow,,,2,,
+Shaman,Elemental,Convection,changed,text,1,2,5,no,Elemental,1,2,5,,https://endgametools.com/en/wow-forever/talent/shaman/convection
+Shaman,Elemental,Concussion,changed,text,1,3,5,no,Elemental,1,3,5,,https://endgametools.com/en/wow-forever/talent/shaman/concussion
+Shaman,Elemental,Elemental Devastation,changed,position text,2,1,3,no,Elemental,4,4,3,,https://endgametools.com/en/wow-forever/talent/shaman/elemental-devastation
+Shaman,Elemental,Reverberation,changed,position,2,2,5,no,Elemental,3,2,5,,https://endgametools.com/en/wow-forever/talent/shaman/reverberation
+Shaman,Elemental,Elemental Alacrity,changed,position ranks values,2,3,3,no,Elemental,6,3,5,,https://endgametools.com/en/wow-forever/talent/shaman/elemental-alacrity
+Shaman,Elemental,Call of Flame,changed,position values,2,4,3,no,Elemental,2,3,3,,https://endgametools.com/en/wow-forever/talent/shaman/call-of-flame
+Shaman,Elemental,Elemental Focus,same,,3,1,1,no,Elemental,3,1,1,,https://endgametools.com/en/wow-forever/talent/shaman/elemental-focus
+Shaman,Elemental,Elemental Warding,changed,position steps,3,2,3,no,Elemental,2,2,3,,https://endgametools.com/en/wow-forever/talent/shaman/elemental-warding
+Shaman,Elemental,Trial by Fire,changed,values,4,1,2,no,Elemental,4,1,2,,https://endgametools.com/en/wow-forever/talent/shaman/trial-by-fire
+Shaman,Elemental,Eye of the Storm,changed,values,4,2,3,no,Elemental,4,2,3,,https://endgametools.com/en/wow-forever/talent/shaman/eye-of-the-storm
+Shaman,Elemental,Earthbound,new,,4,4,1,no,,,,,,https://endgametools.com/en/wow-forever/talent/shaman/earthbound
+Shaman,Elemental,Elemental Reach,changed,values,5,1,2,no,Elemental,5,1,2,,https://endgametools.com/en/wow-forever/talent/shaman/elemental-reach
+Shaman,Elemental,Lava Burst,new,,5,2,1,no,,,,,,https://endgametools.com/en/wow-forever/talent/shaman/lava-burst
+Shaman,Elemental,Lightning Overload,new,,5,3,3,no,,,,,,https://endgametools.com/en/wow-forever/talent/shaman/lightning-overload
+Shaman,Elemental,Elemental Fury,changed,position ranks text,6,3,5,no,Elemental,5,2,1,,https://endgametools.com/en/wow-forever/talent/shaman/elemental-fury
+Shaman,Elemental,Elemental Mastery,changed,values,7,2,1,yes,Elemental,7,2,1,,https://endgametools.com/en/wow-forever/talent/shaman/elemental-mastery
+Shaman,Enhancement,Earth's Grasp,changed,tree,1,1,2,no,Elemental,2,1,2,,https://endgametools.com/en/wow-forever/talent/shaman/earths-grasp
+Shaman,Enhancement,Thundering Strikes,changed,position,1,2,5,no,Enhancement,2,2,5,,https://endgametools.com/en/wow-forever/talent/shaman/thundering-strikes
+Shaman,Enhancement,Ancestral Knowledge,changed,position values,1,3,5,no,Enhancement,1,2,5,,https://endgametools.com/en/wow-forever/talent/shaman/ancestral-knowledge
+Shaman,Enhancement,Guardian Totems,same,,2,1,2,no,Enhancement,2,1,2,,https://endgametools.com/en/wow-forever/talent/shaman/guardian-totems
+Shaman,Enhancement,Mental Dexterity,new,,2,2,3,no,,,,,,https://endgametools.com/en/wow-forever/talent/shaman/mental-dexterity
+Shaman,Enhancement,Improved Ghost Wolf,changed,values,2,3,2,no,Enhancement,2,3,2,,https://endgametools.com/en/wow-forever/talent/shaman/improved-ghost-wolf
+Shaman,Enhancement,Improved Lightning Shield,same,,2,4,3,no,Enhancement,2,4,3,,https://endgametools.com/en/wow-forever/talent/shaman/improved-lightning-shield
+Shaman,Enhancement,Elemental Weapons,changed,position steps,3,1,3,no,Enhancement,5,2,3,,https://endgametools.com/en/wow-forever/talent/shaman/elemental-weapons
+Shaman,Enhancement,Shamanistic Focus,new,,3,3,1,no,,,,,,https://endgametools.com/en/wow-forever/talent/shaman/shamanistic-focus
+Shaman,Enhancement,Anticipation,changed,ranks values,3,4,3,no,Enhancement,3,4,5,,https://endgametools.com/en/wow-forever/talent/shaman/anticipation
+Shaman,Enhancement,Toughness,changed,position text,4,1,5,no,Enhancement,4,3,5,,https://endgametools.com/en/wow-forever/talent/shaman/toughness
+Shaman,Enhancement,Flurry,changed,values,4,2,5,no,Enhancement,4,2,5,,https://endgametools.com/en/wow-forever/talent/shaman/flurry
+Shaman,Enhancement,Stormstrike,changed,position values,4,3,1,no,Enhancement,7,2,1,,https://endgametools.com/en/wow-forever/talent/shaman/stormstrike
+Shaman,Enhancement,Spirit Weapons,changed,position values,5,1,1,no,Enhancement,5,3,1,,https://endgametools.com/en/wow-forever/talent/shaman/spirit-weapons
+Shaman,Enhancement,Mental Quickness,new,,5,2,2,no,,,,,,https://endgametools.com/en/wow-forever/talent/shaman/mental-quickness
+Shaman,Enhancement,Improved Stormstrike,new,,5,3,2,no,,,,,,https://endgametools.com/en/wow-forever/talent/shaman/improved-stormstrike
+Shaman,Enhancement,Maelstrom Weapon,new,,6,3,5,no,,,,,,https://endgametools.com/en/wow-forever/talent/shaman/maelstrom-weapon
+Shaman,Enhancement,Rage of the Farseer,new,,7,2,1,yes,,,,,,https://endgametools.com/en/wow-forever/talent/shaman/rage-of-the-farseer
+Shaman,Restoration,Improved Healing Wave,same,,1,2,5,no,Restoration,1,2,5,,https://endgametools.com/en/wow-forever/talent/shaman/improved-healing-wave
+Shaman,Restoration,Tidal Focus,changed,values,1,3,5,no,Restoration,1,3,5,,https://endgametools.com/en/wow-forever/talent/shaman/tidal-focus
+Shaman,Restoration,Mindfulness,new,,2,1,3,no,,,,,,https://endgametools.com/en/wow-forever/talent/shaman/mindfulness
+Shaman,Restoration,Natural Grace,changed,position text,2,2,3,no,Restoration,3,4,3,,https://endgametools.com/en/wow-forever/talent/shaman/natural-grace
+Shaman,Restoration,Totemic Focus,changed,text,2,3,5,no,Restoration,2,3,5,,https://endgametools.com/en/wow-forever/talent/shaman/totemic-focus
+Shaman,Restoration,Improved Reincarnation,changed,position values,2,4,2,no,Restoration,2,1,2,,https://endgametools.com/en/wow-forever/talent/shaman/improved-reincarnation
+Shaman,Restoration,Ancestral Healing,changed,position steps,3,1,3,no,Restoration,2,2,3,,https://endgametools.com/en/wow-forever/talent/shaman/ancestral-healing
+Shaman,Restoration,Healing Focus,changed,ranks,3,2,3,no,Restoration,3,2,5,,https://endgametools.com/en/wow-forever/talent/shaman/healing-focus
+Shaman,Restoration,Water Shield,new,,3,3,1,no,,,,,,https://endgametools.com/en/wow-forever/talent/shaman/water-shield
+Shaman,Restoration,Tidal Mastery,changed,position text,4,1,5,no,Restoration,4,3,5,,https://endgametools.com/en/wow-forever/talent/shaman/tidal-mastery
+Shaman,Restoration,Restorative Totems,changed,values,4,2,5,no,Restoration,4,2,5,,https://endgametools.com/en/wow-forever/talent/shaman/restorative-totems
+Shaman,Restoration,Mana Tide Totem,changed,position values,4,3,1,no,Restoration,7,2,1,,https://endgametools.com/en/wow-forever/talent/shaman/mana-tide-totem
+Shaman,Restoration,Healing Way,changed,position values,5,2,3,no,Restoration,5,1,3,,https://endgametools.com/en/wow-forever/talent/shaman/healing-way
+Shaman,Restoration,Nature's Swiftness,same,,5,3,1,no,Restoration,5,3,1,,https://endgametools.com/en/wow-forever/talent/shaman/natures-swiftness
+Shaman,Restoration,Purification,same,,6,3,5,no,Restoration,6,3,5,,https://endgametools.com/en/wow-forever/talent/shaman/purification
+Shaman,Restoration,Riptide,new,,7,2,1,yes,,,,,,https://endgametools.com/en/wow-forever/talent/shaman/riptide
+Shaman,,Call of Thunder,removed,,,,,,Elemental,,,5,,
+Shaman,,Shield Specialization,removed,,,,,,Enhancement,,,5,,
+Shaman,,Enhancing Totems,removed,,,,,,Enhancement,,,2,,
+Shaman,,Two-Handed Axes and Maces,removed,,,,,,Enhancement,,,1,,
+Shaman,,Improved Weapon Totems,removed,,,,,,Enhancement,,,2,,
+Shaman,,Weapon Mastery,removed,,,,,,Enhancement,,,5,,
+Shaman,,Nature's Guidance,removed,,,,,,Restoration,,,3,,
+Shaman,,Totemic Mastery,removed,,,,,,Restoration,,,1,,
+Mage,Arcane,Wand Specialization,changed,position,1,1,2,no,Arcane,2,1,2,,https://endgametools.com/en/wow-forever/talent/mage/wand-specialization
+Mage,Arcane,Arcane Focus,changed,values,1,2,5,no,Arcane,1,2,5,,https://endgametools.com/en/wow-forever/talent/mage/arcane-focus
+Mage,Arcane,Improved Channeling,changed,values,1,3,5,no,Arcane,1,3,5,,https://endgametools.com/en/wow-forever/talent/mage/improved-channeling
+Mage,Arcane,Missile Barrage,new,,1,4,2,no,,,,,,https://endgametools.com/en/wow-forever/talent/mage/missile-barrage
+Mage,Arcane,Arcane Subtlety,changed,position values,2,1,2,no,Arcane,1,1,2,,https://endgametools.com/en/wow-forever/talent/mage/arcane-subtlety
+Mage,Arcane,Magic Absorption,changed,ranks values,2,2,2,no,Arcane,2,2,5,,https://endgametools.com/en/wow-forever/talent/mage/magic-absorption
+Mage,Arcane,Arcane Concentration,same,,2,3,5,no,Arcane,2,3,5,,https://endgametools.com/en/wow-forever/talent/mage/arcane-concentration
+Mage,Arcane,Arcane Resilience,changed,position ranks,2,4,2,no,Arcane,3,3,1,,https://endgametools.com/en/wow-forever/talent/mage/arcane-resilience
+Mage,Arcane,Arcane Geometry,new,,3,1,2,no,,,,,,https://endgametools.com/en/wow-forever/talent/mage/arcane-geometry
+Mage,Arcane,Arcane Impact,changed,text,3,2,3,no,Arcane,3,2,3,,https://endgametools.com/en/wow-forever/talent/mage/arcane-impact
+Mage,Arcane,Arcane Blast,new,,3,4,1,no,,,,,,https://endgametools.com/en/wow-forever/talent/mage/arcane-blast
+Mage,Arcane,Arcane Shielding,changed,values,4,1,2,no,Arcane,4,1,2,,https://endgametools.com/en/wow-forever/talent/mage/arcane-shielding
+Mage,Arcane,Improved Counterspell,changed,values,4,2,2,no,Arcane,4,2,2,,https://endgametools.com/en/wow-forever/talent/mage/improved-counterspell
+Mage,Arcane,Arcane Meditation,changed,position values,4,3,3,no,Arcane,4,4,3,,https://endgametools.com/en/wow-forever/talent/mage/arcane-meditation
+Mage,Arcane,Arcane Wrath,new,,4,4,1,no,,,,,,https://endgametools.com/en/wow-forever/talent/mage/arcane-wrath
+Mage,Arcane,Presence of Mind,same,,5,2,1,no,Arcane,5,2,1,,https://endgametools.com/en/wow-forever/talent/mage/presence-of-mind
+Mage,Arcane,Arcane Mind,changed,values,5,3,5,no,Arcane,5,3,5,,https://endgametools.com/en/wow-forever/talent/mage/arcane-mind
+Mage,Arcane,Arcane Instability,changed,position values,6,3,3,no,Arcane,6,2,3,,https://endgametools.com/en/wow-forever/talent/mage/arcane-instability
+Mage,Arcane,Arcane Power,changed,values,7,2,1,yes,Arcane,7,2,1,,https://endgametools.com/en/wow-forever/talent/mage/arcane-power
+Mage,Fire,Improved Fire Blast,changed,position ranks values,1,1,2,no,Fire,2,3,3,,https://endgametools.com/en/wow-forever/talent/mage/improved-fire-blast
+Mage,Fire,Incineration,changed,position ranks values,1,2,3,no,Fire,3,1,2,,https://endgametools.com/en/wow-forever/talent/mage/incineration
+Mage,Fire,Improved Fireball,changed,position text,1,3,5,no,Fire,1,2,5,,https://endgametools.com/en/wow-forever/talent/mage/improved-fireball
+Mage,Fire,Ignite,same,,2,1,5,no,Fire,2,1,5,,https://endgametools.com/en/wow-forever/talent/mage/ignite
+Mage,Fire,Flame Throwing,same,,2,2,2,no,Fire,2,2,2,,https://endgametools.com/en/wow-forever/talent/mage/flame-throwing
+Mage,Fire,Impact,changed,position ranks,2,3,3,no,Fire,1,3,5,,https://endgametools.com/en/wow-forever/talent/mage/impact
+Mage,Fire,Burning Soul,changed,position ranks,3,1,3,no,Fire,3,4,2,,https://endgametools.com/en/wow-forever/talent/mage/burning-soul
+Mage,Fire,Improved Flamestrike,same,,3,2,3,no,Fire,3,2,3,,https://endgametools.com/en/wow-forever/talent/mage/improved-flamestrike
+Mage,Fire,Pyroblast,changed,values,3,3,1,no,Fire,3,3,1,,https://endgametools.com/en/wow-forever/talent/mage/pyroblast
+Mage,Fire,Improved Scorch,changed,steps text,4,1,3,no,Fire,4,1,3,,https://endgametools.com/en/wow-forever/talent/mage/improved-scorch
+Mage,Fire,Improved Fire Ward,same,,4,2,2,no,Fire,4,2,2,,https://endgametools.com/en/wow-forever/talent/mage/improved-fire-ward
+Mage,Fire,Heating Up,new,,4,3,1,no,,,,,,https://endgametools.com/en/wow-forever/talent/mage/heating-up
+Mage,Fire,Master of Elements,same,,4,4,3,no,Fire,4,4,3,,https://endgametools.com/en/wow-forever/talent/mage/master-of-elements
+Mage,Fire,Critical Mass,changed,ranks values,5,2,5,no,Fire,5,2,3,,https://endgametools.com/en/wow-forever/talent/mage/critical-mass
+Mage,Fire,Blast Wave,changed,values,5,3,1,no,Fire,5,3,1,,https://endgametools.com/en/wow-forever/talent/mage/blast-wave
+Mage,Fire,Fire Power,changed,ranks values,6,3,3,no,Fire,6,3,5,,https://endgametools.com/en/wow-forever/talent/mage/fire-power
+Mage,Fire,Combustion,changed,text,7,2,1,yes,Fire,7,2,1,,https://endgametools.com/en/wow-forever/talent/mage/combustion
+Mage,Frost,Frost Warding,same,,1,1,2,no,Frost,1,1,2,,https://endgametools.com/en/wow-forever/talent/mage/frost-warding
+Mage,Frost,Improved Frostbolt,changed,text,1,2,5,no,Frost,1,2,5,,https://endgametools.com/en/wow-forever/talent/mage/improved-frostbolt
+Mage,Frost,Elemental Precision,changed,ranks values,1,3,5,no,Frost,1,3,3,,https://endgametools.com/en/wow-forever/talent/mage/elemental-precision
+Mage,Frost,Ice Shards,same,,2,1,5,no,Frost,2,1,5,,https://endgametools.com/en/wow-forever/talent/mage/ice-shards
+Mage,Frost,Frostbite,same,,2,2,3,no,Frost,2,2,3,,https://endgametools.com/en/wow-forever/talent/mage/frostbite
+Mage,Frost,Improved Frost Nova,same,,2,3,2,no,Frost,2,3,2,,https://endgametools.com/en/wow-forever/talent/mage/improved-frost-nova
+Mage,Frost,Permafrost,changed,values,2,4,3,no,Frost,2,4,3,,https://endgametools.com/en/wow-forever/talent/mage/permafrost
+Mage,Frost,Piercing Ice,same,,3,1,3,no,Frost,3,1,3,,https://endgametools.com/en/wow-forever/talent/mage/piercing-ice
+Mage,Frost,Frost Channeling,changed,position,3,2,3,no,Frost,4,2,3,,https://endgametools.com/en/wow-forever/talent/mage/frost-channeling
+Mage,Frost,Ice Lance,new,,3,3,1,no,,,,,,https://endgametools.com/en/wow-forever/talent/mage/ice-lance
+Mage,Frost,Improved Blizzard,changed,values,3,4,3,no,Frost,3,4,3,,https://endgametools.com/en/wow-forever/talent/mage/improved-blizzard
+Mage,Frost,Arctic Reach,changed,text,4,1,2,no,Frost,4,1,2,,https://endgametools.com/en/wow-forever/talent/mage/arctic-reach
+Mage,Frost,Ice Block,changed,position,4,2,1,no,Frost,5,2,1,,https://endgametools.com/en/wow-forever/talent/mage/ice-block
+Mage,Frost,Shatter,changed,position ranks,4,4,3,no,Frost,4,3,5,,https://endgametools.com/en/wow-forever/talent/mage/shatter
+Mage,Frost,Improved Cone of Cold,changed,position steps,5,1,3,no,Frost,5,3,3,,https://endgametools.com/en/wow-forever/talent/mage/improved-cone-of-cold
+Mage,Frost,Cold Snap,changed,position,5,2,1,no,Frost,3,2,1,,https://endgametools.com/en/wow-forever/talent/mage/cold-snap
+Mage,Frost,Fingers of Frost,new,,5,3,2,no,,,,,,https://endgametools.com/en/wow-forever/talent/mage/fingers-of-frost
+Mage,Frost,Winter's Chill,changed,values,6,3,5,no,Frost,6,3,5,,https://endgametools.com/en/wow-forever/talent/mage/winters-chill
+Mage,Frost,Ice Barrier,changed,values,7,2,1,yes,Frost,7,2,1,,https://endgametools.com/en/wow-forever/talent/mage/ice-barrier
+Mage,,Magic Attunement,removed,,,,,,Arcane,,,2,,
+Warlock,Affliction,Improved Life Tap,changed,position,1,1,2,no,Affliction,2,3,2,,https://endgametools.com/en/wow-forever/talent/warlock/improved-life-tap
+Warlock,Affliction,Suppression,changed,position values,2,2,5,no,Affliction,1,2,5,,https://endgametools.com/en/wow-forever/talent/warlock/suppression
+Warlock,Affliction,Improved Corruption,changed,position values,2,3,5,no,Affliction,1,3,5,,https://endgametools.com/en/wow-forever/talent/warlock/improved-corruption
+Warlock,Affliction,Grim Reach,changed,position,3,1,2,no,Affliction,4,1,2,,https://endgametools.com/en/wow-forever/talent/warlock/grim-reach
+Warlock,Affliction,Soul Harvest,new,,3,2,2,no,,,,,,https://endgametools.com/en/wow-forever/talent/warlock/soul-harvest
+Warlock,Affliction,Improved Drains,new,,3,3,3,no,,,,,,https://endgametools.com/en/wow-forever/talent/warlock/improved-drains
+Warlock,Affliction,Amplify Curse,changed,position values,4,3,1,no,Affliction,3,3,1,,https://endgametools.com/en/wow-forever/talent/warlock/amplify-curse
+Warlock,Affliction,Improved Bane of Agony,changed,position ranks values,5,1,2,no,Affliction,3,1,3,,https://endgametools.com/en/wow-forever/talent/warlock/improved-bane-of-agony
+Warlock,Affliction,Fel Concentration,changed,position ranks text,5,2,3,no,Affliction,3,2,5,,https://endgametools.com/en/wow-forever/talent/warlock/fel-concentration
+Warlock,Affliction,Pandemic,new,,5,4,3,no,,,,,,https://endgametools.com/en/wow-forever/talent/warlock/pandemic
+Warlock,Affliction,Malevolence,new,,6,1,5,no,,,,,,https://endgametools.com/en/wow-forever/talent/warlock/malevolence
+Warlock,Affliction,Nightfall,changed,position text,6,2,2,no,Affliction,4,2,2,,https://endgametools.com/en/wow-forever/talent/warlock/nightfall
+Warlock,Affliction,Curse of Exhaustion,changed,position values,6,3,1,no,Affliction,5,3,1,,https://endgametools.com/en/wow-forever/talent/warlock/curse-of-exhaustion
+Warlock,Affliction,Siphon Life,changed,position values,7,2,1,no,Affliction,5,2,1,,https://endgametools.com/en/wow-forever/talent/warlock/siphon-life
+Warlock,Affliction,Soul Siphon,new,,7,3,3,no,,,,,,https://endgametools.com/en/wow-forever/talent/warlock/soul-siphon
+Warlock,Affliction,Shadow Mastery,changed,position,8,3,5,no,Affliction,6,2,5,,https://endgametools.com/en/wow-forever/talent/warlock/shadow-mastery
+Warlock,Affliction,Wrack,new,,9,2,1,yes,,,,,,https://endgametools.com/en/wow-forever/talent/warlock/wrack
+Warlock,Demonology,Improved Health Funnel,changed,values,2,1,2,no,Demonology,2,1,2,,https://endgametools.com/en/wow-forever/talent/warlock/improved-health-funnel
+Warlock,Demonology,Improved Imp,changed,position values,2,2,3,no,Demonology,1,2,3,,https://endgametools.com/en/wow-forever/talent/warlock/improved-imp
+Warlock,Demonology,Demonic Embrace,changed,position values,2,3,5,no,Demonology,1,3,5,,https://endgametools.com/en/wow-forever/talent/warlock/demonic-embrace
+Warlock,Demonology,Unholy Power,changed,position values,2,4,5,no,Demonology,4,3,5,,https://endgametools.com/en/wow-forever/talent/warlock/unholy-power
+Warlock,Demonology,Demonic Aegis,new,,3,1,2,no,,,,,,https://endgametools.com/en/wow-forever/talent/warlock/demonic-aegis
+Warlock,Demonology,Improved Voidwalker,changed,position,3,2,3,no,Demonology,2,2,3,,https://endgametools.com/en/wow-forever/talent/warlock/improved-voidwalker
+Warlock,Demonology,Fel Vitality,new,,3,3,3,no,,,,,,https://endgametools.com/en/wow-forever/talent/warlock/fel-vitality
+Warlock,Demonology,Demonic Energies,new,,3,4,2,no,,,,,,https://endgametools.com/en/wow-forever/talent/warlock/demonic-energies
+Warlock,Demonology,Improved Sayaad,changed,position,5,1,3,no,Demonology,3,1,3,,https://endgametools.com/en/wow-forever/talent/warlock/improved-sayaad
+Warlock,Demonology,Demonic Sacrifice,changed,values,5,2,1,no,Demonology,5,2,1,,https://endgametools.com/en/wow-forever/talent/warlock/demonic-sacrifice
+Warlock,Demonology,Master Summoner,changed,position,5,3,2,no,Demonology,4,2,2,,https://endgametools.com/en/wow-forever/talent/warlock/master-summoner
+Warlock,Demonology,Decimation,new,,6,1,2,no,,,,,,https://endgametools.com/en/wow-forever/talent/warlock/decimation
+Warlock,Demonology,Fel Domination,changed,position,6,3,1,no,Demonology,3,2,1,,https://endgametools.com/en/wow-forever/talent/warlock/fel-domination
+Warlock,Demonology,Demonic Brand,new,,6,4,3,no,,,,,,https://endgametools.com/en/wow-forever/talent/warlock/demonic-brand
+Warlock,Demonology,Improved Felhunter,new,,7,1,3,no,,,,,,https://endgametools.com/en/wow-forever/talent/warlock/improved-felhunter
+Warlock,Demonology,Soul Link,same,,7,2,1,no,Demonology,7,2,1,,https://endgametools.com/en/wow-forever/talent/warlock/soul-link
+Warlock,Demonology,Demonic Knowledge,new,,7,3,3,no,,,,,,https://endgametools.com/en/wow-forever/talent/warlock/demonic-knowledge
+Warlock,Demonology,Master Demonologist,changed,position values,8,3,5,no,Demonology,6,3,5,,https://endgametools.com/en/wow-forever/talent/warlock/master-demonologist
+Warlock,Demonology,Demonic Pact,new,,9,2,1,yes,,,,,,https://endgametools.com/en/wow-forever/talent/warlock/demonic-pact
+Warlock,Destruction,Destructive Reach,changed,position,2,1,2,no,Destruction,4,2,2,,https://endgametools.com/en/wow-forever/talent/warlock/destructive-reach
+Warlock,Destruction,Improved Shadow Bolt,changed,position values,2,2,5,no,Destruction,1,2,5,,https://endgametools.com/en/wow-forever/talent/warlock/improved-shadow-bolt
+Warlock,Destruction,Bane,changed,position text,2,3,5,no,Destruction,2,2,5,,https://endgametools.com/en/wow-forever/talent/warlock/bane
+Warlock,Destruction,Molten Skin,new,,3,1,5,no,,,,,,https://endgametools.com/en/wow-forever/talent/warlock/molten-skin
+Warlock,Destruction,Cataclysm,changed,position ranks values,3,2,3,no,Destruction,1,3,5,,https://endgametools.com/en/wow-forever/talent/warlock/cataclysm
+Warlock,Destruction,Aftermath,changed,position values,3,3,5,no,Destruction,2,3,5,,https://endgametools.com/en/wow-forever/talent/warlock/aftermath
+Warlock,Destruction,Ruin,changed,position ranks,5,2,5,no,Destruction,5,3,1,,https://endgametools.com/en/wow-forever/talent/warlock/ruin
+Warlock,Destruction,Shadowburn,changed,position values,5,3,1,no,Destruction,3,4,1,,https://endgametools.com/en/wow-forever/talent/warlock/shadowburn
+Warlock,Destruction,Intensity,changed,position ranks text,6,1,3,no,Destruction,4,1,2,,https://endgametools.com/en/wow-forever/talent/warlock/intensity
+Warlock,Destruction,Agonizing Flames,changed,position ranks values,6,2,3,no,Destruction,4,4,5,,https://endgametools.com/en/wow-forever/talent/warlock/agonizing-flames
+Warlock,Destruction,Conflagrate,changed,position values,6,3,1,no,Destruction,7,2,1,,https://endgametools.com/en/wow-forever/talent/warlock/conflagrate
+Warlock,Destruction,Pyroclasm,changed,position values,7,1,2,no,Destruction,5,1,2,,https://endgametools.com/en/wow-forever/talent/warlock/pyroclasm
+Warlock,Destruction,Bane of Havoc,new,,7,2,1,no,,,,,,https://endgametools.com/en/wow-forever/talent/warlock/bane-of-havoc
+Warlock,Destruction,Fire and Brimstone,new,,7,3,3,no,,,,,,https://endgametools.com/en/wow-forever/talent/warlock/fire-and-brimstone
+Warlock,Destruction,Shadow and Flame,new,,8,3,5,no,,,,,,https://endgametools.com/en/wow-forever/talent/warlock/shadow-and-flame
+Warlock,Destruction,Incinerate,new,,9,2,1,yes,,,,,,https://endgametools.com/en/wow-forever/talent/warlock/incinerate
+Warlock,,Improved Curse of Weakness,removed,,,,,,Affliction,,,3,,
+Warlock,,Improved Drain Soul,removed,,,,,,Affliction,,,2,,
+Warlock,,Improved Drain Life,removed,,,,,,Affliction,,,5,,
+Warlock,,Improved Drain Mana,removed,,,,,,Affliction,,,2,,
+Warlock,,Improved Curse of Exhaustion,removed,,,,,,Affliction,,,4,,
+Warlock,,Dark Pact,removed,,,,,,Affliction,,,1,,
+Warlock,,Improved Healthstone,removed,,,,,,Demonology,,,2,,
+Warlock,,Fel Intellect,removed,,,,,,Demonology,,,5,,
+Warlock,,Fel Stamina,removed,,,,,,Demonology,,,5,,
+Warlock,,Improved Subjugate Demon,removed,,,,,,Demonology,,,5,,
+Warlock,,Improved Firestone,removed,,,,,,Demonology,,,2,,
+Warlock,,Improved Spellstone,removed,,,,,,Demonology,,,2,,
+Warlock,,Improved Firebolt,removed,,,,,,Destruction,,,2,,
+Warlock,,Improved Lash of Pain,removed,,,,,,Destruction,,,2,,
+Warlock,,Devastation,removed,,,,,,Destruction,,,5,,
+Warlock,,Improved Immolate,removed,,,,,,Destruction,,,5,,
+Warlock,,Emberstorm,removed,,,,,,Destruction,,,5,,
+Druid,Balance,Improved Wrath,changed,position values,1,2,5,no,Balance,1,1,5,,https://endgametools.com/en/wow-forever/talent/druid/improved-wrath
+Druid,Balance,Genesis,new,,1,3,5,no,,,,,,https://endgametools.com/en/wow-forever/talent/druid/genesis
+Druid,Balance,Moonglow,changed,position values,2,1,3,no,Balance,5,3,3,,https://endgametools.com/en/wow-forever/talent/druid/moonglow
+Druid,Balance,Improved Moonfire,changed,ranks,2,2,2,no,Balance,2,2,5,,https://endgametools.com/en/wow-forever/talent/druid/improved-moonfire
+Druid,Balance,Nature's Majesty,new,,2,3,2,no,,,,,,https://endgametools.com/en/wow-forever/talent/druid/natures-majesty
+Druid,Balance,Nature's Reach,changed,position values,2,4,2,no,Balance,3,4,2,,https://endgametools.com/en/wow-forever/talent/druid/natures-reach
+Druid,Balance,Improved Entangling Roots,changed,position values,3,1,3,no,Balance,2,1,3,,https://endgametools.com/en/wow-forever/talent/druid/improved-entangling-roots
+Druid,Balance,Nature's Splendor,new,,3,3,1,no,,,,,,https://endgametools.com/en/wow-forever/talent/druid/natures-splendor
+Druid,Balance,Insect Swarm,changed,tree values,4,1,1,no,Restoration,3,3,1,,https://endgametools.com/en/wow-forever/talent/druid/insect-swarm
+Druid,Balance,Vengeance,changed,text,4,2,5,no,Balance,4,2,5,,https://endgametools.com/en/wow-forever/talent/druid/vengeance
+Druid,Balance,Improved Starfire,same,,4,3,5,no,Balance,4,3,5,,https://endgametools.com/en/wow-forever/talent/druid/improved-starfire
+Druid,Balance,Overgrowth,new,,5,1,2,no,,,,,,https://endgametools.com/en/wow-forever/talent/druid/overgrowth
+Druid,Balance,Nature's Grace,changed,values,5,2,1,no,Balance,5,2,1,,https://endgametools.com/en/wow-forever/talent/druid/natures-grace
+Druid,Balance,Eclipse,new,,5,3,3,no,,,,,,https://endgametools.com/en/wow-forever/talent/druid/eclipse
+Druid,Balance,Moonfury,changed,text,6,2,5,no,Balance,6,2,5,,https://endgametools.com/en/wow-forever/talent/druid/moonfury
+Druid,Balance,Moonkin Form,changed,values,7,2,1,yes,Balance,7,2,1,,https://endgametools.com/en/wow-forever/talent/druid/moonkin-form
+Druid,Feral Combat,Ferocity,changed,text,1,2,5,no,Feral Combat,1,2,5,,https://endgametools.com/en/wow-forever/talent/druid/ferocity
+Druid,Feral Combat,Heart of the Wild,changed,position values,1,3,5,no,Feral Combat,6,2,5,,https://endgametools.com/en/wow-forever/talent/druid/heart-of-the-wild
+Druid,Feral Combat,Feral Swiftness,changed,position text,2,1,2,no,Feral Combat,3,1,2,,https://endgametools.com/en/wow-forever/talent/druid/feral-swiftness
+Druid,Feral Combat,Feral Instinct,changed,position ranks values,2,2,3,no,Feral Combat,2,1,5,,https://endgametools.com/en/wow-forever/talent/druid/feral-instinct
+Druid,Feral Combat,Brutal Impact,changed,position values,2,3,2,no,Feral Combat,2,2,2,,https://endgametools.com/en/wow-forever/talent/druid/brutal-impact
+Druid,Feral Combat,Thick Hide,changed,position ranks values,2,4,3,no,Feral Combat,2,3,5,,https://endgametools.com/en/wow-forever/talent/druid/thick-hide
+Druid,Feral Combat,Shredding Attacks,changed,position ranks values,3,1,3,no,Feral Combat,4,1,2,,https://endgametools.com/en/wow-forever/talent/druid/shredding-attacks
+Druid,Feral Combat,Savage Fury,changed,position values,3,2,2,no,Feral Combat,5,1,2,,https://endgametools.com/en/wow-forever/talent/druid/savage-fury
+Druid,Feral Combat,Feral Charge,changed,position values,3,3,1,no,Feral Combat,3,2,1,,https://endgametools.com/en/wow-forever/talent/druid/feral-charge
+Druid,Feral Combat,Sharpened Claws,changed,position ranks,3,4,2,no,Feral Combat,3,3,3,,https://endgametools.com/en/wow-forever/talent/druid/sharpened-claws
+Druid,Feral Combat,Shifting Power,new,,4,1,1,no,,,,,,https://endgametools.com/en/wow-forever/talent/druid/shifting-power
+Druid,Feral Combat,Primal Bite,new,,4,2,1,no,,,,,,https://endgametools.com/en/wow-forever/talent/druid/primal-bite
+Druid,Feral Combat,Predatory Strikes,changed,position,4,3,3,no,Feral Combat,4,2,3,,https://endgametools.com/en/wow-forever/talent/druid/predatory-strikes
+Druid,Feral Combat,Blood Frenzy,changed,values,4,4,2,no,Feral Combat,4,4,2,,https://endgametools.com/en/wow-forever/talent/druid/blood-frenzy
+Druid,Feral Combat,Improved Shifting Power,new,,5,1,2,no,,,,,,https://endgametools.com/en/wow-forever/talent/druid/improved-shifting-power
+Druid,Feral Combat,Leader of the Pack,changed,position text,5,2,1,no,Feral Combat,7,2,1,,https://endgametools.com/en/wow-forever/talent/druid/leader-of-the-pack
+Druid,Feral Combat,Natural Instinct,new,,5,4,2,no,,,,,,https://endgametools.com/en/wow-forever/talent/druid/natural-instinct
+Druid,Feral Combat,Natural Reaction,new,,6,1,5,no,,,,,,https://endgametools.com/en/wow-forever/talent/druid/natural-reaction
+Druid,Feral Combat,Rend and Tear,new,,6,3,5,no,,,,,,https://endgametools.com/en/wow-forever/talent/druid/rend-and-tear
+Druid,Feral Combat,Berserk,new,,7,2,1,yes,,,,,,https://endgametools.com/en/wow-forever/talent/druid/berserk
+Druid,Restoration,Nature's Focus,changed,position text,1,2,5,no,Restoration,2,2,5,,https://endgametools.com/en/wow-forever/talent/druid/natures-focus
+Druid,Restoration,Furor,changed,values,1,3,5,no,Restoration,1,3,5,,https://endgametools.com/en/wow-forever/talent/druid/furor
+Druid,Restoration,Naturalist,changed,values,2,1,5,no,Restoration,2,1,5,,https://endgametools.com/en/wow-forever/talent/druid/naturalist
+Druid,Restoration,Subtlety,changed,position ranks values,2,2,3,no,Restoration,3,4,5,,https://endgametools.com/en/wow-forever/talent/druid/subtlety
+Druid,Restoration,Natural Shapeshifter,changed,tree,2,3,3,no,Balance,2,4,3,,https://endgametools.com/en/wow-forever/talent/druid/natural-shapeshifter
+Druid,Restoration,Reflection,changed,values,3,2,3,no,Restoration,3,2,3,,https://endgametools.com/en/wow-forever/talent/druid/reflection
+Druid,Restoration,Gift of Nature,changed,position,3,3,5,no,Restoration,5,3,5,,https://endgametools.com/en/wow-forever/talent/druid/gift-of-nature
+Druid,Restoration,Gift of the Earthmother,new,,3,4,1,no,,,,,,https://endgametools.com/en/wow-forever/talent/druid/gift-of-the-earthmother
+Druid,Restoration,Tranquil Spirit,same,,4,2,5,no,Restoration,4,2,5,,https://endgametools.com/en/wow-forever/talent/druid/tranquil-spirit
+Druid,Restoration,Improved Rejuvenation,changed,position,4,3,3,no,Restoration,4,4,3,,https://endgametools.com/en/wow-forever/talent/druid/improved-rejuvenation
+Druid,Restoration,Swiftmend,changed,position values,4,4,1,no,Restoration,7,2,1,,https://endgametools.com/en/wow-forever/talent/druid/swiftmend
+Druid,Restoration,Nature's Swiftness,same,,5,1,1,no,Restoration,5,1,1,,https://endgametools.com/en/wow-forever/talent/druid/natures-swiftness
+Druid,Restoration,Living Spirit,new,,5,2,3,no,,,,,,https://endgametools.com/en/wow-forever/talent/druid/living-spirit
+Druid,Restoration,Improved Tranquility,changed,values,5,4,2,no,Restoration,5,4,2,,https://endgametools.com/en/wow-forever/talent/druid/improved-tranquility
+Druid,Restoration,Improved Regrowth,same,,6,3,5,no,Restoration,6,3,5,,https://endgametools.com/en/wow-forever/talent/druid/improved-regrowth
+Druid,Restoration,Wild Growth,new,,7,2,1,yes,,,,,,https://endgametools.com/en/wow-forever/talent/druid/wild-growth
+Druid,,Nature's Grasp,removed,,,,,,Balance,,,1,10,
+Druid,,Improved Nature's Grasp,removed,,,,,,Balance,,,4,,
+Druid,,Natural Weapons,removed,,,,,,Balance,,,5,,
+Druid,,Improved Thorns,removed,,,,,,Balance,,,3,,
+Druid,,Omen of Clarity,removed,,,,,,Balance,,,1,20,
+Druid,,Feral Aggression,removed,,,,,,Feral Combat,,,5,,
+Druid,,Blood Frenzy,removed,,,,,,Feral Combat,,,2,,
+Druid,,Faerie Fire (Feral),removed,,,,,,Feral Combat,,,1,,
+Druid,,Improved Mark of the Wild,removed,,,,,,Restoration,,,5,,
+Druid,,Improved Enrage,removed,,,,,,Restoration,,,2,,

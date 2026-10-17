@@ -1,0 +1,5 @@
+{
+  "version": 1,
+  "include": ["/*/build/*"],
+  "exclude": ["/_astro/*", "/icons/*", "/images/*", "/og/*", "/favicon.svg", "/robots.txt", "/llms.txt"]
+}

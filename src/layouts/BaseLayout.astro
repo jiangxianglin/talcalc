@@ -1,0 +1,212 @@
+---
+import '../styles/global.css';
+import { SITE_NAME, absoluteUrl } from '../lib/seo';
+import { meta } from '../lib/data';
+import { CF_BEACON_TOKEN } from '../lib/env';
+
+interface Props {
+  title: string;
+  description: string;
+  canonicalPath: string;
+  ogImage?: string;
+  jsonLd?: unknown | unknown[];
+  noindex?: boolean;
+  /** Skip default main padding/container (home hero is full-bleed). */
+  bare?: boolean;
+  activeNav?: 'home' | 'calculator' | 'beta';
+}
+
+const {
+  title,
+  description,
+  canonicalPath,
+  ogImage = '/og/home.png',
+  jsonLd,
+  noindex = false,
+  bare = false,
+  activeNav,
+} = Astro.props;
+
+const canonical = absoluteUrl(canonicalPath);
+const og = absoluteUrl(ogImage);
+const graphs = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
+const cfBeaconJson = CF_BEACON_TOKEN
+  ? JSON.stringify({ token: CF_BEACON_TOKEN })
+  : '';
+
+const navHome = activeNav === 'home' || (!activeNav && canonicalPath === '/');
+const navBeta = activeNav === 'beta' || canonicalPath.startsWith('/beta');
+const navCalc =
+  activeNav === 'calculator' ||
+  (!activeNav && !navHome && !navBeta);
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="alternate" hreflang="en" href={canonical} />
+    {noindex && <meta name="robots" content="noindex" />}
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={SITE_NAME} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={og} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={og} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://render.worldofwarcraft.com" crossorigin />
+    <link rel="dns-prefetch" href="https://render.worldofwarcraft.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=IBM+Plex+Mono:wght@400;500&family=Source+Sans+3:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    {
+      graphs.map((g) => (
+        <script type="application/ld+json" set:html={JSON.stringify(g)} />
+      ))
+    }
+    {
+      CF_BEACON_TOKEN && (
+        <script
+          defer
+          src="https://static.cloudflareinsights.com/beacon.min.js"
+          data-cf-beacon={cfBeaconJson}
+        />
+      )
+    }
+  </head>
+  <body class="min-h-screen flex flex-col">
+    <a href="#main" class="skip-link">Skip to content</a>
+
+    <header
+      class="sticky top-0 z-40 border-b border-ink-800/70 bg-ink-950/75 backdrop-blur-md"
+    >
+      <div class="site-container flex items-center justify-between gap-4 py-3">
+        <a href="/" class="group flex items-center gap-2 no-underline shrink-0">
+          <span class="relative grid h-8 w-8 place-items-center" aria-hidden="true">
+            <svg viewBox="0 0 32 32" class="h-8 w-8">
+              <path
+                d="M16 4l3.4 6.2L26 11.4l-5 4.8 1.2 7L16 20.2 9.8 23.2l1.2-7-5-4.8 6.6-1.2L16 4z"
+                fill="#3d85c6"
+                opacity="0.85"></path>
+              <path
+                d="M16 9l2 3.6 4 .7-2.9 2.8.7 4L16 18.1 12.2 20l.7-4L10 13.3l4-.7L16 9z"
+                fill="#c9a96e"></path>
+            </svg>
+          </span>
+          <span
+            class="font-display text-xl sm:text-2xl font-bold tracking-[0.12em] text-gold group-hover:text-ember-bright transition-colors"
+            >TALCALC</span
+          >
+        </a>
+
+        <nav
+          class="hidden md:flex items-center gap-6 absolute left-1/2 -translate-x-1/2"
+          aria-label="Primary"
+        >
+          <a href="/" class="nav-link" aria-current={navHome ? 'page' : undefined}>Home</a>
+          <a
+            href={canonicalPath === '/' ? '#calculator' : '/warrior/'}
+            class="nav-link"
+            aria-current={navCalc && !navHome ? 'page' : undefined}
+            >Talent Calculator</a
+          >
+          <a href="/beta/" class="nav-link" aria-current={navBeta ? 'page' : undefined}
+            >Changelog</a
+          >
+        </nav>
+
+        <div class="flex items-center gap-2 shrink-0">
+          <span
+            class="hidden sm:inline-flex items-center gap-1.5 rounded border border-ink-700/80 bg-ink-900/70 px-2 py-1 text-[11px] text-ink-300"
+          >
+            <span
+              class="grid h-4 w-4 place-items-center rounded-full bg-gold/20 text-[9px] font-display text-gold"
+              aria-hidden="true">∞</span
+            >
+            Forever™
+          </span>
+          <p class="text-[10px] sm:text-[11px] text-ink-500 font-mono truncate max-w-[7.5rem] lg:max-w-none text-right">
+            {meta.clientBuild}
+          </p>
+        </div>
+      </div>
+      <nav
+        class="md:hidden border-t border-ink-800/60 site-container flex justify-center gap-5 py-2"
+        aria-label="Primary mobile"
+      >
+        <a href="/" class="nav-link" aria-current={navHome ? 'page' : undefined}>Home</a>
+        <a
+          href={canonicalPath === '/' ? '#calculator' : '/warrior/'}
+          class="nav-link"
+          aria-current={navCalc && !navHome ? 'page' : undefined}
+          >Calculator</a
+        >
+        <a href="/beta/" class="nav-link" aria-current={navBeta ? 'page' : undefined}>Changelog</a>
+      </nav>
+    </header>
+
+    <main
+      id="main"
+      class:list={[
+        'flex-1 w-full',
+        !bare && 'site-container py-8',
+      ]}
+    >
+      <slot />
+    </main>
+
+    <footer class="mt-auto border-t border-ink-800/80 bg-ink-950">
+      <div class="site-container py-8 space-y-6">
+        <div
+          class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 text-center md:text-left"
+        >
+          <a href="/" class="font-display text-lg tracking-[0.14em] text-gold no-underline"
+            >TALCALC</a
+          >
+          <p
+            class="font-display text-sm tracking-wide text-ink-300 flex items-center justify-center gap-3"
+          >
+            <span class="hidden sm:block h-px w-10 bg-gold/40" aria-hidden="true"></span>
+            Better Builds. Greater Adventures.
+            <span class="hidden sm:block h-px w-10 bg-gold/40" aria-hidden="true"></span>
+          </p>
+          <p class="text-xs text-ink-500 font-mono">WoW: Forever™</p>
+        </div>
+
+        <nav class="flex flex-wrap justify-center md:justify-start gap-x-4 gap-y-2 text-sm" aria-label="Footer">
+          <a href="/">Calculator</a>
+          <a href="/beta/">Beta changelog</a>
+          <a href="/warrior/">Warrior</a>
+          <a href="/paladin/">Paladin</a>
+          <a href="/hunter/">Hunter</a>
+          <a href="/rogue/">Rogue</a>
+          <a href="/priest/">Priest</a>
+          <a href="/shaman/">Shaman</a>
+          <a href="/mage/">Mage</a>
+          <a href="/warlock/">Warlock</a>
+          <a href="/druid/">Druid</a>
+        </nav>
+
+        <p class="text-xs text-ink-400">{meta.attribution}</p>
+        <p class="disclaimer">
+          Talc is an unofficial fan-made tool for World of Warcraft®. Not affiliated with,
+          endorsed by, or sponsored by Blizzard Entertainment, Inc. All game content, names
+          and materials are trademarks and copyrights of their respective owners.
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>

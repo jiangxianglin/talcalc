@@ -1,0 +1,683 @@
+---
+import type { ClassInfo, RankMap, Talent } from '../lib/types';
+import { meta, changeLabel, changeTitle } from '../lib/data';
+import { decodeBuild, totalPointsUsed, pointsInTree } from '../lib/decodeBuild';
+import { talentIconUrl } from '../lib/icons';
+
+interface Props {
+  classInfo: ClassInfo;
+  talents: Talent[];
+  initialCode?: string;
+  syncUrl?: boolean;
+  storageKey?: string;
+  instanceId?: string;
+  showLists?: boolean;
+}
+
+const {
+  classInfo,
+  talents,
+  initialCode = '',
+  syncUrl = true,
+  storageKey = `talc-draft-${classInfo.slug}`,
+  instanceId = classInfo.slug,
+  showLists = true,
+} = Astro.props;
+
+const dataId = `talc-calc-data-${instanceId}`;
+const rootId = `talc-calc-${instanceId}`;
+
+const initialRanks: RankMap =
+  decodeBuild(initialCode || undefined, classInfo.slug, classInfo, talents) ??
+  Object.fromEntries(talents.map((t) => [t.id, 0]));
+
+const used = totalPointsUsed(initialRanks);
+const remaining = meta.totalPoints - used;
+
+// Client needs icon + ranks for tooltips; drop unused spell/numeric ids
+const clientTalents = talents.map(
+  ({ spellId: _s, numericId: _n, treeId: _t, ...rest }) => rest,
+);
+
+const payload = {
+  classSlug: classInfo.slug,
+  trees: classInfo.trees,
+  talents: clientTalents,
+  totalPoints: meta.totalPoints,
+  rowGate: meta.rowGate,
+  initialRanks,
+  initialCode,
+  syncUrl,
+  storageKey,
+};
+
+function cellState(t: Talent, ranks: RankMap): string {
+  const r = ranks[t.id] ?? 0;
+  if (r >= t.maxRank) return 'maxed';
+  if (r > 0) return 'active';
+  const treePts = pointsInTree(talents, ranks, t.tree);
+  if (treePts < t.pointsRequired) return 'locked';
+  const reqs = t.requiresAny?.length
+    ? t.requiresAny
+    : t.requires
+      ? [t.requires]
+      : [];
+  if (reqs.length) {
+    const ok = reqs.some((id) => {
+      const req = talents.find((x) => x.id === id);
+      return req ? (ranks[id] ?? 0) >= req.maxRank : false;
+    });
+    if (!ok) return 'locked';
+  }
+  return 'available';
+}
+
+---
+
+<section
+  id={rootId}
+  class="talc-calc"
+  data-calc
+  data-calc-id={instanceId}
+  aria-label={`${classInfo.name} talent calculator`}
+>
+  <div
+    class="calc-toolbar flex flex-col gap-2 mb-4 sticky top-14 z-30 py-2 bg-ink-950/90 backdrop-blur border-b border-ink-800/80"
+  >
+    <div class="font-mono text-sm flex flex-wrap items-baseline gap-x-3 gap-y-1" aria-live="polite">
+      <span>
+        <span class="text-ink-400">Points</span>
+        <span data-used class="text-ink-100 font-medium ml-1">{used}</span>
+        <span class="text-ink-600">/</span>
+        <span class="text-ink-100">{meta.totalPoints}</span>
+      </span>
+      <span>
+        <span class="text-ink-400">Left</span>
+        <span data-left class="text-gold font-medium ml-1">{remaining}</span>
+      </span>
+      <span class="text-ink-500 text-xs" data-dist>
+        {
+          classInfo.trees
+            .map((tr) => `${pointsInTree(talents, initialRanks, tr.slug)}`)
+            .join(' / ')
+        }
+      </span>
+    </div>
+    <div class="flex flex-wrap gap-1.5 sm:gap-2">
+      <button type="button" data-action="copy" class="btn">Copy link</button>
+      <button type="button" data-action="undo" class="btn">Undo</button>
+      <button type="button" data-action="reset" class="btn">Reset</button>
+      <button
+        type="button"
+        data-action="compare"
+        aria-pressed="false"
+        class="btn"
+        title="Highlight talents marked new, changed, or moved vs Classic"
+        >Compare Classic</button
+      >
+    </div>
+  </div>
+
+  <p data-status class="text-xs text-ink-400 mb-2 min-h-[1rem]" aria-live="polite"></p>
+  <p class="text-[11px] text-ink-500 mb-4 flex flex-wrap gap-x-3 gap-y-1" aria-hidden="true">
+    <span><span class="font-mono text-sky-300">N</span> new</span>
+    <span><span class="font-mono text-sky-300">C</span> changed</span>
+    <span><span class="font-mono text-sky-300">M</span> moved</span>
+    <span>vs Classic · arrows show prerequisites</span>
+  </p>
+  <div
+    id={`${rootId}-tip`}
+    class="talent-tooltip"
+    data-tooltip
+    role="tooltip"
+    hidden
+  ></div>
+
+  <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+    {
+      classInfo.trees.map((tree) => {
+        const treeTalents = talents
+          .filter((t) => t.tree === tree.slug)
+          .sort((a, b) => a.order - b.order);
+        const pts = pointsInTree(talents, initialRanks, tree.slug);
+        return (
+          <div
+            class="tree-panel relative z-0"
+            data-tree={tree.slug}
+            style={`--tree-accent: ${classInfo.accent || '#c9a96e'}`}
+          >
+            <div class="relative z-[1] flex items-baseline justify-between mb-3">
+              <h3 class="font-display text-lg text-gold tracking-wide">{tree.name}</h3>
+              <span class="font-mono text-sm text-ink-400">
+                <span data-tree-pts>{pts}</span> pts
+              </span>
+            </div>
+            <div class="talent-tree-scroll relative z-[1]">
+              <div
+                class="talent-tree-stage relative mx-auto"
+                style={`width: calc(${tree.columns} * 3rem + ${tree.columns - 1} * 0.375rem);`}
+                data-tree-stage
+              >
+                <svg
+                  class="talent-arrows pointer-events-none absolute inset-0 z-0 overflow-visible"
+                  viewBox={`0 0 ${tree.columns} ${tree.rows}`}
+                  preserveAspectRatio="none"
+                  aria-hidden="true"
+                >
+                  <defs>
+                    <marker
+                      id={`arrow-${instanceId}-${tree.slug}`}
+                      markerWidth="4"
+                      markerHeight="4"
+                      refX="2"
+                      refY="2"
+                      orient="auto"
+                    >
+                      <path d="M0,0 L4,2 L0,4 Z" fill="#8b95a8" />
+                    </marker>
+                  </defs>
+                  {
+                    treeTalents.flatMap((t) => {
+                      const reqIds = t.requiresAny?.length
+                        ? t.requiresAny
+                        : t.requires
+                          ? [t.requires]
+                          : [];
+                      return reqIds.map((rid) => {
+                        const req = treeTalents.find((x) => x.id === rid);
+                        if (!req) return null;
+                        const x1 = req.col + 0.5;
+                        const y1 = req.row; // bottom of req cell (1-based row → bottom edge)
+                        const x2 = t.col + 0.5;
+                        const y2 = t.row - 1; // top of talent cell
+                        return (
+                          <line
+                            x1={x1}
+                            y1={y1}
+                            x2={x2}
+                            y2={y2}
+                            stroke="#8b95a8"
+                            stroke-width="0.07"
+                            marker-end={`url(#arrow-${instanceId}-${tree.slug})`}
+                          />
+                        );
+                      });
+                    })
+                  }
+                </svg>
+                <div
+                  class="relative z-[1] grid gap-1.5"
+                  style={`grid-template-columns: repeat(${tree.columns}, minmax(0, 3rem));`}
+                  role="grid"
+                  aria-label={`${tree.name} talent tree`}
+                >
+                  {Array.from({ length: tree.rows * tree.columns }, (_, i) => {
+                    const row = Math.floor(i / tree.columns) + 1;
+                    const col = i % tree.columns;
+                    const t = treeTalents.find((x) => x.row === row && x.col === col);
+                    if (!t) {
+                      return <div class="w-11 h-11 sm:w-12 sm:h-12" aria-hidden="true" />;
+                    }
+                    const rank = initialRanks[t.id] ?? 0;
+                    const state = cellState(t, initialRanks);
+                    const mark = changeLabel(t.change);
+                    return (
+                      <button
+                        type="button"
+                        class="talent-cell"
+                        data-talent={t.id}
+                        data-state={state}
+                        data-change={t.change}
+                        aria-label={`${t.name}, ${rank} of ${t.maxRank}`}
+                        aria-describedby={`${rootId}-tip`}
+                      >
+                        <span class="sr-only">{t.name}</span>
+                        <img
+                          src={talentIconUrl(t.icon, 56)}
+                          alt=""
+                          width="40"
+                          height="40"
+                          class="talent-icon"
+                          loading={t.row <= 2 ? 'eager' : 'lazy'}
+                          decoding="async"
+                        />
+                        <span
+                          class="absolute -bottom-0.5 -right-0.5 min-w-[1.1rem] rounded bg-ink-950 border border-ink-600 px-0.5 text-[9px] text-ink-100 leading-tight"
+                          data-rank
+                        >
+                          {rank}/{t.maxRank}
+                        </span>
+                        {mark && (
+                          <span
+                            class="absolute -top-1 -left-1 text-[9px] font-bold bg-sky-700 text-white rounded px-0.5 z-[1]"
+                            title={changeTitle(t.change)}
+                            data-mark
+                          >
+                            {mark}
+                            <span class="sr-only">{changeTitle(t.change)}</span>
+                          </span>
+                        )}
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
+
+            {
+              showLists && (
+                <details class="relative z-[1] mt-4 text-sm">
+                  <summary class="cursor-pointer text-ink-400 hover:text-ink-200">
+                    {tree.name} talent list
+                  </summary>
+                  <ul class="mt-2 space-y-3 text-ink-300">
+                    {treeTalents.map((t) => (
+                      <li>
+                        <a
+                          href={`/${classInfo.slug}/talents/${t.id}/`}
+                          class="font-medium text-ink-100"
+                        >
+                          {t.name}
+                        </a>
+                        <span class="text-ink-500">
+                          {' '}
+                          · row {t.row} · max {t.maxRank}
+                          {t.change !== 'unchanged' ? ` · ${changeLabel(t.change)}` : ''}
+                        </span>
+                        <ol class="mt-1 list-decimal pl-5 text-xs text-ink-400 space-y-0.5">
+                          {t.ranks.map((r) => (
+                            <li>{r}</li>
+                          ))}
+                        </ol>
+                      </li>
+                    ))}
+                  </ul>
+                </details>
+              )
+            }
+          </div>
+        );
+      })
+    }
+  </div>
+</section>
+
+<script type="application/json" id={dataId} set:html={JSON.stringify(payload)} />
+
+<script>
+  import LZString from 'lz-string';
+  const compressToEncodedURIComponent = LZString.compressToEncodedURIComponent.bind(LZString);
+  const decompressFromEncodedURIComponent =
+    LZString.decompressFromEncodedURIComponent.bind(LZString);
+
+  type Talent = {
+    id: string;
+    name: string;
+    tree: string;
+    order: number;
+    row: number;
+    col: number;
+    maxRank: number;
+    pointsRequired: number;
+    requires?: string;
+    requiresAny?: string[];
+    change: string;
+    changeNote?: string;
+    icon: string;
+    ranks: string[];
+  };
+  type RankMap = Record<string, number>;
+  type Payload = {
+    classSlug: string;
+    trees: { slug: string; name: string }[];
+    talents: Talent[];
+    totalPoints: number;
+    rowGate: number;
+    initialRanks: RankMap;
+    syncUrl: boolean;
+    storageKey: string;
+  };
+
+  function mountCalculator(root: HTMLElement, dataEl: HTMLElement) {
+  const payload = JSON.parse(dataEl.textContent || '{}') as Payload;
+  const { talents, totalPoints, trees, classSlug, syncUrl, storageKey } = payload;
+
+  let ranks: RankMap = { ...payload.initialRanks };
+  let history: RankMap[] = [];
+  let compare = false;
+  let statusTimer = 0;
+  const tip = root.querySelector<HTMLElement>('[data-tooltip]');
+
+  const changeWords: Record<string, string> = {
+    new: 'New since Classic',
+    changed: 'Changed since Classic',
+    moved: 'Moved since Classic',
+  };
+
+  function showTip(t: Talent, anchor: HTMLElement) {
+    if (!tip) return;
+    const r = ranks[t.id] ?? 0;
+    const next = Math.min(r + 1, t.maxRank);
+    const text =
+      r === 0
+        ? t.ranks[0] || ''
+        : r >= t.maxRank
+          ? t.ranks[t.maxRank - 1] || ''
+          : t.ranks[next - 1] || t.ranks[r - 1] || '';
+    const mark = changeWords[t.change] || '';
+    tip.innerHTML = `<strong>${t.name}</strong><div class="tip-meta">Rank ${r} / ${t.maxRank}${
+      r < t.maxRank ? ` · next: ${next}` : ' · maxed'
+    }</div><div class="tip-rank">${text}</div>${
+      mark ? `<div class="tip-mark">${mark}${t.changeNote ? ` · ${t.changeNote}` : ''}</div>` : ''
+    }`;
+    tip.hidden = false;
+    const rect = anchor.getBoundingClientRect();
+    const tipW = tip.offsetWidth;
+    const tipH = tip.offsetHeight;
+    let left = rect.left + rect.width / 2 - tipW / 2;
+    let top = rect.top - tipH - 8;
+    if (top < 8) top = rect.bottom + 8;
+    if (left < 8) left = 8;
+    if (left + tipW > window.innerWidth - 8) left = window.innerWidth - tipW - 8;
+    tip.style.left = `${left}px`;
+    tip.style.top = `${top}px`;
+  }
+
+  function hideTip() {
+    if (tip) tip.hidden = true;
+  }
+
+  function empty(): RankMap {
+    const r: RankMap = {};
+    for (const t of talents) r[t.id] = 0;
+    return r;
+  }
+
+  function totalUsed(r: RankMap) {
+    return Object.values(r).reduce((a, b) => a + b, 0);
+  }
+
+  function treePts(r: RankMap, tree: string) {
+    let s = 0;
+    for (const t of talents) if (t.tree === tree) s += r[t.id] ?? 0;
+    return s;
+  }
+
+  function encode(r: RankMap): string {
+    const parts: string[] = [];
+    for (const tree of trees) {
+      const list = talents.filter((t) => t.tree === tree.slug).sort((a, b) => a.order - b.order);
+      let digits = '';
+      let last = -1;
+      for (let i = 0; i < list.length; i++) {
+        const v = r[list[i].id] ?? 0;
+        digits += String(Math.min(v, list[i].maxRank));
+        if (v > 0) last = i;
+      }
+      if (last >= 0) parts.push(`${tree.slug}:${digits.slice(0, last + 1)}`);
+    }
+    if (!parts.length) return '';
+    return compressToEncodedURIComponent(parts.join('|'));
+  }
+
+  function canAdd(t: Talent): string | null {
+    const cur = ranks[t.id] ?? 0;
+    if (cur >= t.maxRank) return 'Max rank reached';
+    if (totalUsed(ranks) >= totalPoints) return 'No points left';
+    if (treePts(ranks, t.tree) < t.pointsRequired) {
+      return `Needs ${t.pointsRequired} points in this tree`;
+    }
+    const reqs = t.requiresAny?.length ? t.requiresAny : t.requires ? [t.requires] : [];
+    if (reqs.length) {
+      const ok = reqs.some((id) => {
+        const req = talents.find((x) => x.id === id);
+        return req ? (ranks[id] ?? 0) >= req.maxRank : false;
+      });
+      if (!ok) {
+        const names = reqs
+          .map((id) => talents.find((x) => x.id === id)?.name)
+          .filter(Boolean)
+          .join(' or ');
+        return `Requires ${names} maxed`;
+      }
+    }
+    return null;
+  }
+
+  function canRemove(t: Talent): string | null {
+    const cur = ranks[t.id] ?? 0;
+    if (cur <= 0) return 'Nothing to remove';
+    const next = { ...ranks, [t.id]: cur - 1 };
+    for (const x of talents) {
+      if ((next[x.id] ?? 0) <= 0) continue;
+      if (x.tree !== t.tree) continue;
+      if (treePts(next, x.tree) < x.pointsRequired) return `Would break gate for ${x.name}`;
+      const reqs = x.requiresAny?.length ? x.requiresAny : x.requires ? [x.requires] : [];
+      if (reqs.length) {
+        const ok = reqs.some((id) => {
+          const req = talents.find((y) => y.id === id);
+          return req ? (next[id] ?? 0) >= req.maxRank : false;
+        });
+        if (!ok) return `Required by ${x.name}`;
+      }
+    }
+    return null;
+  }
+
+  function stateOf(t: Talent): string {
+    const r = ranks[t.id] ?? 0;
+    if (r >= t.maxRank) return 'maxed';
+    if (r > 0) return 'active';
+    if (canAdd(t)) return 'locked';
+    return 'available';
+  }
+
+  function setStatus(msg: string) {
+    const el = root.querySelector('[data-status]');
+    if (el) el.textContent = msg;
+    window.clearTimeout(statusTimer);
+    if (msg) statusTimer = window.setTimeout(() => { if (el) el.textContent = ''; }, 2500);
+  }
+
+  function pushHistory() {
+    history.push({ ...ranks });
+    if (history.length > 80) history.shift();
+  }
+
+  function persist() {
+    const code = encode(ranks);
+    try {
+      localStorage.setItem(storageKey, JSON.stringify({ ranks, code, ts: Date.now() }));
+    } catch { /* ignore */ }
+    if (syncUrl) {
+      const path = code ? `/${classSlug}/build/${code}/` : `/${classSlug}/`;
+      if (location.pathname !== path) history.replaceState(null, '', path);
+    }
+  }
+
+  function render() {
+    const used = totalUsed(ranks);
+    const left = totalPoints - used;
+    const usedEl = root.querySelector('[data-used]');
+    const leftEl = root.querySelector('[data-left]');
+    const distEl = root.querySelector('[data-dist]');
+    if (usedEl) usedEl.textContent = String(used);
+    if (leftEl) leftEl.textContent = String(left);
+    if (distEl) {
+      distEl.textContent = trees.map((tr) => String(treePts(ranks, tr.slug))).join(' / ');
+    }
+
+    for (const tree of trees) {
+      const el = root.querySelector(`[data-tree="${tree.slug}"] [data-tree-pts]`);
+      if (el) el.textContent = String(treePts(ranks, tree.slug));
+    }
+
+    for (const t of talents) {
+      const btn = root.querySelector<HTMLElement>(`[data-talent="${t.id}"]`);
+      if (!btn) continue;
+      const r = ranks[t.id] ?? 0;
+      btn.dataset.state = stateOf(t);
+      btn.setAttribute('aria-label', `${t.name}, ${r} of ${t.maxRank}`);
+      const rankEl = btn.querySelector('[data-rank]');
+      if (rankEl) rankEl.textContent = `${r}/${t.maxRank}`;
+
+      if (compare) {
+        if (t.change === 'unchanged') btn.dataset.compare = 'dim';
+        else btn.dataset.compare = 'highlight';
+      } else {
+        delete btn.dataset.compare;
+      }
+    }
+  }
+
+  function add(t: Talent) {
+    const err = canAdd(t);
+    if (err) {
+      setStatus(err);
+      return;
+    }
+    pushHistory();
+    ranks[t.id] = (ranks[t.id] ?? 0) + 1;
+    render();
+    persist();
+  }
+
+  function remove(t: Talent) {
+    const err = canRemove(t);
+    if (err) {
+      setStatus(err);
+      return;
+    }
+    pushHistory();
+    ranks[t.id] = (ranks[t.id] ?? 0) - 1;
+    render();
+    persist();
+  }
+
+  // Restore draft if URL has no code
+  const pathMatch = location.pathname.match(/\/build\/([^/]+)\/?$/);
+  if (!pathMatch) {
+    try {
+      const raw = localStorage.getItem(storageKey);
+      if (raw) {
+        const saved = JSON.parse(raw) as { ranks?: RankMap };
+        if (saved.ranks) ranks = { ...empty(), ...saved.ranks };
+      }
+    } catch { /* ignore */ }
+  }
+
+  root.addEventListener('click', (e) => {
+    const target = e.target as HTMLElement;
+    const actionBtn = target.closest<HTMLElement>('[data-action]');
+    if (actionBtn) {
+      const action = actionBtn.dataset.action;
+      if (action === 'reset') {
+        pushHistory();
+        ranks = empty();
+        render();
+        persist();
+        setStatus('Build reset');
+      } else if (action === 'undo') {
+        const prev = history.pop();
+        if (!prev) {
+          setStatus('Nothing to undo');
+          return;
+        }
+        ranks = prev;
+        render();
+        persist();
+      } else if (action === 'copy') {
+        const code = encode(ranks);
+        const url = `${location.origin}${code ? `/${classSlug}/build/${code}/` : `/${classSlug}/`}`;
+        navigator.clipboard.writeText(url).then(
+          () => setStatus('Link copied'),
+          () => setStatus(url),
+        );
+      } else if (action === 'compare') {
+        compare = !compare;
+        actionBtn.setAttribute('aria-pressed', String(compare));
+        const hasDiff = talents.some((t) => t.change !== 'unchanged');
+        setStatus(
+          compare
+            ? hasDiff
+              ? 'Highlighting N / C / M vs Classic'
+              : 'No Classic diffs in this dataset yet — all talents marked unchanged'
+            : '',
+        );
+        render();
+      }
+      return;
+    }
+
+    const cell = target.closest<HTMLElement>('[data-talent]');
+    if (!cell) return;
+    const id = cell.dataset.talent!;
+    const t = talents.find((x) => x.id === id);
+    if (!t) return;
+    if ((e as MouseEvent).shiftKey || (e as MouseEvent).button === 2) {
+      remove(t);
+    } else {
+      add(t);
+    }
+  });
+
+  root.addEventListener('contextmenu', (e) => {
+    const cell = (e.target as HTMLElement).closest('[data-talent]');
+    if (!cell) return;
+    e.preventDefault();
+    const id = (cell as HTMLElement).dataset.talent!;
+    const t = talents.find((x) => x.id === id);
+    if (t) remove(t);
+  });
+
+  root.addEventListener('keydown', (e) => {
+    const cell = (e.target as HTMLElement).closest<HTMLElement>('[data-talent]');
+    if (!cell) return;
+    const id = cell.dataset.talent!;
+    const t = talents.find((x) => x.id === id);
+    if (!t) return;
+    if (e.key === 'Enter' || e.key === '+' || e.key === '=') {
+      e.preventDefault();
+      add(t);
+    } else if (e.key === '-' || e.key === 'Backspace') {
+      e.preventDefault();
+      remove(t);
+    }
+  });
+
+  root.addEventListener('pointerover', (e) => {
+    const cell = (e.target as HTMLElement).closest<HTMLElement>('[data-talent]');
+    if (!cell || !root.contains(cell)) return;
+    const t = talents.find((x) => x.id === cell.dataset.talent);
+    if (t) showTip(t, cell);
+  });
+  root.addEventListener('pointerout', (e) => {
+    const to = e.relatedTarget as Node | null;
+    const cell = (e.target as HTMLElement).closest('[data-talent]');
+    if (!cell) return;
+    if (to && cell.contains(to)) return;
+    hideTip();
+  });
+  root.addEventListener('focusin', (e) => {
+    const cell = (e.target as HTMLElement).closest<HTMLElement>('[data-talent]');
+    if (!cell) return;
+    const t = talents.find((x) => x.id === cell.dataset.talent);
+    if (t) showTip(t, cell);
+  });
+  root.addEventListener('focusout', () => hideTip());
+
+  render();
+  if (syncUrl) persist();
+  }
+
+  document.querySelectorAll<HTMLElement>('[data-calc]').forEach((root) => {
+    if (root.dataset.mounted === '1') return;
+    const id = root.dataset.calcId;
+    const dataEl = id ? document.getElementById(`talc-calc-data-${id}`) : null;
+    if (!dataEl) return;
+    root.dataset.mounted = '1';
+    mountCalculator(root, dataEl);
+  });
+
+  void decompressFromEncodedURIComponent;
+</script>

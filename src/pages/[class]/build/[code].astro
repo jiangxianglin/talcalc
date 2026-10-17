@@ -1,0 +1,137 @@
+---
+export const prerender = false;
+
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import ClassPicker from '../../../components/ClassPicker.astro';
+import TalentCalculator from '../../../components/TalentCalculator.astro';
+import {
+  classes,
+  meta,
+  getClass,
+  getTalentsForClass,
+  formatCheckedAtShort,
+} from '../../../lib/data';
+import { decodeBuild, totalPointsUsed, pointsInTree } from '../../../lib/decodeBuild';
+import { breadcrumbList } from '../../../lib/schema';
+
+const slug = Astro.params.class!;
+const code = Astro.params.code!;
+const classInfo = getClass(slug);
+
+if (!classInfo) {
+  return Astro.redirect('/');
+}
+
+const talents = getTalentsForClass(slug);
+const ranks = decodeBuild(code, slug, classInfo, talents);
+if (!ranks) {
+  return Astro.redirect(`/${slug}/`);
+}
+
+const used = totalPointsUsed(ranks);
+const dist = classInfo.trees.map((t) => pointsInTree(talents, ranks, t.slug));
+const distLabel = dist.join('/');
+const spent = talents
+  .filter((t) => (ranks[t.id] ?? 0) > 0)
+  .sort((a, b) => a.tree.localeCompare(b.tree) || a.order - b.order);
+
+const title = `${classInfo.name} ${distLabel} Talent Build | Talc`;
+const description = `${classInfo.name} build ${distLabel} (${used}/${meta.totalPoints} points) for WoW Forever. Open in the calculator or copy the link. Client build ${meta.clientBuild}.`;
+const path = `/${slug}/build/${code}/`;
+const checkedShort = formatCheckedAtShort(meta.checkedAt);
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name: title,
+    url: `https://talcalc.com${path}`,
+    dateModified: meta.checkedAt,
+  },
+  breadcrumbList([
+    { name: 'Home', url: 'https://talcalc.com/' },
+    { name: classInfo.name, url: `https://talcalc.com/${slug}/` },
+    { name: `Build ${distLabel}`, url: `https://talcalc.com${path}` },
+  ]),
+];
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  canonicalPath={path}
+  ogImage={`/og/${slug}.png`}
+  jsonLd={jsonLd}
+>
+  <Breadcrumbs
+    items={[
+      { label: 'Home', href: '/' },
+      { label: classInfo.name, href: `/${slug}/` },
+      { label: `Build ${distLabel}` },
+    ]}
+  />
+
+  <h1 class="font-display text-3xl font-bold text-ink-100 mb-2">
+    {classInfo.name} build {distLabel}
+  </h1>
+  <p class="text-ink-300 mb-4">
+    {used} of {meta.totalPoints} points spent · client build{' '}
+    <span class="font-mono text-ink-100">{meta.clientBuild}</span> · checked {checkedShort}
+  </p>
+
+  <p class="mb-6 flex flex-wrap gap-3">
+    <a
+      href={`#talc-calc-${slug}`}
+      class="inline-flex items-center px-4 py-2 rounded border border-ember bg-ember/20 text-ink-100 no-underline hover:bg-ember/30"
+      >Edit this build</a
+    >
+    <a
+      href={`/${slug}/`}
+      class="inline-flex items-center px-4 py-2 rounded border border-ink-600 bg-ink-800 text-ink-100 no-underline hover:border-ember"
+      >{classInfo.name} calculator</a
+    >
+  </p>
+
+  <section class="mb-8" aria-labelledby="spent-heading">
+    <h2 id="spent-heading" class="font-display text-xl text-ink-100 mb-3">Talents in this build</h2>
+    {
+      spent.length === 0 ? (
+        <p class="text-ink-400 text-sm">No points spent in this code.</p>
+      ) : (
+        <ul class="columns-1 sm:columns-2 gap-x-6 text-sm text-ink-300">
+          {spent.map((t) => (
+            <li class="break-inside-avoid mb-1">
+              <a href={`/${slug}/talents/${t.id}/`}>{t.name}</a>
+              <span class="text-ink-500">
+                {' '}
+                {ranks[t.id]}/{t.maxRank} · {t.tree}
+              </span>
+            </li>
+          ))}
+        </ul>
+      )
+    }
+  </section>
+
+  <ClassPicker current={slug} compact />
+
+  <TalentCalculator
+    classInfo={classInfo}
+    talents={talents}
+    initialCode={code}
+    syncUrl={true}
+  />
+
+  <nav class="mt-10 text-sm" aria-label="Classes">
+    <ul class="flex flex-wrap gap-x-4 gap-y-2">
+      {
+        classes.map((c) => (
+          <li>
+            <a href={`/${c.slug}/`}>{c.name}</a>
+          </li>
+        ))
+      }
+    </ul>
+  </nav>
+</BaseLayout>

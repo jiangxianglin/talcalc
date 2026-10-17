@@ -1,0 +1,44 @@
+{
+  "home": [
+    {
+      "q": "How many talent points do I get at level 60?",
+      "a": "You get 51 talent points at level 60. Points are shared across all three trees for your class."
+    },
+    {
+      "q": "How many points unlock the next row in a tree?",
+      "a": "You need 5 points spent in a tree before the next row in that tree opens. Rows that are locked stay greyed out until the gate is met."
+    },
+    {
+      "q": "Where does Talc get its talent data?",
+      "a": "Every talent name, position, prerequisite, and rank text is read from client build data published for tool makers, checked against the build shown on each page. We show the client build and check date so you can tell when the trees were last verified. N / C / M markers compare those trees to Classic Era where a match exists. See the beta changelog when we rebuild after a client update."
+    },
+    {
+      "q": "What do the N, C, and M marks mean?",
+      "a": "N means new since Classic Era, C means the talent changed, and M means it moved in the tree. Use Compare Classic on the calculator to highlight those nodes."
+    },
+    {
+      "q": "How do I share a build?",
+      "a": "Every point you spend updates the address bar. Copy the URL — opening it in a new browser restores the same ranks via a real path such as /warrior/build/…, not a hash fragment. You can also use the Copy link button above the trees."
+    },
+    {
+      "q": "Where is my draft saved?",
+      "a": "Drafts stay in this browser’s local storage on this device. Closing the tab keeps them; clearing site data removes them. Use a share link if you need the same ranks on another browser or machine."
+    },
+    {
+      "q": "Can Talc import talents from the game client?",
+      "a": "No. Talc cannot import or export in-game talent strings. Plan ranks here, then apply them in the client yourself."
+    },
+    {
+      "q": "Does Talc publish the best builds or BiS lists?",
+      "a": "No. Talc is a free planning tool. It does not publish unverified BiS, DPS rankings, or community vote boards in the first version. Spend points, compare with Classic marks, and share your own link."
+    },
+    {
+      "q": "When does the Forever beta end, and when does the game launch?",
+      "a": "Beta ends on 21 October 2026. Character name reservation opens 27 October 2026. Global launch is 4 November 2026."
+    },
+    {
+      "q": "Is Talc free, and is it official?",
+      "a": "Talc is free and does not require an account. It is an unofficial fan-made tool for World of Warcraft® — not affiliated with, endorsed by, or sponsored by Blizzard Entertainment, Inc."
+    }
+  ]
+}

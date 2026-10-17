@@ -1,0 +1,572 @@
+{
+  "warrior": {
+    "intro": "This is a free Warrior talent calculator for World of Warcraft®: Forever™. Open the full Arms, Fury, and Protection trees, spend all 51 points under Forever rules, then copy a share link. Talent names and every rank description are read from client build 1.60.1.70425, checked 16 October 2026.",
+    "sections": [
+      {
+        "heading": "How Warrior talent points work in Forever",
+        "paragraphs": [
+          "At level 60 you have 51 talent points. Those points are one shared pool across Arms, Fury, and Protection — not 51 per tree.",
+          "Inside a single tree, spending 5 points unlocks the next row. Locked rows stay grey until that gate is met. Talents also respect maxRank (1–5) and prerequisite links: you cannot rank a talent until its requirement is filled.",
+          "The calculator blocks overspend. Used and remaining points update as you click."
+        ]
+      },
+      {
+        "heading": "Arms, Fury, and Protection trees",
+        "paragraphs": [
+          "This page lists 52 Warrior talents in our dataset: 17 in Arms, 17 in Fury, 18 in Protection. Every name and rank text is prerendered in the HTML so you (and crawlers) can read them without running the interactive grid.",
+          "Use the trees above to try Arms-heavy, Fury-heavy, or Protection-heavy splits. Nothing on this page claims a single “correct” PvE or PvP build — that would need live tuning data we do not invent."
+        ]
+      },
+      {
+        "heading": "What changed for Warrior vs Classic?",
+        "paragraphs": [
+          "Against Classic Era in our diff file, Warrior shows 11 new talents, 18 changed, 10 moved, and 13 unchanged. Examples of new nodes include Spearing Strike, Bloodthrill, and Weaponmaster. Changed examples include Improved Rend, Improved Tactical Mastery, and Anger Management. Moved examples include Improved Overpower, Improved Execute, and Improved Berserker Rage.",
+          "Open the change list on this page for the full crawlable set, or open an individual talent page for every rank description. Counts come from data/talents.json for class warrior — not from competitor pages.",
+          "When the client build moves, check the beta changelog for what we rebuilt."
+        ]
+      },
+      {
+        "heading": "Plan, save, and share a Warrior build",
+        "paragraphs": [
+          "Each point you spend updates the address bar. Copy that URL, or use Copy link, to restore the same ranks in another browser via a real path under /warrior/build/ — not a hash fragment.",
+          "Drafts also stay in local storage on this device (clearing site data removes them). Reset and undo are available in the calculator chrome when you need to restart a theorycraft pass. Talc cannot import or export an in-game talent string — plan here, then apply ranks in the client yourself.",
+          "If you are comparing classes before locking a main, the home hub links all nine calculators, including Paladin and Hunter beside Warrior."
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "q": "How many Warrior talents are in Forever?",
+        "a": "This calculator lists 52 Warrior talents across Arms, Fury, Protection (17 / 17 / 18), read from client build 1.60.1.70425, checked 16 October 2026."
+      },
+      {
+        "q": "How do Warrior talent points work?",
+        "a": "At level 60 you have 51 points shared across all three trees. Within one tree, each new row opens after 5 points spent in that tree. Prerequisites and maxRank still apply."
+      },
+      {
+        "q": "What changed for Warrior vs Classic?",
+        "a": "In our dataset, Warrior has 11 new, 18 changed, 10 moved, and 13 unchanged talents versus Classic Era. The change list on this page links every marked talent."
+      },
+      {
+        "q": "Does Talc pick the best Warrior build?",
+        "a": "No. Talc is a planning tool. It does not publish unverified BiS, DPS rankings, or leveling presets. Spend points on the trees, then share your own link."
+      },
+      {
+        "q": "Where is my draft saved, and can I import a game build?",
+        "a": "Drafts stay in this browser’s local storage on this device. Clearing cookies or site data removes them. Share links restore ranks on any browser. Talc cannot import talent strings from the game client."
+      },
+      {
+        "q": "Is Talc official, and do I need an account?",
+        "a": "Talc is an unofficial fan-made tool, not affiliated with Blizzard. It is free and does not require an account."
+      }
+    ]
+  },
+  "paladin": {
+    "intro": "This is a free Paladin talent calculator for World of Warcraft®: Forever™. Open the full Holy, Protection, and Retribution trees, spend all 51 points under Forever rules, then copy a share link. Talent names and every rank description are read from client build 1.60.1.70425, checked 16 October 2026.",
+    "sections": [
+      {
+        "heading": "How Paladin talent points work in Forever",
+        "paragraphs": [
+          "At level 60 you have 51 talent points. Those points are one shared pool across Holy, Protection, and Retribution — not 51 per tree.",
+          "Inside a single tree, spending 5 points unlocks the next row. Locked rows stay grey until that gate is met. Talents also respect maxRank (1–5) and prerequisite links: you cannot rank a talent until its requirement is filled.",
+          "The calculator blocks overspend. Used and remaining points update as you click."
+        ]
+      },
+      {
+        "heading": "Holy, Protection, and Retribution trees",
+        "paragraphs": [
+          "This page lists 50 Paladin talents in our dataset: 17 in Holy, 16 in Protection, 17 in Retribution. Every name and rank text is prerendered in the HTML so you (and crawlers) can read them without running the interactive grid.",
+          "Use the trees above to try Holy-heavy, Protection-heavy, or Retribution-heavy splits. Nothing on this page claims a single “correct” PvE or PvP build — that would need live tuning data we do not invent."
+        ]
+      },
+      {
+        "heading": "What changed for Paladin vs Classic?",
+        "paragraphs": [
+          "Against Classic Era in our diff file, Paladin shows 18 new talents, 15 changed, 12 moved, and 5 unchanged. Examples of new nodes include Voice of Truth, Reverence, and Purifying Power. Changed examples include Spiritual Focus, Improved Seals, and Illumination. Moved examples include Healing Light, Unyielding Faith, and Divine Favor.",
+          "Open the change list on this page for the full crawlable set, or open an individual talent page for every rank description. Counts come from data/talents.json for class paladin — not from competitor pages.",
+          "When the client build moves, check the beta changelog for what we rebuilt."
+        ]
+      },
+      {
+        "heading": "Plan, save, and share a Paladin build",
+        "paragraphs": [
+          "Each point you spend updates the address bar. Copy that URL, or use Copy link, to restore the same ranks in another browser via a real path under /paladin/build/ — not a hash fragment.",
+          "Drafts also stay in local storage on this device (clearing site data removes them). Reset and undo are available in the calculator chrome when you need to restart a theorycraft pass. Talc cannot import or export an in-game talent string — plan here, then apply ranks in the client yourself.",
+          "If you are comparing classes before locking a main, the home hub links all nine calculators, including Hunter and Rogue beside Paladin."
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "q": "How many Paladin talents are in Forever?",
+        "a": "This calculator lists 50 Paladin talents across Holy, Protection, Retribution (17 / 16 / 17), read from client build 1.60.1.70425, checked 16 October 2026."
+      },
+      {
+        "q": "How do Paladin talent points work?",
+        "a": "At level 60 you have 51 points shared across all three trees. Within one tree, each new row opens after 5 points spent in that tree. Prerequisites and maxRank still apply."
+      },
+      {
+        "q": "What changed for Paladin vs Classic?",
+        "a": "In our dataset, Paladin has 18 new, 15 changed, 12 moved, and 5 unchanged talents versus Classic Era. The change list on this page links every marked talent."
+      },
+      {
+        "q": "Does Talc pick the best Paladin build?",
+        "a": "No. Talc is a planning tool. It does not publish unverified BiS, DPS rankings, or leveling presets. Spend points on the trees, then share your own link."
+      },
+      {
+        "q": "Where is my draft saved, and can I import a game build?",
+        "a": "Drafts stay in this browser’s local storage on this device. Clearing cookies or site data removes them. Share links restore ranks on any browser. Talc cannot import talent strings from the game client."
+      },
+      {
+        "q": "Is Talc official, and do I need an account?",
+        "a": "Talc is an unofficial fan-made tool, not affiliated with Blizzard. It is free and does not require an account."
+      }
+    ]
+  },
+  "hunter": {
+    "intro": "This is a free Hunter talent calculator for World of Warcraft®: Forever™. Open the full Beast Mastery, Marksmanship, and Survival trees, spend all 51 points under Forever rules, then copy a share link. Talent names and every rank description are read from client build 1.60.1.70425, checked 16 October 2026.",
+    "sections": [
+      {
+        "heading": "How Hunter talent points work in Forever",
+        "paragraphs": [
+          "At level 60 you have 51 talent points. Those points are one shared pool across Beast Mastery, Marksmanship, and Survival — not 51 per tree.",
+          "Inside a single tree, spending 5 points unlocks the next row. Locked rows stay grey until that gate is met. Talents also respect maxRank (1–5) and prerequisite links: you cannot rank a talent until its requirement is filled.",
+          "The calculator blocks overspend. Used and remaining points update as you click."
+        ]
+      },
+      {
+        "heading": "Beast Mastery, Marksmanship, and Survival trees",
+        "paragraphs": [
+          "This page lists 51 Hunter talents in our dataset: 16 in Beast Mastery, 17 in Marksmanship, 18 in Survival. Every name and rank text is prerendered in the HTML so you (and crawlers) can read them without running the interactive grid.",
+          "Use the trees above to try Beast-heavy, Marksmanship-heavy, or Survival-heavy splits. Nothing on this page claims a single “correct” PvE or PvP build — that would need live tuning data we do not invent."
+        ]
+      },
+      {
+        "heading": "What changed for Hunter vs Classic?",
+        "paragraphs": [
+          "Against Classic Era in our diff file, Hunter shows 15 new talents, 13 changed, 14 moved, and 9 unchanged. Examples of new nodes include Focused Fire, Summon Hawk, and Improved Stings. Changed examples include Deadly Aspects, Endurance Training, and Improved Aspect of the Monkey. Moved examples include Pathfinding, Improved Mend Pet, and Hawk Eye.",
+          "Open the change list on this page for the full crawlable set, or open an individual talent page for every rank description. Counts come from data/talents.json for class hunter — not from competitor pages.",
+          "When the client build moves, check the beta changelog for what we rebuilt."
+        ]
+      },
+      {
+        "heading": "Plan, save, and share a Hunter build",
+        "paragraphs": [
+          "Each point you spend updates the address bar. Copy that URL, or use Copy link, to restore the same ranks in another browser via a real path under /hunter/build/ — not a hash fragment.",
+          "Drafts also stay in local storage on this device (clearing site data removes them). Reset and undo are available in the calculator chrome when you need to restart a theorycraft pass. Talc cannot import or export an in-game talent string — plan here, then apply ranks in the client yourself.",
+          "If you are comparing classes before locking a main, the home hub links all nine calculators, including Rogue and Priest beside Hunter."
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "q": "How many Hunter talents are in Forever?",
+        "a": "This calculator lists 51 Hunter talents across Beast Mastery, Marksmanship, Survival (16 / 17 / 18), read from client build 1.60.1.70425, checked 16 October 2026."
+      },
+      {
+        "q": "How do Hunter talent points work?",
+        "a": "At level 60 you have 51 points shared across all three trees. Within one tree, each new row opens after 5 points spent in that tree. Prerequisites and maxRank still apply."
+      },
+      {
+        "q": "What changed for Hunter vs Classic?",
+        "a": "In our dataset, Hunter has 15 new, 13 changed, 14 moved, and 9 unchanged talents versus Classic Era. The change list on this page links every marked talent."
+      },
+      {
+        "q": "Does Talc pick the best Hunter build?",
+        "a": "No. Talc is a planning tool. It does not publish unverified BiS, DPS rankings, or leveling presets. Spend points on the trees, then share your own link."
+      },
+      {
+        "q": "Where is my draft saved, and can I import a game build?",
+        "a": "Drafts stay in this browser’s local storage on this device. Clearing cookies or site data removes them. Share links restore ranks on any browser. Talc cannot import talent strings from the game client."
+      },
+      {
+        "q": "Is Talc official, and do I need an account?",
+        "a": "Talc is an unofficial fan-made tool, not affiliated with Blizzard. It is free and does not require an account."
+      }
+    ],
+    "figures": [
+      {
+        "src": "/images/hunter/hunter-points-diagram.jpg",
+        "alt": "WoW Forever Hunter talent calculator point rules: 51 points shared across Beast Mastery, Marksmanship, Survival with a 5-point row gate",
+        "caption": "51 points are shared across the three Hunter trees. Within one tree, every 5 points spent unlocks the next row."
+      },
+      {
+        "src": "/images/hunter/hunter-ncm-legend.jpg",
+        "alt": "Change marks on the WoW Forever Hunter talent calculator compared to Classic: N new, C changed, M moved",
+        "caption": "N / C / M marks compare each Hunter talent to Classic Era in our dataset. Hover a mark in the calculator for the short label."
+      }
+    ]
+  },
+  "rogue": {
+    "intro": "This is a free Rogue talent calculator for World of Warcraft®: Forever™. Open the full Assassination, Combat, and Subtlety trees, spend all 51 points under Forever rules, then copy a share link. Talent names and every rank description are read from client build 1.60.1.70425, checked 16 October 2026.",
+    "sections": [
+      {
+        "heading": "How Rogue talent points work in Forever",
+        "paragraphs": [
+          "At level 60 you have 51 talent points. Those points are one shared pool across Assassination, Combat, and Subtlety — not 51 per tree.",
+          "Inside a single tree, spending 5 points unlocks the next row. Locked rows stay grey until that gate is met. Talents also respect maxRank (1–5) and prerequisite links: you cannot rank a talent until its requirement is filled.",
+          "The calculator blocks overspend. Used and remaining points update as you click."
+        ]
+      },
+      {
+        "heading": "Assassination, Combat, and Subtlety trees",
+        "paragraphs": [
+          "This page lists 53 Rogue talents in our dataset: 17 in Assassination, 17 in Combat, 19 in Subtlety. Every name and rank text is prerendered in the HTML so you (and crawlers) can read them without running the interactive grid.",
+          "Use the trees above to try Assassination-heavy, Combat-heavy, or Subtlety-heavy splits. Nothing on this page claims a single “correct” PvE or PvP build — that would need live tuning data we do not invent."
+        ]
+      },
+      {
+        "heading": "What changed for Rogue vs Classic?",
+        "paragraphs": [
+          "Against Classic Era in our diff file, Rogue shows 10 new talents, 22 changed, 11 moved, and 10 unchanged. Examples of new nodes include Mutilate, Venom, and Puncturing Wounds. Changed examples include Improved Gouge, Remorseless Attacks, and Malice. Moved examples include Vile Poisons, Cold Blood, and Vigor.",
+          "Open the change list on this page for the full crawlable set, or open an individual talent page for every rank description. Counts come from data/talents.json for class rogue — not from competitor pages.",
+          "When the client build moves, check the beta changelog for what we rebuilt."
+        ]
+      },
+      {
+        "heading": "Plan, save, and share a Rogue build",
+        "paragraphs": [
+          "Each point you spend updates the address bar. Copy that URL, or use Copy link, to restore the same ranks in another browser via a real path under /rogue/build/ — not a hash fragment.",
+          "Drafts also stay in local storage on this device (clearing site data removes them). Reset and undo are available in the calculator chrome when you need to restart a theorycraft pass. Talc cannot import or export an in-game talent string — plan here, then apply ranks in the client yourself.",
+          "If you are comparing classes before locking a main, the home hub links all nine calculators, including Priest and Shaman beside Rogue."
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "q": "How many Rogue talents are in Forever?",
+        "a": "This calculator lists 53 Rogue talents across Assassination, Combat, Subtlety (17 / 17 / 19), read from client build 1.60.1.70425, checked 16 October 2026."
+      },
+      {
+        "q": "How do Rogue talent points work?",
+        "a": "At level 60 you have 51 points shared across all three trees. Within one tree, each new row opens after 5 points spent in that tree. Prerequisites and maxRank still apply."
+      },
+      {
+        "q": "What changed for Rogue vs Classic?",
+        "a": "In our dataset, Rogue has 10 new, 22 changed, 11 moved, and 10 unchanged talents versus Classic Era. The change list on this page links every marked talent."
+      },
+      {
+        "q": "Does Talc pick the best Rogue build?",
+        "a": "No. Talc is a planning tool. It does not publish unverified BiS, DPS rankings, or leveling presets. Spend points on the trees, then share your own link."
+      },
+      {
+        "q": "Where is my draft saved, and can I import a game build?",
+        "a": "Drafts stay in this browser’s local storage on this device. Clearing cookies or site data removes them. Share links restore ranks on any browser. Talc cannot import talent strings from the game client."
+      },
+      {
+        "q": "Is Talc official, and do I need an account?",
+        "a": "Talc is an unofficial fan-made tool, not affiliated with Blizzard. It is free and does not require an account."
+      }
+    ]
+  },
+  "priest": {
+    "intro": "This is a free Priest talent calculator for World of Warcraft®: Forever™. Open the full Discipline, Holy, and Shadow Magic trees, spend all 51 points under Forever rules, then copy a share link. Talent names and every rank description are read from client build 1.60.1.70425, checked 16 October 2026.",
+    "sections": [
+      {
+        "heading": "How Priest talent points work in Forever",
+        "paragraphs": [
+          "At level 60 you have 51 talent points. Those points are one shared pool across Discipline, Holy, and Shadow Magic — not 51 per tree.",
+          "Inside a single tree, spending 5 points unlocks the next row. Locked rows stay grey until that gate is met. Talents also respect maxRank (1–5) and prerequisite links: you cannot rank a talent until its requirement is filled.",
+          "The calculator blocks overspend. Used and remaining points update as you click."
+        ]
+      },
+      {
+        "heading": "Discipline, Holy, and Shadow Magic trees",
+        "paragraphs": [
+          "This page lists 52 Priest talents in our dataset: 18 in Discipline, 17 in Holy, 17 in Shadow Magic. Every name and rank text is prerendered in the HTML so you (and crawlers) can read them without running the interactive grid.",
+          "Use the trees above to try Discipline-heavy, Holy-heavy, or Shadow-heavy splits. Nothing on this page claims a single “correct” PvE or PvP build — that would need live tuning data we do not invent."
+        ]
+      },
+      {
+        "heading": "What changed for Priest vs Classic?",
+        "paragraphs": [
+          "Against Classic Era in our diff file, Priest shows 14 new talents, 19 changed, 15 moved, and 4 unchanged. Examples of new nodes include Power in Light, Twin Disciplines, and Holy Precision. Changed examples include Silent Resolve, Martyrdom, and Inner Focus. Moved examples include Wand Specialization, Mental Strength, and Mental Agility.",
+          "Open the change list on this page for the full crawlable set, or open an individual talent page for every rank description. Counts come from data/talents.json for class priest — not from competitor pages.",
+          "When the client build moves, check the beta changelog for what we rebuilt."
+        ]
+      },
+      {
+        "heading": "Plan, save, and share a Priest build",
+        "paragraphs": [
+          "Each point you spend updates the address bar. Copy that URL, or use Copy link, to restore the same ranks in another browser via a real path under /priest/build/ — not a hash fragment.",
+          "Drafts also stay in local storage on this device (clearing site data removes them). Reset and undo are available in the calculator chrome when you need to restart a theorycraft pass. Talc cannot import or export an in-game talent string — plan here, then apply ranks in the client yourself.",
+          "If you are comparing classes before locking a main, the home hub links all nine calculators, including Shaman and Mage beside Priest."
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "q": "How many Priest talents are in Forever?",
+        "a": "This calculator lists 52 Priest talents across Discipline, Holy, Shadow Magic (18 / 17 / 17), read from client build 1.60.1.70425, checked 16 October 2026."
+      },
+      {
+        "q": "How do Priest talent points work?",
+        "a": "At level 60 you have 51 points shared across all three trees. Within one tree, each new row opens after 5 points spent in that tree. Prerequisites and maxRank still apply."
+      },
+      {
+        "q": "What changed for Priest vs Classic?",
+        "a": "In our dataset, Priest has 14 new, 19 changed, 15 moved, and 4 unchanged talents versus Classic Era. The change list on this page links every marked talent."
+      },
+      {
+        "q": "Does Talc pick the best Priest build?",
+        "a": "No. Talc is a planning tool. It does not publish unverified BiS, DPS rankings, or leveling presets. Spend points on the trees, then share your own link."
+      },
+      {
+        "q": "Where is my draft saved, and can I import a game build?",
+        "a": "Drafts stay in this browser’s local storage on this device. Clearing cookies or site data removes them. Share links restore ranks on any browser. Talc cannot import talent strings from the game client."
+      },
+      {
+        "q": "Is Talc official, and do I need an account?",
+        "a": "Talc is an unofficial fan-made tool, not affiliated with Blizzard. It is free and does not require an account."
+      }
+    ]
+  },
+  "shaman": {
+    "intro": "This is a free Shaman talent calculator for World of Warcraft®: Forever™. Open the full Elemental Combat, Enhancement, and Restoration trees, spend all 51 points under Forever rules, then copy a share link. Talent names and every rank description are read from client build 1.60.1.70425, checked 16 October 2026.",
+    "sections": [
+      {
+        "heading": "How Shaman talent points work in Forever",
+        "paragraphs": [
+          "At level 60 you have 51 talent points. Those points are one shared pool across Elemental Combat, Enhancement, and Restoration — not 51 per tree.",
+          "Inside a single tree, spending 5 points unlocks the next row. Locked rows stay grey until that gate is met. Talents also respect maxRank (1–5) and prerequisite links: you cannot rank a talent until its requirement is filled.",
+          "The calculator blocks overspend. Used and remaining points update as you click."
+        ]
+      },
+      {
+        "heading": "Elemental Combat, Enhancement, and Restoration trees",
+        "paragraphs": [
+          "This page lists 50 Shaman talents in our dataset: 16 in Elemental Combat, 18 in Enhancement, 16 in Restoration. Every name and rank text is prerendered in the HTML so you (and crawlers) can read them without running the interactive grid.",
+          "Use the trees above to try Elemental-heavy, Enhancement-heavy, or Restoration-heavy splits. Nothing on this page claims a single “correct” PvE or PvP build — that would need live tuning data we do not invent."
+        ]
+      },
+      {
+        "heading": "What changed for Shaman vs Classic?",
+        "paragraphs": [
+          "Against Classic Era in our diff file, Shaman shows 12 new talents, 14 changed, 18 moved, and 6 unchanged. Examples of new nodes include Earthbound, Lava Burst, and Lightning Overload. Changed examples include Convection, Concussion, and Trial by Fire. Moved examples include Elemental Devastation, Reverberation, and Elemental Alacrity.",
+          "Open the change list on this page for the full crawlable set, or open an individual talent page for every rank description. Counts come from data/talents.json for class shaman — not from competitor pages.",
+          "When the client build moves, check the beta changelog for what we rebuilt."
+        ]
+      },
+      {
+        "heading": "Plan, save, and share a Shaman build",
+        "paragraphs": [
+          "Each point you spend updates the address bar. Copy that URL, or use Copy link, to restore the same ranks in another browser via a real path under /shaman/build/ — not a hash fragment.",
+          "Drafts also stay in local storage on this device (clearing site data removes them). Reset and undo are available in the calculator chrome when you need to restart a theorycraft pass. Talc cannot import or export an in-game talent string — plan here, then apply ranks in the client yourself.",
+          "If you are comparing classes before locking a main, the home hub links all nine calculators, including Mage and Warlock beside Shaman."
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "q": "How many Shaman talents are in Forever?",
+        "a": "This calculator lists 50 Shaman talents across Elemental Combat, Enhancement, Restoration (16 / 18 / 16), read from client build 1.60.1.70425, checked 16 October 2026."
+      },
+      {
+        "q": "How do Shaman talent points work?",
+        "a": "At level 60 you have 51 points shared across all three trees. Within one tree, each new row opens after 5 points spent in that tree. Prerequisites and maxRank still apply."
+      },
+      {
+        "q": "What changed for Shaman vs Classic?",
+        "a": "In our dataset, Shaman has 12 new, 14 changed, 18 moved, and 6 unchanged talents versus Classic Era. The change list on this page links every marked talent."
+      },
+      {
+        "q": "Does Talc pick the best Shaman build?",
+        "a": "No. Talc is a planning tool. It does not publish unverified BiS, DPS rankings, or leveling presets. Spend points on the trees, then share your own link."
+      },
+      {
+        "q": "Where is my draft saved, and can I import a game build?",
+        "a": "Drafts stay in this browser’s local storage on this device. Clearing cookies or site data removes them. Share links restore ranks on any browser. Talc cannot import talent strings from the game client."
+      },
+      {
+        "q": "Is Talc official, and do I need an account?",
+        "a": "Talc is an unofficial fan-made tool, not affiliated with Blizzard. It is free and does not require an account."
+      }
+    ]
+  },
+  "mage": {
+    "intro": "This is a free Mage talent calculator for World of Warcraft®: Forever™. Open the full Arcane, Fire, and Frost trees, spend all 51 points under Forever rules, then copy a share link. Talent names and every rank description are read from client build 1.60.1.70425, checked 16 October 2026.",
+    "sections": [
+      {
+        "heading": "How Mage talent points work in Forever",
+        "paragraphs": [
+          "At level 60 you have 51 talent points. Those points are one shared pool across Arcane, Fire, and Frost — not 51 per tree.",
+          "Inside a single tree, spending 5 points unlocks the next row. Locked rows stay grey until that gate is met. Talents also respect maxRank (1–5) and prerequisite links: you cannot rank a talent until its requirement is filled.",
+          "The calculator blocks overspend. Used and remaining points update as you click."
+        ]
+      },
+      {
+        "heading": "Arcane, Fire, and Frost trees",
+        "paragraphs": [
+          "This page lists 54 Mage talents in our dataset: 18 in Arcane, 17 in Fire, 19 in Frost. Every name and rank text is prerendered in the HTML so you (and crawlers) can read them without running the interactive grid.",
+          "Use the trees above to try Arcane-heavy, Fire-heavy, or Frost-heavy splits. Nothing on this page claims a single “correct” PvE or PvP build — that would need live tuning data we do not invent."
+        ]
+      },
+      {
+        "heading": "What changed for Mage vs Classic?",
+        "paragraphs": [
+          "Against Classic Era in our diff file, Mage shows 6 new talents, 21 changed, 15 moved, and 12 unchanged. Examples of new nodes include Missile Barrage, Arcane Geometry, and Arcane Blast. Changed examples include Arcane Focus, Improved Channeling, and Magic Absorption. Moved examples include Wand Specialization, Arcane Subtlety, and Arcane Resilience.",
+          "Open the change list on this page for the full crawlable set, or open an individual talent page for every rank description. Counts come from data/talents.json for class mage — not from competitor pages.",
+          "When the client build moves, check the beta changelog for what we rebuilt."
+        ]
+      },
+      {
+        "heading": "Plan, save, and share a Mage build",
+        "paragraphs": [
+          "Each point you spend updates the address bar. Copy that URL, or use Copy link, to restore the same ranks in another browser via a real path under /mage/build/ — not a hash fragment.",
+          "Drafts also stay in local storage on this device (clearing site data removes them). Reset and undo are available in the calculator chrome when you need to restart a theorycraft pass. Talc cannot import or export an in-game talent string — plan here, then apply ranks in the client yourself.",
+          "If you are comparing classes before locking a main, the home hub links all nine calculators, including Warlock and Druid beside Mage."
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "q": "How many Mage talents are in Forever?",
+        "a": "This calculator lists 54 Mage talents across Arcane, Fire, Frost (18 / 17 / 19), read from client build 1.60.1.70425, checked 16 October 2026."
+      },
+      {
+        "q": "How do Mage talent points work?",
+        "a": "At level 60 you have 51 points shared across all three trees. Within one tree, each new row opens after 5 points spent in that tree. Prerequisites and maxRank still apply."
+      },
+      {
+        "q": "What changed for Mage vs Classic?",
+        "a": "In our dataset, Mage has 6 new, 21 changed, 15 moved, and 12 unchanged talents versus Classic Era. The change list on this page links every marked talent."
+      },
+      {
+        "q": "Does Talc pick the best Mage build?",
+        "a": "No. Talc is a planning tool. It does not publish unverified BiS, DPS rankings, or leveling presets. Spend points on the trees, then share your own link."
+      },
+      {
+        "q": "Where is my draft saved, and can I import a game build?",
+        "a": "Drafts stay in this browser’s local storage on this device. Clearing cookies or site data removes them. Share links restore ranks on any browser. Talc cannot import talent strings from the game client."
+      },
+      {
+        "q": "Is Talc official, and do I need an account?",
+        "a": "Talc is an unofficial fan-made tool, not affiliated with Blizzard. It is free and does not require an account."
+      }
+    ]
+  },
+  "warlock": {
+    "intro": "This is a free Warlock talent calculator for World of Warcraft®: Forever™. Open the full Affliction, Demonology, and Destruction trees, spend all 51 points under Forever rules, then copy a share link. Talent names and every rank description are read from client build 1.60.1.70425, checked 16 October 2026.",
+    "sections": [
+      {
+        "heading": "How Warlock talent points work in Forever",
+        "paragraphs": [
+          "At level 60 you have 51 talent points. Those points are one shared pool across Affliction, Demonology, and Destruction — not 51 per tree.",
+          "Inside a single tree, spending 5 points unlocks the next row. Locked rows stay grey until that gate is met. Talents also respect maxRank (1–5) and prerequisite links: you cannot rank a talent until its requirement is filled.",
+          "The calculator blocks overspend. Used and remaining points update as you click."
+        ]
+      },
+      {
+        "heading": "Affliction, Demonology, and Destruction trees",
+        "paragraphs": [
+          "This page lists 52 Warlock talents in our dataset: 17 in Affliction, 19 in Demonology, 16 in Destruction. Every name and rank text is prerendered in the HTML so you (and crawlers) can read them without running the interactive grid.",
+          "Use the trees above to try Affliction-heavy, Demonology-heavy, or Destruction-heavy splits. Nothing on this page claims a single “correct” PvE or PvP build — that would need live tuning data we do not invent."
+        ]
+      },
+      {
+        "heading": "What changed for Warlock vs Classic?",
+        "paragraphs": [
+          "Against Classic Era in our diff file, Warlock shows 19 new talents, 2 changed, 30 moved, and 1 unchanged. Examples of new nodes include Soul Harvest, Improved Drains, and Pandemic. Changed examples include Improved Health Funnel and Demonic Sacrifice. Moved examples include Improved Life Tap, Suppression, and Improved Corruption.",
+          "Open the change list on this page for the full crawlable set, or open an individual talent page for every rank description. Counts come from data/talents.json for class warlock — not from competitor pages.",
+          "When the client build moves, check the beta changelog for what we rebuilt."
+        ]
+      },
+      {
+        "heading": "Plan, save, and share a Warlock build",
+        "paragraphs": [
+          "Each point you spend updates the address bar. Copy that URL, or use Copy link, to restore the same ranks in another browser via a real path under /warlock/build/ — not a hash fragment.",
+          "Drafts also stay in local storage on this device (clearing site data removes them). Reset and undo are available in the calculator chrome when you need to restart a theorycraft pass. Talc cannot import or export an in-game talent string — plan here, then apply ranks in the client yourself.",
+          "If you are comparing classes before locking a main, the home hub links all nine calculators, including Druid and Warrior beside Warlock."
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "q": "How many Warlock talents are in Forever?",
+        "a": "This calculator lists 52 Warlock talents across Affliction, Demonology, Destruction (17 / 19 / 16), read from client build 1.60.1.70425, checked 16 October 2026."
+      },
+      {
+        "q": "How do Warlock talent points work?",
+        "a": "At level 60 you have 51 points shared across all three trees. Within one tree, each new row opens after 5 points spent in that tree. Prerequisites and maxRank still apply."
+      },
+      {
+        "q": "What changed for Warlock vs Classic?",
+        "a": "In our dataset, Warlock has 19 new, 2 changed, 30 moved, and 1 unchanged talents versus Classic Era. The change list on this page links every marked talent."
+      },
+      {
+        "q": "Does Talc pick the best Warlock build?",
+        "a": "No. Talc is a planning tool. It does not publish unverified BiS, DPS rankings, or leveling presets. Spend points on the trees, then share your own link."
+      },
+      {
+        "q": "Where is my draft saved, and can I import a game build?",
+        "a": "Drafts stay in this browser’s local storage on this device. Clearing cookies or site data removes them. Share links restore ranks on any browser. Talc cannot import talent strings from the game client."
+      },
+      {
+        "q": "Is Talc official, and do I need an account?",
+        "a": "Talc is an unofficial fan-made tool, not affiliated with Blizzard. It is free and does not require an account."
+      }
+    ]
+  },
+  "druid": {
+    "intro": "This is a free Druid talent calculator for World of Warcraft®: Forever™. Open the full Balance, Feral Combat, and Restoration trees, spend all 51 points under Forever rules, then copy a share link. Talent names and every rank description are read from client build 1.60.1.70425, checked 16 October 2026.",
+    "sections": [
+      {
+        "heading": "How Druid talent points work in Forever",
+        "paragraphs": [
+          "At level 60 you have 51 talent points. Those points are one shared pool across Balance, Feral Combat, and Restoration — not 51 per tree.",
+          "Inside a single tree, spending 5 points unlocks the next row. Locked rows stay grey until that gate is met. Talents also respect maxRank (1–5) and prerequisite links: you cannot rank a talent until its requirement is filled.",
+          "The calculator blocks overspend. Used and remaining points update as you click."
+        ]
+      },
+      {
+        "heading": "Balance, Feral Combat, and Restoration trees",
+        "paragraphs": [
+          "This page lists 52 Druid talents in our dataset: 16 in Balance, 20 in Feral Combat, 16 in Restoration. Every name and rank text is prerendered in the HTML so you (and crawlers) can read them without running the interactive grid.",
+          "Use the trees above to try Balance-heavy, Feral-heavy, or Restoration-heavy splits. Nothing on this page claims a single “correct” PvE or PvP build — that would need live tuning data we do not invent."
+        ]
+      },
+      {
+        "heading": "What changed for Druid vs Classic?",
+        "paragraphs": [
+          "Against Classic Era in our diff file, Druid shows 15 new talents, 13 changed, 20 moved, and 4 unchanged. Examples of new nodes include Genesis, Nature's Majesty, and Nature's Splendor. Changed examples include Improved Moonfire, Insect Swarm, and Vengeance. Moved examples include Improved Wrath, Moonglow, and Nature's Reach.",
+          "Open the change list on this page for the full crawlable set, or open an individual talent page for every rank description. Counts come from data/talents.json for class druid — not from competitor pages.",
+          "When the client build moves, check the beta changelog for what we rebuilt."
+        ]
+      },
+      {
+        "heading": "Plan, save, and share a Druid build",
+        "paragraphs": [
+          "Each point you spend updates the address bar. Copy that URL, or use Copy link, to restore the same ranks in another browser via a real path under /druid/build/ — not a hash fragment.",
+          "Drafts also stay in local storage on this device (clearing site data removes them). Reset and undo are available in the calculator chrome when you need to restart a theorycraft pass. Talc cannot import or export an in-game talent string — plan here, then apply ranks in the client yourself.",
+          "If you are comparing classes before locking a main, the home hub links all nine calculators, including Warrior and Paladin beside Druid."
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "q": "How many Druid talents are in Forever?",
+        "a": "This calculator lists 52 Druid talents across Balance, Feral Combat, Restoration (16 / 20 / 16), read from client build 1.60.1.70425, checked 16 October 2026."
+      },
+      {
+        "q": "How do Druid talent points work?",
+        "a": "At level 60 you have 51 points shared across all three trees. Within one tree, each new row opens after 5 points spent in that tree. Prerequisites and maxRank still apply."
+      },
+      {
+        "q": "What changed for Druid vs Classic?",
+        "a": "In our dataset, Druid has 15 new, 13 changed, 20 moved, and 4 unchanged talents versus Classic Era. The change list on this page links every marked talent."
+      },
+      {
+        "q": "Does Talc pick the best Druid build?",
+        "a": "No. Talc is a planning tool. It does not publish unverified BiS, DPS rankings, or leveling presets. Spend points on the trees, then share your own link."
+      },
+      {
+        "q": "Where is my draft saved, and can I import a game build?",
+        "a": "Drafts stay in this browser’s local storage on this device. Clearing cookies or site data removes them. Share links restore ranks on any browser. Talc cannot import talent strings from the game client."
+      },
+      {
+        "q": "Is Talc official, and do I need an account?",
+        "a": "Talc is an unofficial fan-made tool, not affiliated with Blizzard. It is free and does not require an account."
+      }
+    ]
+  }
+}

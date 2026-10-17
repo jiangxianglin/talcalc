@@ -1,0 +1,28 @@
+---
+import type { FaqItem } from '../lib/types';
+
+interface Props {
+  items: FaqItem[];
+  title?: string;
+}
+const { items, title = 'Frequently asked questions' } = Astro.props;
+---
+
+<section class="mt-14" aria-labelledby="faq-heading">
+  <h2 id="faq-heading" class="font-display text-2xl text-gold mb-4">{title}</h2>
+  <div class="space-y-3">
+    {
+      items.map((item) => (
+        <details class="group panel open:border-gold/30">
+          <summary class="cursor-pointer list-none px-4 py-3 font-medium text-ink-100 flex justify-between gap-4">
+            <span>{item.q}</span>
+            <span class="text-gold/70 group-open:rotate-45 transition-transform" aria-hidden="true"
+              >+</span
+            >
+          </summary>
+          <p class="px-4 pb-4 text-ink-300 text-sm leading-relaxed">{item.a}</p>
+        </details>
+      ))
+    }
+  </div>
+</section>
