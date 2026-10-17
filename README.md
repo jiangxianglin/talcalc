@@ -28,12 +28,26 @@ npm run data:build
 
 ## Deploy (Cloudflare Pages)
 
-Live project: **talc** → https://talc-7io.pages.dev/
+Live site: **https://talcalc.com** (apex is canonical)
+Pages project: **talc** → https://talc-7io.pages.dev/
+Repo: https://github.com/jiangxianglin/talcalc
+
+Pushes to `master` deploy automatically (Pages Git integration,
+build command `npm run build`, output dir `dist`).
+
+Manual deploy still works as a fallback:
 
 ```bash
 npm run deploy
 # or: npm run build && npx wrangler pages deploy dist --project-name=talc --branch=master --commit-dirty=true
 ```
+
+Zone setup for `talcalc.com` (already done, listed so it is not re-litigated):
+
+- NS at Spaceship → `eva.ns.cloudflare.com`, `robert.ns.cloudflare.com`
+- `CNAME @ → talc-7io.pages.dev` and `CNAME www → talc-7io.pages.dev`, both proxied
+- Redirect Rule (single redirect): `https://www.*` → `https://${1}`, 301, preserve query string
+- SSL/TLS mode Full, Always Use HTTPS on, Automatic HTTPS Rewrites on
 
 After deploy:
 
