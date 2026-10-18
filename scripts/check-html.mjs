@@ -72,11 +72,24 @@ const checks = [
     ],
   },
   {
+    file: 'name-reservation/index.html',
+    needles: [
+      'October 27',
+      'November 3',
+      'Skyborne Heroic Pack',
+      'two-name',
+      'FAQPage',
+      'Warrior talent calculator',
+      'disclaimer',
+    ],
+  },
+  {
     file: 'sitemap-0.xml',
     needles: [
       'https://talcalc.com/stress-test/',
       'https://talcalc.com/talents/',
       'https://talcalc.com/patch-notes/',
+      'https://talcalc.com/name-reservation/',
     ],
   },
   {
@@ -91,6 +104,7 @@ const checks = [
       'https://talcalc.com/stress-test/',
       'https://talcalc.com/talents/',
       'https://talcalc.com/patch-notes/',
+      'https://talcalc.com/name-reservation/',
     ],
   },
   { file: '_routes.json', needles: ['/*/build/*'] },

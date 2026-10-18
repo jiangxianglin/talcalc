@@ -162,7 +162,7 @@ export type Talent = {
 | `/stress-test/` | 1 | 压力测试日期/时区/参加方式（官方事实页） | SSG |
 | `/talents/` | 1 | 天赋索引（只列内链，不瞄关键词） | SSG |
 | `/patch-notes/` | 1 | 暴雪 deep dive / 日程索引（不编造 notes） | SSG |
-| `/name-reservation/` | 1 | 角色名预约说明（对齐 10/27，尚未做） | SSG |
+| `/name-reservation/` | 1 | 角色名预约说明（对齐 10/27–11/3，官方事实页） | SSG |
 | `/questions/` | 1 | 问答页（P1） | SSG |
 | `404` | 1 | 带九职业内链 | — |
 

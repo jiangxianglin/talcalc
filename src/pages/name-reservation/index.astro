@@ -1,0 +1,194 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import Faq from '../../components/Faq.astro';
+import { classes, meta } from '../../lib/data';
+import type { FaqItem } from '../../lib/types';
+import { breadcrumbList, faqEntities } from '../../lib/schema';
+
+const NAME_NEWS =
+  'https://news.blizzard.com/en-us/article/24304161/create-a-name-of-your-own-in-wow-forever';
+const PREPURCHASE_NEWS =
+  'https://news.blizzard.com/en-us/article/24301508/pre-purchase-world-of-warcraft-forever-upgrades-and-begin-your-next-journey-in-azeroth';
+const STRESS_NEWS =
+  'https://news.blizzard.com/en-us/article/24302072/updated-oct-16-join-the-world-of-warcraft-forever-stress-test';
+
+const title = 'WoW Forever Name Reservation – Oct 27 to Nov 3, Who Qualifies';
+const description =
+  'Forever Early Name Reservation runs Oct 27–Nov 3, 2026 PST for upgrade buyers. Two-part names, up to 3 characters, first come first served.';
+
+const faqs: FaqItem[] = [
+  {
+    q: 'When is Forever Early Name Reservation?',
+    a: 'October 27 through November 3, 2026, PST. Global launch is November 4, 2026, at 3:00 p.m. PST.',
+  },
+  {
+    q: 'Who gets Early Name Reservation?',
+    a: 'Players who pre-purchase an upgrade: the Skyborne Heroic Pack, Skyborne Epic Pack, or the limited-time Warcraft Forever Collection. Blizzard lists Early Name Reservation with those upgrade purchases.',
+  },
+  {
+    q: 'How many characters can I reserve?',
+    a: 'You can create and customize up to three characters during the Early Name Reservation window. Names are first-come, first-served; desired names cannot be guaranteed.',
+  },
+  {
+    q: 'How do Forever character names work?',
+    a: 'Each character has two name parts (first name and a last or secondary name). The full two-name combination must be unique within your region. You can hide the secondary name on nameplates in Options → Nameplates → “My Secondary Name”; it still appears in chat.',
+  },
+];
+
+const pageUrl = 'https://talcalc.com/name-reservation/';
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'WebPage',
+      '@id': `${pageUrl}#webpage`,
+      url: pageUrl,
+      name: title,
+      description,
+      dateModified: '2026-10-18',
+    },
+    breadcrumbList([
+      { name: 'Home', url: 'https://talcalc.com/' },
+      { name: 'Name reservation', url: pageUrl },
+    ]),
+    {
+      '@type': 'FAQPage',
+      mainEntity: faqEntities(faqs),
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  canonicalPath="/name-reservation/"
+  ogImage="/og/home.png"
+  jsonLd={jsonLd}
+>
+  <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Name reservation' }]} />
+
+  <p
+    class="mb-4 rounded border border-gold/40 bg-gold/10 px-4 py-3 text-sm font-medium text-ink-100"
+    role="status"
+  >
+    Early Name Reservation:{' '}
+    <strong class="text-gold">October 27 – November 3, 2026 (PST)</strong>. Launch is November 4
+    at 3:00 p.m. PST.
+  </p>
+
+  <h1 class="font-display text-3xl font-bold text-gold tracking-wide mb-3">
+    WoW Forever Name Reservation
+  </h1>
+  <p class="text-ink-300 max-w-2xl mb-8 leading-relaxed text-sm">
+    Dates, who qualifies, the two-name system, and limits — restated from Blizzard&apos;s{' '}
+    <a href={NAME_NEWS} rel="noopener noreferrer">naming news post</a>
+    {' '}and{' '}
+    <a href={PREPURCHASE_NEWS} rel="noopener noreferrer">pre-purchase upgrades post</a>
+    . Talc is a fan-made talent calculator; this page does not sell upgrades.
+  </p>
+
+  <section class="mb-10 max-w-2xl" aria-labelledby="when-heading">
+    <h2 id="when-heading" class="font-display text-xl text-gold mb-3">When it runs</h2>
+    <p class="text-ink-300 text-sm leading-relaxed">
+      Early Name Reservation is available from{' '}
+      <strong class="text-ink-100">October 27 through November 3, 2026, PST</strong>. World of
+      Warcraft®: Forever™ launches globally on{' '}
+      <strong class="text-ink-100">November 4, 2026, at 3:00 p.m. PST</strong>. Stress-test
+      characters, names, and guilds are wiped afterward in preparation for this window — see the{' '}
+      <a href="/stress-test/">stress test page</a>
+      {' '}(
+      <a href={STRESS_NEWS} rel="noopener noreferrer">Blizzard stress-test post</a>
+      ).
+    </p>
+  </section>
+
+  <section class="mb-10 max-w-2xl" aria-labelledby="who-heading">
+    <h2 id="who-heading" class="font-display text-xl text-gold mb-3">Who qualifies</h2>
+    <p class="text-ink-300 text-sm leading-relaxed mb-3">
+      Blizzard states Early Name Reservation is included with upgrade purchases. Eligible packs
+      named in their posts:
+    </p>
+    <ul class="list-disc pl-5 text-sm text-ink-300 space-y-2">
+      <li>
+        <strong class="text-ink-100">Skyborne Heroic Pack</strong> — lists Early Name Reservation
+        among its benefits
+      </li>
+      <li>
+        <strong class="text-ink-100">Skyborne Epic Pack</strong> — includes everything in the
+        Heroic Pack (plus beta access and other benefits)
+      </li>
+      <li>
+        <strong class="text-ink-100">Warcraft Forever Collection</strong> — limited-time bundle
+        that includes everything in the Epic Pack
+      </li>
+    </ul>
+    <p class="text-ink-400 text-sm leading-relaxed mt-3">
+      Base Forever access at launch is tied to a World of Warcraft Subscription or Game Time;
+      optional upgrades are sold separately on the Battle.net Shop. Check Blizzard&apos;s shop and
+      news posts for current offers.
+    </p>
+  </section>
+
+  <section class="mb-10 max-w-2xl" aria-labelledby="limits-heading">
+    <h2 id="limits-heading" class="font-display text-xl text-gold mb-3">What you can do</h2>
+    <ul class="list-disc pl-5 text-sm text-ink-300 space-y-2 leading-relaxed">
+      <li>Create and customize up to <strong class="text-ink-100">three characters</strong>.</li>
+      <li>Names are reserved <strong class="text-ink-100">first-come, first-served</strong>.</li>
+      <li>
+        Desired names <strong class="text-ink-100">cannot be guaranteed</strong>. If a full name is
+        taken or fails naming rules, choose another combination or use the in-game random name
+        generator.
+      </li>
+    </ul>
+  </section>
+
+  <section class="mb-10 max-w-2xl" aria-labelledby="names-heading">
+    <h2 id="names-heading" class="font-display text-xl text-gold mb-3">Two-part names</h2>
+    <p class="text-ink-300 text-sm leading-relaxed mb-3">
+      Forever uses a two-name structure (first name plus a last or secondary name). The{' '}
+      <strong class="text-ink-100">full combination</strong> must be unique within your region—not
+      just a single realm. Two characters may share a first name if their full names differ.
+    </p>
+    <p class="text-ink-300 text-sm leading-relaxed mb-3">
+      To hide your secondary name in the world: press Escape → Options → Nameplates → check{' '}
+      <strong class="text-ink-100">“My Secondary Name”</strong>. The secondary name still appears in
+      chat.
+    </p>
+    <p class="text-ink-300 text-sm leading-relaxed">
+      Names must follow the in-game code of conduct. Restricted words, spellings, and patterns can
+      apply to either part or to both parts together—splitting a restricted word across the two
+      names does not necessarily make it valid.
+    </p>
+  </section>
+
+  <section class="mb-10" aria-labelledby="class-heading">
+    <h2 id="class-heading" class="font-display text-xl text-gold mb-3">
+      Plan talents while you wait
+    </h2>
+    <p class="text-ink-300 text-sm leading-relaxed mb-4 max-w-2xl">
+      Reservation locks a name and look; launch builds still need{' '}
+      {meta.totalPoints} talent points. Pick a class and draft a shareable plan:
+    </p>
+    <ul class="flex flex-wrap gap-x-4 gap-y-2 text-sm">
+      {
+        classes.map((c) => (
+          <li>
+            <a href={`/${c.slug}/`}>{c.name} talent calculator</a>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+
+  <Faq items={faqs} title="Name reservation FAQ" />
+
+  <nav class="mt-12 text-sm text-ink-400 flex flex-wrap gap-x-4 gap-y-2" aria-label="Related">
+    <a href="/stress-test/">Stress test (Oct 21)</a>
+    <a href="/patch-notes/">Patch notes index</a>
+    <a href="/beta/">Client build changelog</a>
+    <a href="/">Talent calculator home</a>
+    <a href={NAME_NEWS} rel="noopener noreferrer">Blizzard naming post</a>
+  </nav>
+</BaseLayout>
