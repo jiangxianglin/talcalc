@@ -19,6 +19,9 @@ const checks = [
       'Where is my draft saved?',
       'How often is the talent data updated?',
       'Dataset',
+      'creativecommons.org/licenses/by/4.0/',
+      '/talents/',
+      '/patch-notes/',
     ],
   },
   {
@@ -42,12 +45,54 @@ const checks = [
     needles: ['WoW Forever Shaman Talent Calculator', 'Lava Burst'],
   },
   { file: 'mage/talents/pyroblast/index.html', needles: ['Pyroblast'] },
-  { file: 'beta/index.html', needles: ['1.60.1.70425'] },
+  { file: 'beta/index.html', needles: ['1.60.1.70425', 'October 21', '/stress-test/'] },
+  {
+    file: 'stress-test/index.html',
+    needles: [
+      'October 21',
+      'previously October 19',
+      'no subscription',
+      'Name Reservations',
+      'FAQPage',
+      'Warrior talent calculator',
+      'disclaimer',
+    ],
+  },
+  {
+    file: 'talents/index.html',
+    needles: ['All 466 talents', 'Improved Heroic Strike', '/warrior/talents/'],
+  },
+  {
+    file: 'patch-notes/index.html',
+    needles: [
+      'Class deep dives',
+      'news.blizzard.com',
+      '/stress-test/',
+      'Priest and Warrior',
+    ],
+  },
+  {
+    file: 'sitemap-0.xml',
+    needles: [
+      'https://talcalc.com/stress-test/',
+      'https://talcalc.com/talents/',
+      'https://talcalc.com/patch-notes/',
+    ],
+  },
   {
     file: 'robots.txt',
     needles: ['Sitemap: https://talcalc.com/sitemap-index.xml', 'GPTBot', 'Allow: /'],
   },
-  { file: 'llms.txt', needles: ['talcalc.com', 'https://talcalc.com/hunter/'] },
+  {
+    file: 'llms.txt',
+    needles: [
+      'talcalc.com',
+      'https://talcalc.com/hunter/',
+      'https://talcalc.com/stress-test/',
+      'https://talcalc.com/talents/',
+      'https://talcalc.com/patch-notes/',
+    ],
+  },
   { file: '_routes.json', needles: ['/*/build/*'] },
   { file: 'sitemap-index.xml', needles: ['sitemap'] },
 ];

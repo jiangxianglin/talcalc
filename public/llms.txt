@@ -6,6 +6,9 @@
 ## Site
 
 - Home (all nine classes): https://talcalc.com/
+- Forever stress test (Oct 21): https://talcalc.com/stress-test/
+- Patch notes index: https://talcalc.com/patch-notes/
+- All talents index: https://talcalc.com/talents/
 - Beta / data changelog: https://talcalc.com/beta/
 - Sitemap: https://talcalc.com/sitemap-index.xml
 

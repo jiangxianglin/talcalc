@@ -130,6 +130,15 @@ function cellState(t: Talent, ranks: RankMap): string {
     <span><span class="font-mono text-sky-300">M</span> moved</span>
     <span>vs Classic · arrows show prerequisites</span>
   </p>
+  <aside
+    data-compare-panel
+    class="compare-panel mb-4 panel p-3 text-sm"
+    hidden
+    aria-label="Classic differences for this class"
+  >
+    <p class="text-ink-300 mb-2" data-compare-summary></p>
+    <div class="grid gap-3 sm:grid-cols-3" data-compare-cols></div>
+  </aside>
   <div
     id={`${rootId}-tip`}
     class="talent-tooltip"
@@ -348,16 +357,63 @@ function cellState(t: Talent, ranks: RankMap): string {
   const { talents, totalPoints, trees, classSlug, syncUrl, storageKey } = payload;
 
   let ranks: RankMap = { ...payload.initialRanks };
-  let history: RankMap[] = [];
+  let undoStack: RankMap[] = [];
   let compare = false;
   let statusTimer = 0;
   const tip = root.querySelector<HTMLElement>('[data-tooltip]');
+  const comparePanel = root.querySelector<HTMLElement>('[data-compare-panel]');
+  const compareSummary = root.querySelector<HTMLElement>('[data-compare-summary]');
+  const compareCols = root.querySelector<HTMLElement>('[data-compare-cols]');
 
   const changeWords: Record<string, string> = {
     new: 'New since Classic',
     changed: 'Changed since Classic',
     moved: 'Moved since Classic',
   };
+
+  const changeGroups = {
+    new: talents.filter((t) => t.change === 'new'),
+    changed: talents.filter((t) => t.change === 'changed'),
+    moved: talents.filter((t) => t.change === 'moved'),
+  };
+
+  function renderComparePanel() {
+    if (!comparePanel || !compareSummary || !compareCols) return;
+    comparePanel.hidden = !compare;
+    if (!compare) return;
+    const n = changeGroups.new.length;
+    const c = changeGroups.changed.length;
+    const m = changeGroups.moved.length;
+    const u = talents.length - n - c - m;
+    compareSummary.textContent = `${n} new · ${c} changed · ${m} moved · ${u} unchanged vs Classic`;
+    const sections: Array<{ key: keyof typeof changeGroups; label: string }> = [
+      { key: 'new', label: 'New (N)' },
+      { key: 'changed', label: 'Changed (C)' },
+      { key: 'moved', label: 'Moved (M)' },
+    ];
+    compareCols.innerHTML = sections
+      .map(({ key, label }) => {
+        const list = changeGroups[key];
+        if (!list.length) {
+          return `<div><h4 class="font-medium text-ink-200 mb-1">${label}</h4><p class="text-ink-500 text-xs">None in this class.</p></div>`;
+        }
+        const items = list
+          .slice(0, 12)
+          .map(
+            (t) =>
+              `<li><a href="/${classSlug}/talents/${t.id}/">${t.name}</a>${
+                t.changeNote ? `<span class="text-ink-500"> · ${t.changeNote}</span>` : ''
+              }</li>`,
+          )
+          .join('');
+        const more =
+          list.length > 12
+            ? `<li class="text-ink-500">+${list.length - 12} more on talent pages</li>`
+            : '';
+        return `<div><h4 class="font-medium text-ink-200 mb-1">${label} · ${list.length}</h4><ul class="space-y-0.5 text-ink-300 text-xs">${items}${more}</ul></div>`;
+      })
+      .join('');
+  }
 
   function showTip(t: Talent, anchor: HTMLElement) {
     if (!tip) return;
@@ -485,8 +541,8 @@ function cellState(t: Talent, ranks: RankMap): string {
   }
 
   function pushHistory() {
-    history.push({ ...ranks });
-    if (history.length > 80) history.shift();
+    undoStack.push({ ...ranks });
+    if (undoStack.length > 80) undoStack.shift();
   }
 
   function persist() {
@@ -496,7 +552,7 @@ function cellState(t: Talent, ranks: RankMap): string {
     } catch { /* ignore */ }
     if (syncUrl) {
       const path = code ? `/${classSlug}/build/${code}/` : `/${classSlug}/`;
-      if (location.pathname !== path) history.replaceState(null, '', path);
+      if (location.pathname !== path) window.history.replaceState(null, '', path);
     }
   }
 
@@ -583,7 +639,7 @@ function cellState(t: Talent, ranks: RankMap): string {
         persist();
         setStatus('Build reset');
       } else if (action === 'undo') {
-        const prev = history.pop();
+        const prev = undoStack.pop();
         if (!prev) {
           setStatus('Nothing to undo');
           return;
@@ -605,10 +661,11 @@ function cellState(t: Talent, ranks: RankMap): string {
         setStatus(
           compare
             ? hasDiff
-              ? 'Highlighting N / C / M vs Classic'
+              ? 'Compare Classic: tree highlights + list below'
               : 'No Classic diffs in this dataset yet — all talents marked unchanged'
             : '',
         );
+        renderComparePanel();
         render();
       }
       return;
@@ -641,7 +698,7 @@ function cellState(t: Talent, ranks: RankMap): string {
     const id = cell.dataset.talent!;
     const t = talents.find((x) => x.id === id);
     if (!t) return;
-    if (e.key === 'Enter' || e.key === '+' || e.key === '=') {
+    if (e.key === 'Enter' || e.key === ' ' || e.key === '+' || e.key === '=') {
       e.preventDefault();
       add(t);
     } else if (e.key === '-' || e.key === 'Backspace') {

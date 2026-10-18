@@ -1,0 +1,183 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import Faq from '../../components/Faq.astro';
+import { classes, meta } from '../../lib/data';
+import type { FaqItem } from '../../lib/types';
+import { breadcrumbList, faqEntities } from '../../lib/schema';
+
+const BLIZZARD_NEWS =
+  'https://news.blizzard.com/en-us/article/24302072/updated-oct-16-join-the-world-of-warcraft-forever-stress-test';
+
+const title = 'WoW Forever Stress Test – Date Moved to Oct 21, Start Times';
+const description =
+  'The WoW Forever stress test is on October 21, not 19. Free for everyone, no subscription. Start times for NA, EU and KR, how to join, and what gets wiped.';
+
+const faqs: FaqItem[] = [
+  {
+    q: 'When does the WoW Forever stress test start?',
+    a: 'October 21, 2026: North America at 2:00 p.m. PDT, Europe at 19:00 CEST. Korea starts at 06:00 KST on October 22; Taiwan at 05:00 CST on October 22. Blizzard moved the date from October 19 in an October 16 update.',
+  },
+  {
+    q: 'Is the Forever stress test free?',
+    a: 'Yes. Anyone can take part. No subscription, Game Time, invitation, or beta access is required.',
+  },
+  {
+    q: 'Will stress test characters be wiped?',
+    a: 'Yes. At the end of the stress test, all characters, names, and guilds created on the stress test servers are wiped. Name Reservations open on October 27.',
+  },
+  {
+    q: 'What happens to the Forever beta during the stress test?',
+    a: 'The beta is taken offline shortly before the stress test begins and is expected to return shortly after the test ends. The test window itself may end earlier or run later as needed.',
+  },
+];
+
+const pageUrl = 'https://talcalc.com/stress-test/';
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'WebPage',
+      '@id': `${pageUrl}#webpage`,
+      url: pageUrl,
+      name: title,
+      description,
+      dateModified: '2026-10-16',
+    },
+    breadcrumbList([
+      { name: 'Home', url: 'https://talcalc.com/' },
+      { name: 'Stress test', url: pageUrl },
+    ]),
+    {
+      '@type': 'FAQPage',
+      mainEntity: faqEntities(faqs),
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  canonicalPath="/stress-test/"
+  ogImage="/og/home.png"
+  jsonLd={jsonLd}
+>
+  <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Stress test' }]} />
+
+  <p
+    class="mb-4 rounded border border-ember/50 bg-ember/10 px-4 py-3 text-sm font-medium text-ink-100"
+    role="status"
+  >
+    Date moved: <strong class="text-gold">October 21</strong> (previously October 19). Update posted
+    by Blizzard on October 16.
+  </p>
+
+  <h1 class="font-display text-3xl font-bold text-gold tracking-wide mb-3">
+    WoW Forever Stress Test
+  </h1>
+  <p class="text-ink-300 max-w-2xl mb-8 leading-relaxed">
+    Schedule, who can join, how to install, and what gets wiped — taken from Blizzard&apos;s{' '}
+    <a href={BLIZZARD_NEWS} rel="noopener noreferrer">Forever stress test news post</a>
+    {' '}(updated October 16). Talc is a fan-made talent calculator; this page only restates that
+    public schedule.
+  </p>
+
+  <section class="mb-10 max-w-2xl" aria-labelledby="date-heading">
+    <h2 id="date-heading" class="font-display text-xl text-gold mb-3">Date change</h2>
+    <p class="text-ink-300 text-sm leading-relaxed mb-4">
+      On October 16 Blizzard announced the WoW: Forever Server Stress Test is moving to{' '}
+      <strong class="text-ink-100">October 21</strong> (previously October 19). Local start times:
+    </p>
+    <ul class="panel p-4 text-sm text-ink-200 space-y-2 list-none">
+      <li class="flex justify-between gap-4 border-b border-ink-800/80 pb-2">
+        <span>North America</span>
+        <span class="font-mono text-ink-100">2:00 p.m. PDT</span>
+      </li>
+      <li class="flex justify-between gap-4 border-b border-ink-800/80 pb-2">
+        <span>Europe</span>
+        <span class="font-mono text-ink-100">19:00 CEST</span>
+      </li>
+      <li class="flex justify-between gap-4 border-b border-ink-800/80 pb-2">
+        <span>Korea</span>
+        <span class="font-mono text-ink-100">06:00 KST (Oct 22)</span>
+      </li>
+      <li class="flex justify-between gap-4">
+        <span>Taiwan</span>
+        <span class="font-mono text-ink-100">05:00 CST (Oct 22)</span>
+      </li>
+    </ul>
+  </section>
+
+  <section class="mb-10 max-w-2xl" aria-labelledby="who-heading">
+    <h2 id="who-heading" class="font-display text-xl text-gold mb-3">Who can take part</h2>
+    <p class="text-ink-300 text-sm leading-relaxed">
+      Anyone. No subscription, Game Time, invitation, or beta access is required. For a limited
+      time on October 21, interested players can sign into World of Warcraft®: Forever™ to help put
+      the servers through their paces.
+    </p>
+  </section>
+
+  <section class="mb-10 max-w-2xl" aria-labelledby="join-heading">
+    <h2 id="join-heading" class="font-display text-xl text-gold mb-3">How to join</h2>
+    <ol class="list-decimal pl-5 text-sm text-ink-300 space-y-2 leading-relaxed">
+      <li>Make sure your graphics drivers are up to date.</li>
+      <li>Open the Battle.net desktop app and allow it to update if needed.</li>
+      <li>Select World of Warcraft from the list of games.</li>
+      <li>
+        In the Game Version menu above the Play button, select{' '}
+        <strong class="text-ink-100">World of Warcraft: Forever Stress Test</strong> under In
+        Development, then select Install.
+      </li>
+      <li>
+        Once installation is complete and the Stress Test begins, select Play and choose an
+        available test realm.
+      </li>
+      <li>Create a new test character when available, enter the game, and join the test.</li>
+    </ol>
+  </section>
+
+  <section class="mb-10 max-w-2xl" aria-labelledby="window-heading">
+    <h2 id="window-heading" class="font-display text-xl text-gold mb-3">How long it runs</h2>
+    <p class="text-ink-300 text-sm leading-relaxed">
+      The test window may end earlier or run later as needed. The Forever beta is taken offline
+      shortly before the stress test begins and is expected to return shortly after it ends.
+    </p>
+  </section>
+
+  <section class="mb-10 max-w-2xl" aria-labelledby="wipe-heading">
+    <h2 id="wipe-heading" class="font-display text-xl text-gold mb-3">Characters are wiped</h2>
+    <p class="text-ink-300 text-sm leading-relaxed">
+      At the end of the Stress Test, all created characters, names, and guilds will be wiped from
+      the Stress Test servers in preparation for Name Reservations opening on{' '}
+      <strong class="text-ink-100">October 27</strong>.
+    </p>
+  </section>
+
+  <section class="mb-10" aria-labelledby="class-heading">
+    <h2 id="class-heading" class="font-display text-xl text-gold mb-3">
+      Pick a class before you queue
+    </h2>
+    <p class="text-ink-300 text-sm leading-relaxed mb-4 max-w-2xl">
+      Use the stress test to try the feel of a class, then plan a full {meta.totalPoints}-point
+      build here for launch. Every talent and rank on Talc is read from the current client dataset.
+    </p>
+    <ul class="flex flex-wrap gap-x-4 gap-y-2 text-sm">
+      {
+        classes.map((c) => (
+          <li>
+            <a href={`/${c.slug}/`}>{c.name} talent calculator</a>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+
+  <Faq items={faqs} title="Stress test FAQ" />
+
+  <nav class="mt-12 text-sm text-ink-400 flex flex-wrap gap-x-4 gap-y-2" aria-label="Related">
+    <a href="/beta/">Client build changelog</a>
+    <a href="/">Talent calculator home</a>
+    <a href={BLIZZARD_NEWS} rel="noopener noreferrer">Blizzard news post</a>
+  </nav>
+</BaseLayout>

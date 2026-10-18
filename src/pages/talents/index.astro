@@ -1,0 +1,90 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { classes, meta, getTalentsForClass } from '../../lib/data';
+import { breadcrumbList } from '../../lib/schema';
+
+const title = `All ${meta.totalTalents} WoW Forever Talents – Index`;
+const description = `Index of all ${meta.totalTalents} Forever talents across nine classes. Links to every talent page. Dataset build ${meta.clientBuild}.`;
+
+const pageUrl = 'https://talcalc.com/talents/';
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'WebPage',
+      '@id': `${pageUrl}#webpage`,
+      url: pageUrl,
+      name: title,
+      description,
+      dateModified: meta.checkedAt,
+    },
+    breadcrumbList([
+      { name: 'Home', url: 'https://talcalc.com/' },
+      { name: 'Talents', url: pageUrl },
+    ]),
+    {
+      '@type': 'ItemList',
+      name: 'Talent calculators by class',
+      numberOfItems: classes.length,
+      itemListElement: classes.map((c, i) => ({
+        '@type': 'ListItem',
+        position: i + 1,
+        url: `https://talcalc.com/${c.slug}/`,
+        name: `${c.name} talents`,
+      })),
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  canonicalPath="/talents/"
+  ogImage="/og/home.png"
+  jsonLd={jsonLd}
+>
+  <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Talents' }]} />
+
+  <h1 class="font-display text-3xl font-bold text-gold tracking-wide mb-3">
+    All {meta.totalTalents} talents
+  </h1>
+  <p class="text-ink-400 text-sm mb-8 max-w-2xl">
+    Crawl index for every talent page. Client build{' '}
+    <span class="font-mono text-ink-200">{meta.clientBuild}</span>.
+  </p>
+
+  <div class="space-y-8">
+    {
+      classes.map((c) => {
+        const list = getTalentsForClass(c.slug);
+        return (
+          <section class="panel p-4" aria-labelledby={`class-${c.slug}`}>
+            <h2 id={`class-${c.slug}`} class="font-medium text-ink-100 mb-3">
+              <a href={`/${c.slug}/`}>{c.name}</a>
+              <span class="text-ink-500 font-normal text-sm ml-2">
+                {list.length} talents
+              </span>
+            </h2>
+            <ul class="columns-2 sm:columns-3 gap-x-4 text-sm text-ink-400">
+              {list.map((t) => (
+                <li class="break-inside-avoid mb-0.5">
+                  <a href={`/${c.slug}/talents/${t.id}/`} class="text-ink-300">
+                    {t.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </section>
+        );
+      })
+    }
+  </div>
+
+  <nav class="mt-12 text-sm text-ink-400 flex flex-wrap gap-x-4 gap-y-2" aria-label="Related">
+    <a href="/">Talent calculator</a>
+    <a href="/beta/">Client build changelog</a>
+    <a href="/patch-notes/">Patch notes index</a>
+  </nav>
+</BaseLayout>

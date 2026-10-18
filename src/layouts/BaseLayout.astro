@@ -34,11 +34,15 @@ const cfBeaconJson = CF_BEACON_TOKEN
   ? JSON.stringify({ token: CF_BEACON_TOKEN })
   : '';
 
+const CLASS_PATH =
+  /^\/(warrior|paladin|hunter|rogue|priest|shaman|mage|warlock|druid)(\/|$)/;
 const navHome = activeNav === 'home' || (!activeNav && canonicalPath === '/');
 const navBeta = activeNav === 'beta' || canonicalPath.startsWith('/beta');
+/** Only class calculator routes — not 404 / stress-test / index hubs. */
 const navCalc =
   activeNav === 'calculator' ||
-  (!activeNav && !navHome && !navBeta);
+  (!activeNav && !navHome && !navBeta && CLASS_PATH.test(canonicalPath));
+const CC_BY_URL = 'https://creativecommons.org/licenses/by/4.0/';
 ---
 
 <!doctype html>
@@ -189,6 +193,9 @@ const navCalc =
 
         <nav class="flex flex-wrap justify-center md:justify-start gap-x-4 gap-y-2 text-sm" aria-label="Footer">
           <a href="/">Calculator</a>
+          <a href="/talents/">All talents</a>
+          <a href="/stress-test/">Stress test</a>
+          <a href="/patch-notes/">Patch notes</a>
           <a href="/beta/">Beta changelog</a>
           <a href="/warrior/">Warrior</a>
           <a href="/paladin/">Paladin</a>
@@ -204,7 +211,9 @@ const navCalc =
         <p class="text-xs text-ink-400">
           Talent trees and statistics from{' '}
           <a href={meta.sourceUrl} rel="noopener noreferrer">wow-forever.gg</a>
-          {' '}(CC BY 4.0)
+          {' '}(
+          <a href={CC_BY_URL} rel="noopener noreferrer license">CC BY 4.0</a>
+          )
         </p>
         <p class="disclaimer">
           Talc is an unofficial fan-made tool for World of Warcraft®. Not affiliated with,

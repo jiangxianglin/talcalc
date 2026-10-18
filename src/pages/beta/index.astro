@@ -22,6 +22,17 @@ const description = `Client build changes tracked by Talc. Current dataset: ${me
     dataset: build <span class="font-mono text-ink-100">{meta.clientBuild}</span>,{' '}
     {meta.totalTalents} talents across {classes.length} classes.
   </p>
+
+  <aside class="panel p-4 mb-8 max-w-2xl text-sm text-ink-300 leading-relaxed space-y-2 border-gold/25">
+    <h2 class="font-display text-base text-gold">Schedule note — stress test date change</h2>
+    <p>
+      Blizzard moved the Forever server stress test from October 19 to{' '}
+      <strong class="text-ink-100">October 21</strong> (announced October 16). The beta is taken
+      offline shortly before the test and is expected to return shortly after. Full times, join
+      steps, and wipe details:{' '}
+      <a href="/stress-test/">Forever stress test page</a>.
+    </p>
+  </aside>
   <div class="panel p-4 mb-8 max-w-2xl text-sm text-ink-300 leading-relaxed space-y-2">
     <h2 class="font-display text-base text-gold">How the dataset is checked</h2>
     <p>
@@ -68,6 +79,10 @@ const description = `Client build changes tracked by Talc. Current dataset: ${me
   <p class="mt-8 text-xs text-ink-500">
     Talent trees and statistics from{' '}
     <a href={meta.sourceUrl} rel="noopener noreferrer">wow-forever.gg</a>
-    {' '}(CC BY 4.0)
+    {' '}(
+    <a href="https://creativecommons.org/licenses/by/4.0/" rel="noopener noreferrer license"
+      >CC BY 4.0</a
+    >
+    )
   </p>
 </BaseLayout>

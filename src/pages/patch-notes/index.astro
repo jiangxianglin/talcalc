@@ -1,0 +1,155 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { classes, meta, formatCheckedAtShort } from '../../lib/data';
+import { breadcrumbList } from '../../lib/schema';
+
+const title = 'WoW Forever Patch Notes & Class Deep Dives – Index';
+const description =
+  'Index of Blizzard Forever class deep dives, beta schedule, and Talc client-build changelog. Links only — no invented notes.';
+
+const deepDives = [
+  {
+    label: 'Hunter and Druid',
+    classes: ['hunter', 'druid'],
+    href: 'https://news.blizzard.com/en-us/article/24301515/world-of-warcraft-forever-class-deep-dives-hunter-and-druid',
+  },
+  {
+    label: 'Priest and Warrior',
+    classes: ['priest', 'warrior'],
+    href: 'https://news.blizzard.com/en-us/article/24301514/world-of-warcraft-forever-class-deep-dives-priest-and-warrior',
+  },
+  {
+    label: 'Mage and Shaman',
+    classes: ['mage', 'shaman'],
+    href: 'https://news.blizzard.com/en-us/article/24302097/world-of-warcraft-forever-class-deep-dives-mage-and-shaman',
+  },
+  {
+    label: 'Rogue and Warlock',
+    classes: ['rogue', 'warlock'],
+    href: 'https://news.blizzard.com/en-us/article/24310968/world-of-warcraft-forever-class-deep-dives-rogue-and-warlock',
+  },
+  {
+    label: 'Paladin',
+    classes: ['paladin'],
+    href: 'https://news.blizzard.com/en-us/article/24302099/world-of-warcraft-forever-class-deep-dives-paladin',
+  },
+] as const;
+
+const scheduleLinks = [
+  {
+    label: 'Forever beta now live (through Oct 21)',
+    href: 'https://news.blizzard.com/en-us/article/24304160/the-world-of-warcraft-forever-beta-now-live',
+  },
+  {
+    label: 'Stress test moved to Oct 21 (Blizzard update Oct 16)',
+    href: 'https://news.blizzard.com/en-us/article/24302072/updated-oct-16-join-the-world-of-warcraft-forever-stress-test',
+  },
+] as const;
+
+const pageUrl = 'https://talcalc.com/patch-notes/';
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'WebPage',
+      '@id': `${pageUrl}#webpage`,
+      url: pageUrl,
+      name: title,
+      description,
+      dateModified: meta.checkedAt,
+    },
+    breadcrumbList([
+      { name: 'Home', url: 'https://talcalc.com/' },
+      { name: 'Patch notes', url: pageUrl },
+    ]),
+  ],
+};
+
+const checkedShort = formatCheckedAtShort(meta.checkedAt);
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  canonicalPath="/patch-notes/"
+  ogImage="/og/home.png"
+  jsonLd={jsonLd}
+>
+  <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Patch notes' }]} />
+
+  <h1 class="font-display text-3xl font-bold text-gold tracking-wide mb-3">
+    WoW Forever patch notes index
+  </h1>
+  <p class="text-ink-300 max-w-2xl mb-8 text-sm leading-relaxed">
+    Blizzard publishes Forever class deep dives and schedule posts on their news site. This page
+    indexes those posts and points to Talc&apos;s{' '}
+    <a href="/beta/">client build changelog</a>
+    {' '}(current dataset: build{' '}
+    <span class="font-mono text-ink-100">{meta.clientBuild}</span>, checked {checkedShort}). We do
+    not invent patch notes.
+  </p>
+
+  <section class="mb-10 max-w-2xl" aria-labelledby="deep-dives-heading">
+    <h2 id="deep-dives-heading" class="font-display text-xl text-gold mb-3">
+      Class deep dives (Blizzard)
+    </h2>
+    <ul class="space-y-3 text-sm">
+      {
+        deepDives.map((item) => (
+          <li class="panel p-4">
+            <a href={item.href} rel="noopener noreferrer" class="text-ink-100 font-medium">
+              {item.label}
+            </a>
+            <p class="mt-2 text-ink-400">
+              Plan builds:{' '}
+              {item.classes.map((slug, i) => {
+                const c = classes.find((x) => x.slug === slug);
+                return (
+                  <span>
+                    {i > 0 ? ', ' : ''}
+                    <a href={`/${slug}/`}>{c?.name ?? slug}</a>
+                  </span>
+                );
+              })}
+            </p>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+
+  <section class="mb-10 max-w-2xl" aria-labelledby="schedule-heading">
+    <h2 id="schedule-heading" class="font-display text-xl text-gold mb-3">Schedule posts</h2>
+    <ul class="list-disc pl-5 text-sm text-ink-300 space-y-2">
+      {
+        scheduleLinks.map((item) => (
+          <li>
+            <a href={item.href} rel="noopener noreferrer">
+              {item.label}
+            </a>
+          </li>
+        ))
+      }
+      <li>
+        <a href="/stress-test/">Stress test times and wipe rules (summary on Talc)</a>
+      </li>
+    </ul>
+  </section>
+
+  <section class="mb-10 max-w-2xl" aria-labelledby="talc-heading">
+    <h2 id="talc-heading" class="font-display text-xl text-gold mb-3">Talc dataset updates</h2>
+    <p class="text-ink-300 text-sm leading-relaxed">
+      When the Forever client build changes, we rebuild talent JSON and log it on the{' '}
+      <a href="/beta/">beta changelog</a>. Talent trees live under{' '}
+      <a href="/talents/">/talents/</a> and each class calculator.
+    </p>
+  </section>
+
+  <nav class="mt-12 text-sm text-ink-400 flex flex-wrap gap-x-4 gap-y-2" aria-label="Related">
+    <a href="/">Talent calculator</a>
+    <a href="/talents/">All talents</a>
+    <a href="/beta/">Client build changelog</a>
+    <a href="/stress-test/">Stress test</a>
+  </nav>
+</BaseLayout>

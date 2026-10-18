@@ -1,4 +1,5 @@
 # Cloudflare Pages — used by `wrangler pages` / CF dashboard sync
 name = "talc"
 compatibility_date = "2026-10-16"
+compatibility_flags = ["nodejs_compat"]
 pages_build_output_dir = "dist"

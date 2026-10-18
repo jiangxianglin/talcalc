@@ -82,10 +82,10 @@ const checkedShort = formatCheckedAtShort(meta.checkedAt);
         How to use this WoW Forever talent calculator
       </h2>
       <p class="text-ink-300 text-sm max-w-2xl leading-relaxed">
-        The home page starts on Warrior; open any class for that class’s full calculator. Left-click
-        or Enter adds a rank; right-click, Shift-click, or Backspace removes one. Rows open every{' '}
-        {meta.rowGate} points in a tree. On a class page the address updates as you go — copy it to
-        share.
+        Switch any of the nine classes on this page without a reload. Left-click, Enter, or Space
+        adds a rank; right-click, Shift-click, or Backspace removes one. Rows open every{' '}
+        {meta.rowGate} points in a tree. On a class page the address bar updates as you spend
+        points — copy that URL to share.
       </p>
     </section>
 
@@ -131,7 +131,10 @@ const checkedShort = formatCheckedAtShort(meta.checkedAt);
 
     <Faq items={homeFaq} />
 
-    <nav class="mt-12 text-sm text-ink-400" aria-label="More">
+    <nav class="mt-12 text-sm text-ink-400 flex flex-wrap gap-x-4 gap-y-2" aria-label="More">
+      <a href="/stress-test/">Forever stress test (Oct 21)</a>
+      <a href="/patch-notes/">Patch notes index</a>
+      <a href="/talents/">All talents</a>
       <a href="/beta/">Client build changelog</a>
     </nav>
   </div>

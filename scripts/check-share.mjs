@@ -58,6 +58,7 @@ if (!res.ok) {
 }
 const html = await res.text();
 
+const cardPath = `/hunter/build/${code}/card/`;
 const needles = [
   'Focused Fire',
   'Endurance Training',
@@ -65,6 +66,7 @@ const needles = [
   '1.60.1.70425',
   'disclaimer',
   `${used}/`,
+  `og:image" content="https://talcalc.com${cardPath}"`,
 ];
 
 let failed = 0;
@@ -75,6 +77,28 @@ for (const n of needles) {
   } else {
     console.log(`OK   ${n}`);
   }
+}
+
+const cardUrl = `${base}${cardPath}`;
+const cardRes = await fetch(cardUrl, {
+  headers: { 'user-agent': 'talc-check-share/1.0' },
+  redirect: 'follow',
+});
+const cardType = cardRes.headers.get('content-type') || '';
+const cardBuf = new Uint8Array(await cardRes.arrayBuffer());
+const isPng =
+  cardBuf.length > 8 &&
+  cardBuf[0] === 0x89 &&
+  cardBuf[1] === 0x50 &&
+  cardBuf[2] === 0x4e &&
+  cardBuf[3] === 0x47;
+if (!cardRes.ok || !cardType.includes('image/png') || !isPng) {
+  console.error(
+    `FAIL dynamic OG ${cardRes.status} type=${cardType} bytes=${cardBuf.length} png=${isPng}`,
+  );
+  failed += 1;
+} else {
+  console.log(`OK   dynamic OG ${cardBuf.length} bytes`);
 }
 
 // Rank chips like 1/1 or 5/5 should appear for spent talents
