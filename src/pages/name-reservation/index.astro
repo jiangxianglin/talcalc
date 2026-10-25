@@ -6,29 +6,35 @@ import { classes, meta } from '../../lib/data';
 import type { FaqItem } from '../../lib/types';
 import { breadcrumbList, faqEntities } from '../../lib/schema';
 
+const CLAIM_NEWS =
+  'https://news.blizzard.com/en-us/article/24303866/claim-your-world-of-warcraft-forever-character-names';
 const NAME_NEWS =
   'https://news.blizzard.com/en-us/article/24304161/create-a-name-of-your-own-in-wow-forever';
 const PREPURCHASE_NEWS =
   'https://news.blizzard.com/en-us/article/24301508/pre-purchase-world-of-warcraft-forever-upgrades-and-begin-your-next-journey-in-azeroth';
-const STRESS_NEWS =
-  'https://news.blizzard.com/en-us/article/24302072/updated-oct-16-join-the-world-of-warcraft-forever-stress-test';
+const RULESET_NEWS = 'https://worldofwarcraft.blizzard.com/news/24302070/';
+const BNET_DOWNLOAD = 'https://download.battle.net/desktop';
 
 const title = 'WoW Forever Name Reservation – Oct 27–Nov 3, Who Qualifies';
 const description =
-  'Forever Early Name Reservation runs Oct 27–Nov 3, 2026 PST for upgrade buyers. Two-part names, up to 3 characters, first come first served.';
+  'WoW Forever Early Name Reservation: Oct 27 start times for NA, EU, KR and TW. Up to 3 characters for upgrade buyers; first come, first served.';
 
 const faqs: FaqItem[] = [
   {
-    q: 'When is Forever Early Name Reservation?',
-    a: 'October 27 through November 3, 2026, PST. Global launch is November 4, 2026, at 3:00 p.m. PST.',
+    q: 'When does Forever Early Name Reservation start?',
+    a: 'October 27 through November 3, 2026. Regional start times from Blizzard: Europe October 27 at 18:00 CET; North America October 27 at 1:00 p.m. PDT; Korea October 28 at 07:00 KST; Taiwan October 28 at 07:00 CST. Global launch is November 4, 2026, at 3:00 p.m. PST.',
   },
   {
     q: 'Who gets Early Name Reservation?',
-    a: 'Players who pre-purchase an upgrade: the Skyborne Heroic Pack, Skyborne Epic Pack, or the limited-time Warcraft Forever Collection. Blizzard lists Early Name Reservation with those upgrade purchases.',
+    a: 'Players who pre-purchase an upgrade: the Skyborne Heroic Pack, Skyborne Epic Pack, or the limited-time Warcraft Forever Collection. Blizzard lists Early Name Reservation with those upgrade purchases on the account that received them.',
   },
   {
     q: 'How many characters can I reserve?',
-    a: 'You can create and customize up to three characters during the Early Name Reservation window. Names are first-come, first-served; desired names cannot be guaranteed.',
+    a: 'Up to three characters total across all Rulesets during Early Name Reservation. Creating two on a PvP Ruleset leaves one slot for a Normal or Role-Play Ruleset. Blizzard says this three-character cap applies only to Early Name Reservation. Names are first-come, first-served; desired names cannot be guaranteed.',
+  },
+  {
+    q: 'How do I reserve a Forever name?',
+    a: 'Update graphics drivers, open the Battle.net desktop app, select World of Warcraft, set Game Version to World of Warcraft: Forever, install if needed, select Play, choose a Ruleset, then create up to three characters with your chosen names.',
   },
   {
     q: 'How do Forever character names work?',
@@ -46,7 +52,7 @@ const jsonLd = {
       url: pageUrl,
       name: title,
       description,
-      dateModified: '2026-10-18',
+      dateModified: '2026-10-25',
     },
     breadcrumbList([
       { name: 'Home', url: 'https://talcalc.com/' },
@@ -66,6 +72,7 @@ const jsonLd = {
   canonicalPath="/name-reservation/"
   ogImage="/og/home.png"
   jsonLd={jsonLd}
+  activeNav="names"
 >
   <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Name reservation' }]} />
 
@@ -74,41 +81,62 @@ const jsonLd = {
     role="status"
   >
     Early Name Reservation:{' '}
-    <strong class="text-gold">October 27 – November 3, 2026 (PST)</strong>. Launch is November 4
-    at 3:00 p.m. PST.
+    <strong class="text-gold">October 27 – November 3, 2026</strong>. Regional start times below.
+    Launch is November 4 at 3:00 p.m. PST.
   </p>
 
   <h1 class="font-display text-3xl font-bold text-gold tracking-wide mb-3">
     WoW Forever Name Reservation
   </h1>
   <p class="text-ink-300 max-w-2xl mb-8 leading-relaxed text-sm">
-    Dates, who qualifies, the two-name system, and limits — restated from Blizzard&apos;s{' '}
-    <a href={NAME_NEWS} rel="noopener noreferrer">naming news post</a>
-    {' '}and{' '}
-    <a href={PREPURCHASE_NEWS} rel="noopener noreferrer">pre-purchase upgrades post</a>
+    Dates, regional start times, who qualifies, the three-character ruleset cap, and the two-name
+    system — restated from Blizzard&apos;s{' '}
+    <a href={CLAIM_NEWS} rel="noopener noreferrer">Claim Your Character Names</a>
+    {' '}post (20 October 2026),{' '}
+    <a href={NAME_NEWS} rel="noopener noreferrer">naming news</a>
+    , and{' '}
+    <a href={PREPURCHASE_NEWS} rel="noopener noreferrer">pre-purchase upgrades</a>
     . Talc is a fan-made talent calculator; this page does not sell upgrades.
   </p>
 
   <section class="mb-10 max-w-2xl" aria-labelledby="when-heading">
-    <h2 id="when-heading" class="font-display text-xl text-gold mb-3">When it runs</h2>
+    <h2 id="when-heading" class="font-display text-xl text-gold mb-3">
+      When Forever name reservation starts
+    </h2>
+    <p class="text-ink-300 text-sm leading-relaxed mb-3">
+      Early Name Reservation runs{' '}
+      <strong class="text-ink-100">October 27 through November 3, 2026</strong>. Blizzard lists these
+      start times:
+    </p>
+    <ul class="list-disc pl-5 text-sm text-ink-300 space-y-2 mb-3">
+      <li>
+        <strong class="text-ink-100">Europe:</strong> October 27 at 18:00 CET
+      </li>
+      <li>
+        <strong class="text-ink-100">North America:</strong> October 27 at 1:00 p.m. PDT
+      </li>
+      <li>
+        <strong class="text-ink-100">Korea:</strong> October 28 at 07:00 KST
+      </li>
+      <li>
+        <strong class="text-ink-100">Taiwan:</strong> October 28 at 07:00 CST
+      </li>
+    </ul>
     <p class="text-ink-300 text-sm leading-relaxed">
-      Early Name Reservation is available from{' '}
-      <strong class="text-ink-100">October 27 through November 3, 2026, PST</strong>. World of
-      Warcraft®: Forever™ launches globally on{' '}
+      World of Warcraft®: Forever™ launches globally on{' '}
       <strong class="text-ink-100">November 4, 2026, at 3:00 p.m. PST</strong>. Stress-test
       characters, names, and guilds are wiped afterward in preparation for this window — see the{' '}
-      <a href="/stress-test/">stress test page</a>
-      {' '}(
-      <a href={STRESS_NEWS} rel="noopener noreferrer">Blizzard stress-test post</a>
-      ).
+      <a href="/stress-test/">stress test page</a>.
     </p>
   </section>
 
   <section class="mb-10 max-w-2xl" aria-labelledby="who-heading">
-    <h2 id="who-heading" class="font-display text-xl text-gold mb-3">Who qualifies</h2>
+    <h2 id="who-heading" class="font-display text-xl text-gold mb-3">
+      Who qualifies for Early Name Reservation
+    </h2>
     <p class="text-ink-300 text-sm leading-relaxed mb-3">
-      Blizzard states Early Name Reservation is included with upgrade purchases. Eligible packs
-      named in their posts:
+      Blizzard states Early Name Reservation is included with upgrade purchases. Eligible packs named
+      in their posts:
     </p>
     <ul class="list-disc pl-5 text-sm text-ink-300 space-y-2">
       <li>
@@ -116,25 +144,62 @@ const jsonLd = {
         among its benefits
       </li>
       <li>
-        <strong class="text-ink-100">Skyborne Epic Pack</strong> — includes everything in the
-        Heroic Pack (plus beta access and other benefits)
+        <strong class="text-ink-100">Skyborne Epic Pack</strong> — includes everything in the Heroic
+        Pack (plus beta access and other benefits)
       </li>
       <li>
-        <strong class="text-ink-100">Warcraft Forever Collection</strong> — limited-time bundle
-        that includes everything in the Epic Pack
+        <strong class="text-ink-100">Warcraft Forever Collection</strong> — limited-time bundle that
+        includes everything in the Epic Pack
       </li>
     </ul>
     <p class="text-ink-400 text-sm leading-relaxed mt-3">
-      Base Forever access at launch is tied to a World of Warcraft Subscription or Game Time;
-      optional upgrades are sold separately on the Battle.net Shop. Check Blizzard&apos;s shop and
-      news posts for current offers.
+      The benefit applies to the specific World of Warcraft® account the upgrade was purchased for.
+      Base Forever access at launch is tied to a Subscription or Game Time; optional upgrades are
+      sold separately on the Battle.net Shop.
     </p>
   </section>
 
+  <section class="mb-10 max-w-2xl" aria-labelledby="how-heading">
+    <h2 id="how-heading" class="font-display text-xl text-gold mb-3">
+      How to reserve a Forever name
+    </h2>
+    <ol class="list-decimal pl-5 text-sm text-ink-300 space-y-2 leading-relaxed">
+      <li>Make sure your graphics drivers are up to date.</li>
+      <li>
+        Download and install the{' '}
+        <a href={BNET_DOWNLOAD} rel="noopener noreferrer">Battle.net desktop app</a>
+        , then let it update if needed.
+      </li>
+      <li>Select World of Warcraft from the game list.</li>
+      <li>
+        In Game Version (above Play), choose <strong class="text-ink-100">World of Warcraft: Forever</strong
+        >, then Install if prompted.
+      </li>
+      <li>
+        Select Play and{' '}
+        <a href={RULESET_NEWS} rel="noopener noreferrer">choose your Ruleset</a>.
+      </li>
+      <li>Create up to three characters with your chosen names.</li>
+    </ol>
+  </section>
+
   <section class="mb-10 max-w-2xl" aria-labelledby="limits-heading">
-    <h2 id="limits-heading" class="font-display text-xl text-gold mb-3">What you can do</h2>
+    <h2 id="limits-heading" class="font-display text-xl text-gold mb-3">
+      Three characters across Rulesets
+    </h2>
     <ul class="list-disc pl-5 text-sm text-ink-300 space-y-2 leading-relaxed">
-      <li>Create and customize up to <strong class="text-ink-100">three characters</strong>.</li>
+      <li>
+        Create and reserve names for up to{' '}
+        <strong class="text-ink-100">three characters total across all Rulesets</strong>.
+      </li>
+      <li>
+        Example from Blizzard: two characters on a PvP Ruleset leave one slot for a Normal or
+        Role-Play Ruleset.
+      </li>
+      <li>
+        Blizzard states this restriction{' '}
+        <strong class="text-ink-100">only applies to Early Name Reservation</strong>.
+      </li>
       <li>Names are reserved <strong class="text-ink-100">first-come, first-served</strong>.</li>
       <li>
         Desired names <strong class="text-ink-100">cannot be guaranteed</strong>. If a full name is
@@ -145,11 +210,13 @@ const jsonLd = {
   </section>
 
   <section class="mb-10 max-w-2xl" aria-labelledby="names-heading">
-    <h2 id="names-heading" class="font-display text-xl text-gold mb-3">Two-part names</h2>
+    <h2 id="names-heading" class="font-display text-xl text-gold mb-3">Two-part Forever names</h2>
     <p class="text-ink-300 text-sm leading-relaxed mb-3">
       Forever uses a two-name structure (first name plus a last or secondary name). The{' '}
       <strong class="text-ink-100">full combination</strong> must be unique within your region—not
-      just a single realm. Two characters may share a first name if their full names differ.
+      just a single realm. Two characters may share a first name if their full names differ. Details
+      are in Blizzard&apos;s{' '}
+      <a href={NAME_NEWS} rel="noopener noreferrer">Create a Name of Your Own</a> article.
     </p>
     <p class="text-ink-300 text-sm leading-relaxed mb-3">
       To hide your secondary name in the world: press Escape → Options → Nameplates → check{' '}
@@ -158,8 +225,8 @@ const jsonLd = {
     </p>
     <p class="text-ink-300 text-sm leading-relaxed">
       Names must follow the in-game code of conduct. Restricted words, spellings, and patterns can
-      apply to either part or to both parts together—splitting a restricted word across the two
-      names does not necessarily make it valid.
+      apply to either part or to both parts together—splitting a restricted word across the two names
+      does not necessarily make it valid.
     </p>
   </section>
 
@@ -168,8 +235,8 @@ const jsonLd = {
       Plan talents while you wait
     </h2>
     <p class="text-ink-300 text-sm leading-relaxed mb-4 max-w-2xl">
-      Reservation locks a name and look; launch builds still need{' '}
-      {meta.totalPoints} talent points. Pick a class and draft a shareable plan:
+      Reservation locks a name and look; launch builds still need {meta.totalPoints} talent points.
+      Pick a class and draft a shareable plan:
     </p>
     <ul class="flex flex-wrap gap-x-4 gap-y-2 text-sm">
       {
@@ -189,6 +256,6 @@ const jsonLd = {
     <a href="/patch-notes/">Patch notes index</a>
     <a href="/beta/">Client build changelog</a>
     <a href="/">Talent calculator home</a>
-    <a href={NAME_NEWS} rel="noopener noreferrer">Blizzard naming post</a>
+    <a href={CLAIM_NEWS} rel="noopener noreferrer">Blizzard claim-names post</a>
   </nav>
 </BaseLayout>

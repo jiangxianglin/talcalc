@@ -1,6 +1,6 @@
 ---
 import type { ClassInfo, RankMap, Talent } from '../lib/types';
-import { meta, changeLabel, changeTitle } from '../lib/data';
+import { meta, changeLabel, changeTitle, changeSrLabel } from '../lib/data';
 import { decodeBuild, totalPointsUsed, pointsInTree } from '../lib/decodeBuild';
 import { talentIconUrl } from '../lib/icons';
 import DataStamp from './DataStamp.astro';
@@ -268,7 +268,7 @@ function cellState(t: Talent, ranks: RankMap): string {
                             data-mark
                           >
                             {mark}
-                            <span class="sr-only">{changeTitle(t.change)}</span>
+                            <span class="sr-only">{changeSrLabel(t.change)}</span>
                           </span>
                         )}
                       </button>

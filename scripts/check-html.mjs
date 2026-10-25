@@ -45,7 +45,10 @@ const checks = [
     needles: ['WoW Forever Shaman Talent Calculator', 'Lava Burst'],
   },
   { file: 'mage/talents/pyroblast/index.html', needles: ['Pyroblast'] },
-  { file: 'beta/index.html', needles: ['1.60.1.70425', 'October 21', '/stress-test/'] },
+  {
+    file: 'beta/index.html',
+    needles: ['1.60.1.70425', 'October 21', '/stress-test/', '/name-reservation/', '1:00 p.m. PDT'],
+  },
   {
     file: 'stress-test/index.html',
     needles: [
@@ -69,6 +72,8 @@ const checks = [
       'news.blizzard.com',
       '/stress-test/',
       'Priest and Warrior',
+      'claim-your-world-of-warcraft-forever-character-names',
+      '/name-reservation/',
     ],
   },
   {
@@ -76,11 +81,15 @@ const checks = [
     needles: [
       'October 27',
       'November 3',
+      '18:00 CET',
+      '1:00 p.m. PDT',
+      'across all Rulesets',
       'Skyborne Heroic Pack',
       'two-name',
       'FAQPage',
       'Warrior talent calculator',
       'disclaimer',
+      'claim-your-world-of-warcraft-forever-character-names',
     ],
   },
   {

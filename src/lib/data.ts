@@ -82,3 +82,17 @@ export function changeTitle(change: Talent['change']): string {
       return 'Unchanged since Classic';
   }
 }
+
+/** Short screen-reader label — avoids repeating “since Classic” hundreds of times in HTML. */
+export function changeSrLabel(change: Talent['change']): string {
+  switch (change) {
+    case 'new':
+      return 'New';
+    case 'changed':
+      return 'Changed';
+    case 'moved':
+      return 'Moved';
+    default:
+      return 'Unchanged';
+  }
+}

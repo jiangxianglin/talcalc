@@ -72,6 +72,7 @@ const siblingLinks = [
     .filter((c) => c.slug !== slug)
     .slice(0, 2)
     .map((c) => ({ label: `${c.name} talent calculator`, href: `/${c.slug}/` })),
+  { label: 'name reservation (Oct 27)', href: '/name-reservation/' },
   { label: 'beta changelog', href: '/beta/' },
 ];
 
@@ -316,6 +317,7 @@ const others = classes.filter((c) => c.slug !== slug);
         </li>
       ))}
       <li><a href="/">All classes</a></li>
+      <li><a href="/name-reservation/">Name reservation</a></li>
     </ul>
   </nav>
 </BaseLayout>

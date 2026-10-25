@@ -7,7 +7,7 @@
 
 - Home (all nine classes): https://talcalc.com/
 - Forever stress test (Oct 21): https://talcalc.com/stress-test/
-- Early name reservation (Oct 27–Nov 3): https://talcalc.com/name-reservation/
+- Early name reservation (Oct 27–Nov 3; regional start times): https://talcalc.com/name-reservation/
 - Patch notes index: https://talcalc.com/patch-notes/
 - All talents index: https://talcalc.com/talents/
 - Beta / data changelog: https://talcalc.com/beta/

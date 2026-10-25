@@ -13,7 +13,7 @@ interface Props {
   noindex?: boolean;
   /** Skip default main padding/container (home hero is full-bleed). */
   bare?: boolean;
-  activeNav?: 'home' | 'calculator' | 'beta';
+  activeNav?: 'home' | 'calculator' | 'beta' | 'names';
 }
 
 const {
@@ -38,10 +38,18 @@ const CLASS_PATH =
   /^\/(warrior|paladin|hunter|rogue|priest|shaman|mage|warlock|druid)(\/|$)/;
 const navHome = activeNav === 'home' || (!activeNav && canonicalPath === '/');
 const navBeta = activeNav === 'beta' || canonicalPath.startsWith('/beta');
+const navNames =
+  activeNav === 'names' || canonicalPath.startsWith('/name-reservation');
 /** Only class calculator routes — not 404 / stress-test / index hubs. */
 const navCalc =
   activeNav === 'calculator' ||
-  (!activeNav && !navHome && !navBeta && CLASS_PATH.test(canonicalPath));
+  (!activeNav &&
+    !navHome &&
+    !navBeta &&
+    !navNames &&
+    CLASS_PATH.test(canonicalPath));
+/** Soft promo until Early Name Reservation ends (Nov 3, 2026). */
+const showNamePromo = !canonicalPath.startsWith('/name-reservation');
 const CC_BY_URL = 'https://creativecommons.org/licenses/by/4.0/';
 ---
 
@@ -118,7 +126,7 @@ const CC_BY_URL = 'https://creativecommons.org/licenses/by/4.0/';
         </a>
 
         <nav
-          class="hidden md:flex items-center gap-6 absolute left-1/2 -translate-x-1/2"
+          class="hidden md:flex items-center gap-5 lg:gap-6 absolute left-1/2 -translate-x-1/2"
           aria-label="Primary"
         >
           <a href="/" class="nav-link" aria-current={navHome ? 'page' : undefined}>Home</a>
@@ -127,6 +135,9 @@ const CC_BY_URL = 'https://creativecommons.org/licenses/by/4.0/';
             class="nav-link"
             aria-current={navCalc && !navHome ? 'page' : undefined}
             >Talent Calculator</a
+          >
+          <a href="/name-reservation/" class="nav-link" aria-current={navNames ? 'page' : undefined}
+            >Names</a
           >
           <a href="/beta/" class="nav-link" aria-current={navBeta ? 'page' : undefined}
             >Changelog</a
@@ -149,7 +160,7 @@ const CC_BY_URL = 'https://creativecommons.org/licenses/by/4.0/';
         </div>
       </div>
       <nav
-        class="md:hidden border-t border-ink-800/60 site-container flex justify-center gap-5 py-2"
+        class="md:hidden border-t border-ink-800/60 site-container flex justify-center gap-4 py-2"
         aria-label="Primary mobile"
       >
         <a href="/" class="nav-link" aria-current={navHome ? 'page' : undefined}>Home</a>
@@ -159,9 +170,27 @@ const CC_BY_URL = 'https://creativecommons.org/licenses/by/4.0/';
           aria-current={navCalc && !navHome ? 'page' : undefined}
           >Calculator</a
         >
+        <a href="/name-reservation/" class="nav-link" aria-current={navNames ? 'page' : undefined}
+          >Names</a
+        >
         <a href="/beta/" class="nav-link" aria-current={navBeta ? 'page' : undefined}>Changelog</a>
       </nav>
     </header>
+
+    {
+      showNamePromo && (
+        <p
+          class="border-b border-gold/25 bg-gold/10 text-center text-sm text-ink-100 px-3 py-2"
+          role="note"
+        >
+          <a href="/name-reservation/" class="text-gold font-medium no-underline hover:underline">
+            Forever Early Name Reservation
+          </a>
+          {' '}
+          opens Oct 27 — start times for NA, EU, KR &amp; TW
+        </p>
+      )
+    }
 
     <main
       id="main"
